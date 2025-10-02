@@ -1,31 +1,52 @@
+
 # GameDay Analytics
 
-`GameDay Analytics` is a business-style analytics project analyzing sports/event datasets to simulate real-world insights for stakeholders. The goal is to demonstrate **end-to-end skills in Python ETL, SQL data modeling, dashboards, and actionable reporting**.
+`GameDay Analytics` is a professional-style analytics project simulating a data initiative for a sports organization. The project demonstrates **end-to-end skills in data ingestion, Python ETL, SQL modeling, dashboarding, and actionable reporting**, reflecting the type of work expected in senior analytics and analytics engineering roles.
 
-### Customers & Stakeholders
-- **Primary Stakeholder:** [Jordan Kaplan](https://cod-esports.fandom.com/wiki/JKap), VP of Sports Analytics
-- **Use Case:** understand ticket sales trends, attendance patterns, and fan engagement metrics to make marketing and operational decisions.
+---
+
+## Scenario & Stakeholders
+
+> **Simulated Real-World Scenario:**  
+> After an initial scoping session with the VP of Sports Analytics, we planned a project to optimize ticket sales and marketing campaigns using game, attendance, and promotional data. Upon reviewing available public datasets, we adjusted the project focus to **analyzing attendance trends and team performance**, delivering actionable insights to support **operational planning, staffing, and fan engagement strategies**.
+
+- **Primary Stakeholder:** [Jordan Kaplan](https://cod-esports.fandom.com/wiki/JKap), VP of Sports Analytics  
+- **Dataset:** NFL Stadium Attendance Dataset (Sujay Kapadnis, Kaggle)  
+- **Use Case:** Analyze attendance trends and team performance to provide actionable recommendations for operational planning, fan engagement, and staffing decisions.  
 - **Requirements:** 
-  - Reusable, documented data models
-  - Automated ETL pipelines
-  - SQL-based querying for metrics
-  - Dashboards for visualization
+  - Reusable, documented data models  
+  - Automated ETL pipelines  
+  - SQL-based querying for key metrics  
+  - Dashboards for visualization and reporting  
 
-### Team Members
-- [Walter A. Shewhart](https://en.wikipedia.org/wiki/Walter_A._Shewhart) – Data Quality & Statistical Methods
-- [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) – Data Visualization & Dashboarding
-- [Ronald A. Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher) – A/B Testing & Analysis
-- [Linda B. Low-k-dielectric](www.linkedin.com/in/nicole-rowsey) – ETL Pipeline Development
+---
 
-### Timeline & Milestones
-1. **Week 1:** Identify dataset, ingest raw data
-2. **Week 2:** Clean, transform, and model data
-3. **Week 3:** Build SQL queries, aggregate metrics
-4. **Week 4:** Create dashboards, deliver actionable insights
-5. **Week 5:** Finalize documentation & repo
+## Team & Roles (Simulated)
 
+| Role | Team Member | Responsibilities |
+|------|------------|----------------|
+| Data Quality & Statistical Methods | [Walter A. Shewhart](https://en.wikipedia.org/wiki/Walter_A._Shewhart) | Validate data quality, define KPIs, statistical analysis |
+| ETL Pipeline Development | [Linda B. Low-k-dielectric](www.linkedin.com/in/nicole-rowsey) | Ingest raw data, transform & load datasets, automate pipelines |
+| Dashboarding & Visualization | [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) | Build dashboards, visual summaries for stakeholders |
+| A/B Testing & Analysis | [Ronald A. Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher) | Perform experimental analysis and hypothesis testing |
+| Documentation & Reporting | [Grace M. Hopper](https://en.wikipedia.org/wiki/Grace_Hopper) | Write methodology, assumptions, insights, and README |
 
-### Project Structure
+*Note: Team members are fictional personas representing skill sets aligned with the project.*
+
+---
+
+## Timeline & Milestones
+
+1. **Week 1:** Identify dataset, ingest raw data  
+2. **Week 2:** Clean, transform, and model data  
+3. **Week 3:** Build SQL queries for core metrics  
+4. **Week 4:** Develop dashboards, visualize attendance trends and team performance  
+5. **Week 5:** Finalize documentation, deliver actionable insights  
+
+---
+
+## Project Structure
+
 ```bash
 EventMetrics/
 ├── README.md               # Project overview, planning notes, instructions
@@ -44,14 +65,48 @@ EventMetrics/
 └── docs/                   # Optional extended documentation
 ```
 
-## Next Steps
-- [ ] **Download dataset, place in `data/raw/`** *Linda, Week 1*
+---
+
+## Key Deliverables
+
+1. **Fact & Dimension Tables:** Modeled for **reusable metrics and self-service analytics**  
+2. **ETL Pipelines:** Automated scripts ensuring **clean, validated, and processed data**  
+3. **SQL Queries for Core Metrics:** Attendance, team performance, trends over time  
+4. **Interactive Dashboards:** Drill-downs by game, team, week, and stadium  
+5. **Documentation:** Methodology, assumptions, insights, and reproducible instructions  
+
+---
+
+## Methodology
+
+- **Data Cleaning & Transformation:** Python ETL scripts  
+- **Metric Aggregation & KPI Modeling:** SQL queries & data models  
+- **Statistical Analysis:** Identify drivers of attendance and team performance patterns  
+- **Dashboarding & Reporting:** Power BI / Tableau dashboards for stakeholders  
+- **Documentation:** Transparent, reproducible methodology aligned with stakeholder expectations  
+
+---
+
+## Next Steps (Simulated Team Roadmap)
+
+- [ ] **Download dataset, place in `data/raw/`** – *Linda, Week 1*  
   (Set up repo structure, gather raw data sources, ensure reproducibility)
-- [ ] **Start initial exploratory analysis in Jupyter notebooks** *Ronald, Week 1–2*
-  (Perform EDA, data profiling, highlight potential metrics and anomalies)
-- [ ] **Build ETL scripts to populate `data/processed/`** *Walter, Week 2–3 (in parallel with Ronald)*
-  (Develop Python ETL pipeline, incorporate issues surfaced during EDA, enforce data quality checks)
-- [ ] **Develop SQL queries for core metrics** *Linda, Week 3*
-  (Model data for analysis, define key business metrics, validate outputs)
-- [ ] **Prototype dashboards, document findings** *Florence, Week 4*
-  (Build dashboard in Tableau/Power BI, draft stakeholder-facing summary)
+- [ ] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
+  (EDA, data profiling, highlight potential metrics and anomalies)
+- [ ] **Build ETL scripts to populate `data/processed/`** – *Walter, Week 2–3*  
+  (Python pipeline, data quality checks, handle anomalies)
+- [ ] **Develop SQL queries for core metrics** – *Linda, Week 3*  
+  (Model data for analysis, define key business metrics)
+- [ ] **Prototype dashboards & document findings** – *Florence, Week 4*  
+  (Tableau/Power BI dashboards, stakeholder-facing summary)
+- [ ] **Finalize insights & documentation** – *Team, Week 5*  
+  (Deliver README, methodology, assumptions, actionable recommendations)
+
+---
+
+## Business Impact & Portfolio Takeaways
+
+- **Stakeholder Alignment:** Simulates iterative feedback loops with leadership, adjusting scope based on data availability  
+- **Data Engineering & Analytics Skills:** ETL, SQL modeling, dashboard creation, statistical analysis  
+- **Decision Support:** Provides actionable insights for operational planning and fan engagement strategy  
+- **Professional Storytelling:** Demonstrates end-to-end analytics workflow, reflecting real-world enterprise scenarios  
