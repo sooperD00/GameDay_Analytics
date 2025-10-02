@@ -1,3 +1,25 @@
+# Additional .gitignore for project (ETL/SQL/BIdashboard)
+# -------------------------------------------------------
+# Ignore database / credentials
+*.db
+*.sqlite
+*.sqlitedb
+.env
+
+# Ignore BI exports if large or private
+*.pbix
+*.twb
+*.twbx
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+
+
+
+# GitHub Python .gitignore Template
+# ---------------------------------
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
