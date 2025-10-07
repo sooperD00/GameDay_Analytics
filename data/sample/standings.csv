@@ -1,0 +1,100 @@
+team,team_name,year,wins,loss,points_for,points_against,points_differential,margin_of_victory,strength_of_schedule,simple_rating,offensive_ranking,defensive_ranking,playoffs,sb_winner
+Miami,Dolphins,2000,11,5,323,226,97,6.1,1,7.1,0,7.1,Playoffs,No Superbowl
+Indianapolis,Colts,2000,10,6,429,326,103,6.4,1.5,7.9,7.1,0.8,Playoffs,No Superbowl
+New York,Jets,2000,9,7,321,321,0,0,3.5,3.5,1.4,2.2,No Playoffs,No Superbowl
+Buffalo,Bills,2000,8,8,315,350,-35,-2.2,2.2,0,0.5,-0.5,No Playoffs,No Superbowl
+New England,Patriots,2000,5,11,276,338,-62,-3.9,1.4,-2.5,-2.7,0.2,No Playoffs,No Superbowl
+Tennessee,Titans,2000,13,3,346,191,155,9.7,-1.3,8.3,1.5,6.8,Playoffs,No Superbowl
+Baltimore,Ravens,2000,12,4,333,165,168,10.5,-2.5,8,0,8,Playoffs,Won Superbowl
+Pittsburgh,Steelers,2000,9,7,321,255,66,4.1,-0.2,3.9,0.6,3.3,No Playoffs,No Superbowl
+Jacksonville,Jaguars,2000,7,9,367,327,40,2.5,-1.4,1.1,3.2,-2.1,No Playoffs,No Superbowl
+Cincinnati,Bengals,2000,4,12,185,359,-174,-10.9,0.4,-10.5,-8.1,-2.4,No Playoffs,No Superbowl
+Cleveland,Browns,2000,3,13,161,419,-258,-16.1,1.5,-14.6,-9.1,-5.5,No Playoffs,No Superbowl
+Oakland,Raiders,2000,12,4,479,299,180,11.3,-1.5,9.7,8,1.8,Playoffs,No Superbowl
+Denver,Broncos,2000,11,5,485,369,116,7.3,-2.2,5,7.8,-2.7,Playoffs,No Superbowl
+Kansas City,Chiefs,2000,7,9,355,354,1,0.1,0.6,0.6,0.1,0.6,No Playoffs,No Superbowl
+Seattle,Seahawks,2000,6,10,320,405,-85,-5.3,1.6,-3.7,-1.4,-2.3,No Playoffs,No Superbowl
+San Diego,Chargers,2000,1,15,269,440,-171,-10.7,2.6,-8.1,-3.7,-4.4,No Playoffs,No Superbowl
+New York,Giants,2000,12,4,328,246,82,5.1,-2.7,2.4,-1.3,3.8,Playoffs,No Superbowl
+Philadelphia,Eagles,2000,11,5,351,245,106,6.6,-3.6,3.1,1,2.1,Playoffs,No Superbowl
+Washington,Redskins,2000,8,8,281,269,12,0.8,0.2,1,-2.9,3.8,No Playoffs,No Superbowl
+Dallas,Cowboys,2000,5,11,294,361,-67,-4.2,-0.4,-4.6,-1.5,-3,No Playoffs,No Superbowl
+Arizona,Cardinals,2000,3,13,210,443,-233,-14.6,-0.7,-15.2,-7.2,-8.1,No Playoffs,No Superbowl
+Minnesota,Vikings,2000,11,5,397,371,26,1.6,0.3,1.9,4.3,-2.3,Playoffs,No Superbowl
+Tampa Bay,Buccaneers,2000,10,6,388,269,119,7.4,-0.1,7.3,3.4,3.9,Playoffs,No Superbowl
+Green Bay,Packers,2000,9,7,353,323,30,1.9,0.6,2.5,1.8,0.7,No Playoffs,No Superbowl
+Detroit,Lions,2000,9,7,307,307,0,0,1.4,1.4,-0.1,1.5,No Playoffs,No Superbowl
+Chicago,Bears,2000,5,11,216,355,-139,-8.7,2.4,-6.3,-6.4,0.1,No Playoffs,No Superbowl
+New Orleans,Saints,2000,10,6,354,305,49,3.1,-2.2,0.9,-1.2,2.1,Playoffs,No Superbowl
+St. Louis,Rams,2000,10,6,540,471,69,4.3,-1.2,3.1,12.6,-9.5,Playoffs,No Superbowl
+Carolina,Panthers,2000,7,9,310,310,0,0,-1.1,-1.1,-3.6,2.5,No Playoffs,No Superbowl
+San Francisco,49ers,2000,6,10,388,422,-34,-2.1,-1.7,-3.8,1.7,-5.5,No Playoffs,No Superbowl
+Atlanta,Falcons,2000,4,12,252,413,-161,-10.1,1.5,-8.6,-5.7,-2.9,No Playoffs,No Superbowl
+New England,Patriots,2001,11,5,371,272,99,6.2,-1.9,4.3,1.2,3.1,Playoffs,Won Superbowl
+Miami,Dolphins,2001,11,5,344,290,54,3.4,-0.7,2.7,-0.3,3.1,Playoffs,No Superbowl
+New York,Jets,2001,10,6,308,295,13,0.8,0,0.8,-2,2.8,Playoffs,No Superbowl
+Indianapolis,Colts,2001,6,10,413,486,-73,-4.6,0.8,-3.8,6.1,-9.8,No Playoffs,No Superbowl
+Buffalo,Bills,2001,3,13,265,420,-155,-9.7,0.2,-9.5,-3.9,-5.7,No Playoffs,No Superbowl
+Pittsburgh,Steelers,2001,13,3,352,212,140,8.8,-1.4,7.4,1.5,5.8,Playoffs,No Superbowl
+Baltimore,Ravens,2001,10,6,303,265,38,2.4,0.8,3.2,-0.8,4,Playoffs,No Superbowl
+Cleveland,Browns,2001,7,9,285,319,-34,-2.1,1.3,-0.8,-0.9,0.1,No Playoffs,No Superbowl
+Tennessee,Titans,2001,7,9,336,388,-52,-3.3,1.2,-2,2.4,-4.4,No Playoffs,No Superbowl
+Jacksonville,Jaguars,2001,6,10,294,286,8,0.5,0.4,0.9,-1.1,2,No Playoffs,No Superbowl
+Cincinnati,Bengals,2001,6,10,226,309,-83,-5.2,1.7,-3.5,-4.5,1,No Playoffs,No Superbowl
+Oakland,Raiders,2001,10,6,399,327,72,4.5,-0.9,3.6,4,-0.4,Playoffs,No Superbowl
+Seattle,Seahawks,2001,9,7,301,324,-23,-1.4,-0.4,-1.9,-1.4,-0.4,No Playoffs,No Superbowl
+Denver,Broncos,2001,8,8,340,339,1,0.1,-0.5,-0.5,0.5,-1,No Playoffs,No Superbowl
+Kansas City,Chiefs,2001,6,10,320,344,-24,-1.5,0.3,-1.2,-0.2,-1,No Playoffs,No Superbowl
+San Diego,Chargers,2001,5,11,332,321,11,0.7,-1,-0.3,0.3,-0.6,No Playoffs,No Superbowl
+Philadelphia,Eagles,2001,11,5,343,208,135,8.4,-0.7,7.7,0.9,6.8,Playoffs,No Superbowl
+Washington,Redskins,2001,8,8,256,303,-47,-2.9,-0.7,-3.7,-4,0.4,No Playoffs,No Superbowl
+New York,Giants,2001,7,9,294,321,-27,-1.7,-0.1,-1.8,-1.8,0,No Playoffs,No Superbowl
+Arizona,Cardinals,2001,7,9,295,343,-48,-3,-1.2,-4.2,-1.5,-2.6,No Playoffs,No Superbowl
+Dallas,Cowboys,2001,5,11,246,338,-92,-5.8,-0.2,-6,-4.5,-1.5,No Playoffs,No Superbowl
+Chicago,Bears,2001,13,3,338,203,135,8.4,-0.5,7.9,0.9,7.1,Playoffs,No Superbowl
+Green Bay,Packers,2001,12,4,390,266,124,7.8,-1.1,6.6,4,2.6,Playoffs,No Superbowl
+Tampa Bay,Buccaneers,2001,9,7,324,280,44,2.8,1.3,4,0.7,3.3,Playoffs,No Superbowl
+Minnesota,Vikings,2001,5,11,290,390,-100,-6.3,1.5,-4.7,-0.8,-3.9,No Playoffs,No Superbowl
+Detroit,Lions,2001,2,14,270,424,-154,-9.6,2.4,-7.2,-2,-5.2,No Playoffs,No Superbowl
+St. Louis,Rams,2001,14,2,503,273,230,14.4,-1,13.4,10.4,2.9,Playoffs,No Superbowl
+San Francisco,49ers,2001,12,4,409,282,127,7.9,-1.1,6.8,4.2,2.7,Playoffs,No Superbowl
+New Orleans,Saints,2001,7,9,333,409,-76,-4.8,-0.1,-4.8,-0.1,-4.7,No Playoffs,No Superbowl
+Atlanta,Falcons,2001,7,9,291,377,-86,-5.4,0.7,-4.7,-2.7,-2,No Playoffs,No Superbowl
+Carolina,Panthers,2001,1,15,253,410,-157,-9.8,0.9,-8.9,-4.6,-4.4,No Playoffs,No Superbowl
+New York,Jets,2002,9,7,359,336,23,1.4,1.7,3.2,0.9,2.3,Playoffs,No Superbowl
+New England,Patriots,2002,9,7,381,346,35,2.2,1.8,4,2.1,1.9,No Playoffs,No Superbowl
+Miami,Dolphins,2002,9,7,378,301,77,4.8,1.2,6.1,1.7,4.4,No Playoffs,No Superbowl
+Buffalo,Bills,2002,8,8,379,397,-18,-1.1,0.9,-0.3,2.1,-2.3,No Playoffs,No Superbowl
+Pittsburgh,Steelers,2002,10,5,390,345,45,2.8,-0.1,2.7,3.1,-0.4,Playoffs,No Superbowl
+Cleveland,Browns,2002,9,7,344,320,24,1.5,-0.3,1.2,-0.4,1.7,Playoffs,No Superbowl
+Baltimore,Ravens,2002,7,9,316,354,-38,-2.4,0.3,-2.1,-1.5,-0.6,No Playoffs,No Superbowl
+Cincinnati,Bengals,2002,2,14,279,456,-177,-11.1,0.6,-10.5,-3.6,-6.9,No Playoffs,No Superbowl
+Tennessee,Titans,2002,11,5,367,324,43,2.7,-0.9,1.8,1.6,0.1,Playoffs,No Superbowl
+Indianapolis,Colts,2002,10,6,349,313,36,2.3,-1.1,1.2,0.4,0.7,Playoffs,No Superbowl
+Jacksonville,Jaguars,2002,6,10,328,315,13,0.8,-1,-0.2,-1.3,1.1,No Playoffs,No Superbowl
+Houston,Texans,2002,4,12,213,356,-143,-8.9,-0.5,-9.4,-8.4,-1.1,No Playoffs,No Superbowl
+Oakland,Raiders,2002,11,5,450,304,146,9.1,1.5,10.6,6.3,4.3,Playoffs,No Superbowl
+Denver,Broncos,2002,9,7,392,344,48,3,1.9,4.9,3,1.9,No Playoffs,No Superbowl
+San Diego,Chargers,2002,8,8,333,367,-34,-2.1,1.4,-0.7,-1,0.2,No Playoffs,No Superbowl
+Kansas City,Chiefs,2002,8,8,467,399,68,4.3,1.9,6.1,8.4,-2.3,No Playoffs,No Superbowl
+Philadelphia,Eagles,2002,12,4,415,241,174,10.9,-2.6,8.3,4.5,3.8,Playoffs,No Superbowl
+New York,Giants,2002,10,6,320,279,41,2.6,-1.7,0.8,-2.2,3,Playoffs,No Superbowl
+Washington,Redskins,2002,7,9,307,365,-58,-3.6,-0.8,-4.5,-2.2,-2.2,No Playoffs,No Superbowl
+Dallas,Cowboys,2002,5,11,217,329,-112,-7,-1.5,-8.5,-8.2,-0.3,No Playoffs,No Superbowl
+Green Bay,Packers,2002,12,4,398,328,70,4.4,-0.8,3.6,2.4,1.2,Playoffs,No Superbowl
+Minnesota,Vikings,2002,6,10,390,442,-52,-3.3,0.2,-3,3.1,-6.1,No Playoffs,No Superbowl
+Chicago,Bears,2002,4,12,281,379,-98,-6.1,0.9,-5.3,-4.4,-0.9,No Playoffs,No Superbowl
+Detroit,Lions,2002,3,13,306,451,-145,-9.1,-0.1,-9.2,-2.5,-6.7,No Playoffs,No Superbowl
+Tampa Bay,Buccaneers,2002,12,4,346,196,150,9.4,-0.6,8.8,-1,9.8,Playoffs,Won Superbowl
+Atlanta,Falcons,2002,9,6,402,314,88,5.5,-0.4,5.1,3.5,1.5,Playoffs,No Superbowl
+New Orleans,Saints,2002,9,7,432,388,44,2.8,-0.3,2.4,5.8,-3.3,No Playoffs,No Superbowl
+Carolina,Panthers,2002,7,9,258,302,-44,-2.8,-0.5,-3.3,-6,2.8,No Playoffs,No Superbowl
+San Francisco,49ers,2002,10,6,367,351,16,1,-0.4,0.6,0.7,-0.1,Playoffs,No Superbowl
+St. Louis,Rams,2002,7,9,316,369,-53,-3.3,0,-3.3,-1.6,-1.8,No Playoffs,No Superbowl
+Seattle,Seahawks,2002,7,9,355,369,-14,-0.9,-0.4,-1.3,0,-1.2,No Playoffs,No Superbowl
+Arizona,Cardinals,2002,5,11,262,417,-155,-9.7,-0.2,-9.9,-5.4,-4.5,No Playoffs,No Superbowl
+New England,Patriots,2003,14,2,348,238,110,6.9,0.1,6.9,2.1,4.9,Playoffs,Won Superbowl
+Miami,Dolphins,2003,10,6,311,261,50,3.1,0.3,3.4,-0.7,4.1,No Playoffs,No Superbowl
+Buffalo,Bills,2003,6,10,243,279,-36,-2.3,1.3,-1,-5,4,No Playoffs,No Superbowl
+New York,Jets,2003,6,10,283,299,-16,-1,0.4,-0.6,-1.9,1.3,No Playoffs,No Superbowl
+Baltimore,Ravens,2003,10,6,391,281,110,6.9,-0.6,6.3,3.3,3,Playoffs,No Superbowl

@@ -1,0 +1,6 @@
+# Future dependencies for Week 2-4
+matplotlib>=3.8      # Week 4: Dashboards/visualizations
+seaborn>=0.12        # Week 4: Statistical plots
+jupyterlab>=4.0      # Week 1-2: EDA notebooks
+sqlalchemy>=2.0      # Week 3: Database loading
+scikit-learn>=1.2    # Week 2-3: If doing any ML analysis

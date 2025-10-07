@@ -1,19 +1,29 @@
 # Additional .gitignore for project (ETL/SQL/BIdashboard)
 # -------------------------------------------------------
-# Ignore database / credentials
+# database / credentials
 *.db
 *.sqlite
 *.sqlitedb
 .env
 
-# Ignore BI exports if large or private
+# BI exports if large or private
 *.pbix
 *.twb
 *.twbx
 
-# Ignore OS files
+# OS files
 .DS_Store
 Thumbs.db
+
+# Logs
+logs/
+
+# Automated data downloads
+data/raw/*.csv
+data/processed/*.csv
+
+# Keep sample data tracked
+!data/sample/
 
 
 
