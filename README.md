@@ -46,31 +46,28 @@
 ---
 
 ## Project Structure
-
 ```bash
-EventMetrics/
+GameDay_Analytics/
 ├── README.md               # Project overview, planning notes, instructions
-├── requirements.txt        # Python dependencies (Current)
-├── requirements-dev.txt      # Future/planned dependencies
+├── requirements.txt        # Python dependencies (production)
+├── requirements-dev.txt    # Future/development dependencies
 ├── .gitignore              # Git ignore file
-├── data/                   # CSVs, raw data dumps, or SQL scripts for demo datasets
-│   ├── sample/             # Committed to git - small subset for demos/testing
+├── data/                   # Dataset storage
+│   ├── sample/             # Small sample data (committed)
 │   │   ├── attendance.csv
 │   │   ├── games.csv
 │   │   └── standings.csv
-│   └── raw/                # NOT committed - full dataset from automated pipeline
-│       ├── attendance.csv
-│       ├── games.csv
-│       └── standings.csv
-├── logs/                   # ETL logs (not committed)
-├── notebooks/              # Jupyter notebooks for exploration, prototyping, analysis
-├── src/                    # Python scripts
-│   ├── etl/                # ETL scripts
-│   ├── models/             # Data modeling / transformation scripts
+│   └── raw/                # Full dataset (ignored, downloaded via ETL)
+├── logs/                   # ETL execution logs (ignored)
+├── notebooks/              # Jupyter notebooks for EDA
+├── src/                    # Python source code
+│   ├── etl/                # ETL pipeline scripts
+│   │   └── ingest_nfl_dataset.py
+│   ├── models/             # Data modeling scripts
 │   └── utils/              # Helper functions
-├── sql/                    # SQL scripts / queries
-├── dashboards/             # Placeholder for Power BI / Tableau dashboards
-└── docs/                   # Optional extended documentation
+├── sql/                    # SQL queries and scripts
+├── dashboards/             # Dashboard files (Power BI/Tableau)
+└── docs/                   # Extended documentation
 ```
 
 ---
