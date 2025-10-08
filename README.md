@@ -101,7 +101,7 @@ GameDay_Analytics/
   (Kaggle API integration with freshness checks)
 >- [x] **`NEW` Ingest current season data from ESPN API** – *Linda, Week 1*  
   (API integration, raw data collection from ESPN)
->- [ ] **`NEW` Create team reference table** – *Linda, Week 1*  
+>- [x] **`NEW` Create team reference table** – *Linda, Week 1*  
   (Map team names across sources, handle Raiders/Chargers/Rams relocations)
 - [ ] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
   (EDA, data profiling, highlight potential metrics and anomalies)
@@ -124,3 +124,25 @@ GameDay_Analytics/
 - ETL 
   - Set up Kaggle API credentials: `~/.kaggle/kaggle.json`
   - Run ingestion: `python src/etl/ingest_nfl_dataset.py`
+
+## Implementation
+
+### Data Sources
+- `data/sample/` - Small sample datasets and reference data (committed to git)
+  - Sample CSVs for quick exploration
+  - **`team_reference_seed.csv`** - Team mapping table (editable in Excel)
+- `data/raw/` - Full datasets (ignored) downloaded via ETL pipeline
+
+### Team Reference Table Maintenance
+The `team_reference_seed.csv` file maps team names across data sources and handles relocations:
+- **Owner:** Can be maintained by non-technical staff using Excel/Google Sheets
+- **Location:** `data/sample/team_reference_seed.csv`
+- **Validation:** Automated via `create_team_reference.py` to catch errors
+- **Updates needed when:** Teams relocate, rebrand, or ESPN changes team IDs
+
+### ETL Pipeline
+1. **Kaggle API credentials:** Place `kaggle.json` in `~/.kaggle/`
+2. **Run historical ingestion:** `python -m src.etl.ingest_nfl_dataset`
+3. **Run current season ingestion:** `python -m src.etl.ingest_current_season`
+4. **Create team reference table:** `python -m src.etl.create_team_reference`
+5. **Load to database:** `python -m src.etl.load_to_database`
