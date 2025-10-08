@@ -1,0 +1,38 @@
+team_city,team_name,espn_team_id,conference,division,active_years
+Buffalo,Bills,2,AFC,East,2000-2024
+Miami,Dolphins,15,AFC,East,2000-2024
+New England,Patriots,17,AFC,East,2000-2024
+New York,Jets,20,AFC,East,2000-2024
+Baltimore,Ravens,33,AFC,North,2000-2024
+Cincinnati,Bengals,4,AFC,North,2000-2024
+Cleveland,Browns,5,AFC,North,2000-2024
+Pittsburgh,Steelers,23,AFC,North,2000-2024
+Houston,Texans,34,AFC,South,2002-2024
+Indianapolis,Colts,11,AFC,South,2000-2024
+Jacksonville,Jaguars,30,AFC,South,2000-2024
+Tennessee,Titans,10,AFC,South,2000-2024
+Denver,Broncos,7,AFC,West,2000-2024
+Kansas City,Chiefs,12,AFC,West,2000-2024
+Oakland,Raiders,13,AFC,West,2000-2019
+Las Vegas,Raiders,13,AFC,West,2020-2024
+San Diego,Chargers,24,AFC,West,2000-2016
+Los Angeles,Chargers,24,AFC,West,2017-2024
+Dallas,Cowboys,6,NFC,East,2000-2024
+New York,Giants,19,NFC,East,2000-2024
+Philadelphia,Eagles,21,NFC,East,2000-2024
+Washington,Redskins,28,NFC,East,2000-2019
+Washington,Football Team,28,NFC,East,2020-2021
+Washington,Commanders,28,NFC,East,2022-2024
+Chicago,Bears,3,NFC,North,2000-2024
+Detroit,Lions,8,NFC,North,2000-2024
+Green Bay,Packers,9,NFC,North,2000-2024
+Minnesota,Vikings,16,NFC,North,2000-2024
+Atlanta,Falcons,1,NFC,South,2000-2024
+Carolina,Panthers,29,NFC,South,2000-2024
+New Orleans,Saints,18,NFC,South,2000-2024
+Tampa Bay,Buccaneers,27,NFC,South,2000-2024
+Arizona,Cardinals,22,NFC,West,2000-2024
+St. Louis,Rams,14,NFC,West,2000-2015
+Los Angeles,Rams,14,NFC,West,2016-2024
+San Francisco,49ers,25,NFC,West,2000-2024
+Seattle,Seahawks,26,NFC,West,2000-2024
