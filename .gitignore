@@ -19,8 +19,12 @@ Thumbs.db
 logs/
 
 # Automated data downloads
-data/raw/*.csv
-data/processed/*.csv
+data/raw/*
+data/processed/*
+
+# Keep folder structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
 
 # Keep sample data tracked
 !data/sample/
