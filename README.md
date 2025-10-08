@@ -102,13 +102,15 @@ GameDay_Analytics/
 >- [x] **`NEW` Ingest current season data from ESPN API** – *Linda, Week 1*  
   (API integration, raw data collection from ESPN)
 >- [x] **`NEW` Create team reference table** – *Linda, Week 1*  
-  (Map team names across sources, handle Raiders/Chargers/Rams relocations)
+  (Create mapping table with relocation tracking)
+
 - [ ] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
   (EDA, data profiling, highlight potential metrics and anomalies)
 >- [ ] **`NEW` Load integrated data to database** – *Linda, Week 2*  
   (3-way SQL joins across Kaggle + ESPN + reference table)
 - [ ] **Build ETL scripts to populate `data/processed/`** – *Walter, Week 2–3*  
   (Python pipeline, data quality checks, handle anomalies)
+  
 - [ ] **Develop SQL queries for core metrics** – *Linda, Week 3*  
   (Model data for analysis, historical vs. current trend comparison)
 - [ ] **Prototype dashboards & document findings** – *Florence, Week 4*  
