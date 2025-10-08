@@ -110,22 +110,13 @@ GameDay_Analytics/
   (3-way SQL joins across Kaggle + ESPN + reference table)
 - [ ] **Build ETL scripts to populate `data/processed/`** – *Walter, Week 2–3*  
   (Python pipeline, data quality checks, handle anomalies)
-  
+
 - [ ] **Develop SQL queries for core metrics** – *Linda, Week 3*  
   (Model data for analysis, historical vs. current trend comparison)
 - [ ] **Prototype dashboards & document findings** – *Florence, Week 4*  
   (Tableau/Power BI dashboards, stakeholder-facing summary)
 - [ ] **Finalize insights & documentation** – *Team, Week 5*  
   (Deliver README, methodology, assumptions, actionable recommendations)
-
-## Implementation
-
-- Data
-  - `data/sample/` - Small sample dataset (committed) for quick exploration
-  - `data/raw/` - Full dataset (ignored) downloaded via ETL pipeline
-- ETL 
-  - Set up Kaggle API credentials: `~/.kaggle/kaggle.json`
-  - Run ingestion: `python src/etl/ingest_nfl_dataset.py`
 
 ## Implementation
 
