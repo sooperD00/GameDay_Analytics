@@ -14,10 +14,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 # Local
 from src.utils.logging_config import setup_logger
-
-# Constants
-DATASET_ID = "sujaykapadnis/nfl-stadium-attendance-dataset"
-RAW_DATA_PATH = Path(__file__).parent.parent.parent / "data" / "raw"
+from src.utils.config import RAW_DATA_PATH, KAGGLE_DATASET_ID
 
 # Logger
 logger = setup_logger(__name__)
@@ -53,8 +50,8 @@ def dataset_needs_update(api):
     Compare remote and local file dates to determine if update needed.
     Note: Using _creation_date as proxy since Kaggle API doesn't expose update timestamps.
     """
-    logger.info(f"Checking dataset freshness: {DATASET_ID}")
-    files = api.dataset_list_files(DATASET_ID).files
+    logger.info(f"Checking dataset freshness: {KAGGLE_DATASET_ID}")
+    files = api.dataset_list_files(KAGGLE_DATASET_ID).files
     needs_update = False
     
     for f in files:
@@ -76,8 +73,8 @@ def dataset_needs_update(api):
 
 def download_dataset(api):
     """Download dataset from Kaggle."""
-    logger.info(f"Downloading {DATASET_ID}")
-    api.dataset_download_files(DATASET_ID, path=str(RAW_DATA_PATH), unzip=True)
+    logger.info(f"Downloading {KAGGLE_DATASET_ID}")
+    api.dataset_download_files(KAGGLE_DATASET_ID, path=str(RAW_DATA_PATH), unzip=True)
     logger.info("Download complete")
 
 if __name__ == "__main__":

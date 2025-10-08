@@ -14,10 +14,7 @@ import pandas as pd
 
 # Local
 from src.utils.logging_config import setup_logger
-
-# Constants
-RAW_DATA_PATH = Path(__file__).parent.parent.parent / "data" / "raw"
-SEED_DATA_PATH = Path(__file__).parent.parent.parent / "data" / "sample"
+from src.utils.config import RAW_DATA_PATH, SAMPLE_DATA_PATH
 
 # Logger
 logger = setup_logger(__name__)
@@ -36,7 +33,7 @@ def main():
 
 def load_seed_data():
     """Load team reference data from seed CSV."""
-    seed_file = SEED_DATA_PATH / "team_reference_seed.csv"
+    seed_file = SAMPLE_DATA_PATH / "team_reference_seed.csv"
     
     if not seed_file.exists():
         logger.error(f"Seed file not found: {seed_file}")

@@ -15,11 +15,7 @@ import requests
 
 # Local
 from src.utils.logging_config import setup_logger
-
-# Constants
-RAW_DATA_PATH = Path(__file__).parent.parent.parent / "data" / "raw"
-ESPN_TEAMS_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams"
-ESPN_SCOREBOARD_BASE = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
+from src.utils.config import RAW_DATA_PATH, ESPN_TEAMS_URL, ESPN_SCOREBOARD_URL
 
 # Logger
 logger = setup_logger(__name__)
@@ -66,7 +62,7 @@ def fetch_games_for_seasons(years):
         logger.info(f"Fetching games for {year} season")
         
         # Get regular season games (seasontype=2)
-        url = f"{ESPN_SCOREBOARD_BASE}?dates={year}&seasontype=2&limit=300"
+        url = f"{ESPN_SCOREBOARD_URL}?dates={year}&seasontype=2&limit=300"
         
         try:
             response = requests.get(url)
