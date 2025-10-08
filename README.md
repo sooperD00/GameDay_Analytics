@@ -99,8 +99,8 @@ GameDay_Analytics/
 
 - [x] **Download historical dataset to `data/raw/`** – *Linda, Week 1*  
   (Kaggle API integration with freshness checks)
->- [ ] **`NEW` Ingest current season data from ESPN API** – *Linda, Week 1*  
-  (API integration, handle team name mapping and relocations)
+>- [x] **`NEW` Ingest current season data from ESPN API** – *Linda, Week 1*  
+  (API integration, raw data collection from ESPN)
 >- [ ] **`NEW` Create team reference table** – *Linda, Week 1*  
   (Map team names across sources, handle Raiders/Chargers/Rams relocations)
 - [ ] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
