@@ -5,26 +5,22 @@ Date: Week 1
 Purpose: Download NFL stadium attendance dataset from Kaggle with freshness checks
 """
 
-import logging
+# Standard library
 from datetime import datetime
 from pathlib import Path
-from kaggle.api.kaggle_api_extended import KaggleApi
-from logging.handlers import RotatingFileHandler
 
+# Third-party
+from kaggle.api.kaggle_api_extended import KaggleApi
+
+# Local
+from src.utils.logging_config import setup_logger
+
+# Constants
 DATASET_ID = "sujaykapadnis/nfl-stadium-attendance-dataset"
 RAW_DATA_PATH = Path(__file__).parent.parent.parent / "data" / "raw"
-LOG_PATH = Path(__file__).parent.parent.parent / "logs"
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(LOG_PATH / 'etl_ingest.log'),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
-
+# Logger
+logger = setup_logger(__name__)
 
 
 def main():
@@ -50,8 +46,7 @@ def authenticate_kaggle():
 def ensure_directory_exists():
     """Create raw data directory if it doesn't exist."""
     RAW_DATA_PATH.mkdir(parents=True, exist_ok=True)
-    LOG_PATH.mkdir(parents=True, exist_ok=True)
-    logger.debug(f"Ensured directories exist: {RAW_DATA_PATH}, {LOG_PATH}")
+    logger.debug(f"Ensured directory exists: {RAW_DATA_PATH}")
 
 def dataset_needs_update(api):
     """
