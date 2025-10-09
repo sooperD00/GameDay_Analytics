@@ -66,7 +66,16 @@ GameDay_Analytics/
 │   │   └── load_to_database.py        # Multi-source integration
 │   ├── models/             # Data modeling scripts
 │   └── utils/              # Helper functions
-├── sql/                    # SQL queries and scripts
+│       ├── config.py       # Centralized configuration
+│       └── logging_config.py  # Shared logging setup
+├── sql/                    # SQL scripts and queries
+│   ├── setup/              # Database setup (views, schemas)
+│   │   ├── v_teams_unified.sql
+│   │   ├── v_attendance_historical.sql
+│   │   └── v_attendance_current.sql
+│   ├── validation/         # Data quality checks
+│   │   └── unmapped_teams.sql
+│   └── analysis/           # Ad-hoc queries and analysis
 ├── dashboards/             # Dashboard files (Power BI/Tableau)
 └── docs/                   # Extended documentation
 ```
@@ -95,29 +104,6 @@ GameDay_Analytics/
 - **Decision Support:** Provides actionable insights for operational planning and fan engagement strategy  
 - **Professional Storytelling:** Demonstrates end-to-end analytics workflow, reflecting real-world enterprise scenarios  
 
-## Next Steps (Simulated Team Roadmap)
-
-- [x] **Download historical dataset to `data/raw/`** – *Linda, Week 1*  
-  (Kaggle API integration with freshness checks)
->- [x] **`NEW` Ingest current season data from ESPN API** – *Linda, Week 1*  
-  (API integration, raw data collection from ESPN)
->- [x] **`NEW` Create team reference table** – *Linda, Week 1*  
-  (Create mapping table with relocation tracking)
-
-- [ ] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
-  (EDA, data profiling, highlight potential metrics and anomalies)
->- [ ] **`NEW` Load integrated data to database** – *Linda, Week 2*  
-  (3-way SQL joins across Kaggle + ESPN + reference table)
-- [ ] **Build ETL scripts to populate `data/processed/`** – *Walter, Week 2–3*  
-  (Python pipeline, data quality checks, handle anomalies)
-
-- [ ] **Develop SQL queries for core metrics** – *Linda, Week 3*  
-  (Model data for analysis, historical vs. current trend comparison)
-- [ ] **Prototype dashboards & document findings** – *Florence, Week 4*  
-  (Tableau/Power BI dashboards, stakeholder-facing summary)
-- [ ] **Finalize insights & documentation** – *Team, Week 5*  
-  (Deliver README, methodology, assumptions, actionable recommendations)
-
 ## Implementation
 
 ### Data Sources
@@ -125,6 +111,8 @@ GameDay_Analytics/
   - Sample CSVs for quick exploration
   - **`team_reference_seed.csv`** - Team mapping table (editable in Excel)
 - `data/raw/` - Full datasets (ignored) downloaded via ETL pipeline
+- `data/processed/` - Integrated SQLite database (ignored)
+  - **`nfl_attendance.db`** - Multi-source database with views
 
 ### Team Reference Table Maintenance
 The `team_reference_seed.csv` file maps team names across data sources and handles relocations:
@@ -139,3 +127,32 @@ The `team_reference_seed.csv` file maps team names across data sources and handl
 3. **Run current season ingestion:** `python -m src.etl.ingest_current_season`
 4. **Create team reference table:** `python -m src.etl.create_team_reference`
 5. **Load to database:** `python -m src.etl.load_to_database`
+
+### Database Access
+The integrated database includes:
+- **Tables:** Historical (Kaggle), current (ESPN), and reference data
+- **Views:** `v_teams_unified`, `v_attendance_historical`, `v_attendance_current`
+- **Location:** `data/processed/nfl_attendance.db`
+
+## Next Steps (Simulated Team Roadmap)
+
+- [x] **Download historical dataset to `data/raw/`** – *Linda, Week 1*  
+  (Kaggle API integration with freshness checks)
+>- [x] **`NEW` Ingest current season data from ESPN API** – *Linda, Week 1*  
+  (API integration, raw data collection from ESPN)
+>- [x] **`NEW` Create team reference table** – *Linda, Week 1*  
+  (Create mapping table with relocation tracking)
+
+- [ ] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
+  (EDA, data profiling, highlight potential metrics and anomalies)
+>- [x] **`NEW` Load integrated data to database** – *Linda, Week 2*  
+  (3-way SQL joins across Kaggle + ESPN + reference table)
+- [ ] **Build ETL scripts to populate `data/processed/`** – *Walter, Week 2–3*  
+  (Python pipeline, data quality checks, handle anomalies)
+
+- [ ] **Develop SQL queries for core metrics** – *Linda, Week 3*  
+  (Model data for analysis, historical vs. current trend comparison)
+- [ ] **Prototype dashboards & document findings** – *Florence, Week 4*  
+  (Tableau/Power BI dashboards, stakeholder-facing summary)
+- [ ] **Finalize insights & documentation** – *Team, Week 5*  
+  (Deliver README, methodology, assumptions, actionable recommendations)
