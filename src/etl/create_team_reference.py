@@ -14,7 +14,7 @@ import pandas as pd
 
 # Local
 from src.utils.logging_config import setup_logger
-from src.utils.config import RAW_DATA_PATH, SAMPLE_DATA_PATH
+from src.utils.config import TEAM_REFERENCE_FILES, ESPN_FILES
 
 # Logger
 logger = setup_logger(__name__)
@@ -33,7 +33,8 @@ def main():
 
 def load_seed_data():
     """Load team reference data from seed CSV."""
-    seed_file = SAMPLE_DATA_PATH / "team_reference_seed.csv"
+    seed_config = TEAM_REFERENCE_FILES["seed"]
+    seed_file = seed_config["path"] / seed_config["filename"]
     
     if not seed_file.exists():
         logger.error(f"Seed file not found: {seed_file}")
@@ -49,7 +50,8 @@ def load_seed_data():
 
 def validate_with_espn_data(reference_df):
     """Validate reference table against ESPN API data."""
-    espn_teams_file = RAW_DATA_PATH / "espn_teams.json"
+    espn_config = ESPN_FILES["teams"]
+    espn_teams_file = espn_config["path"] / espn_config["filename"]
     
     if not espn_teams_file.exists():
         logger.warning("ESPN teams data not found - skipping validation")
@@ -67,8 +69,9 @@ def validate_with_espn_data(reference_df):
     missing_in_espn = reference_ids - espn_ids
     
     if missing_in_reference:
+        seed_config = TEAM_REFERENCE_FILES["seed"]
         logger.error(f"ESPN team IDs missing from reference: {missing_in_reference}")
-        logger.error("  Update data/sample/team_reference_seed.csv")
+        logger.error(f"  Update {seed_config['path'] / seed_config['filename']}")
     
     if missing_in_espn:
         logger.warning(f"Reference IDs not in current ESPN data: {missing_in_espn}")
@@ -80,8 +83,9 @@ def validate_with_espn_data(reference_df):
 
 def save_reference_table(df):
     """Save reference table to raw data folder."""
-    RAW_DATA_PATH.mkdir(parents=True, exist_ok=True)
-    output_file = RAW_DATA_PATH / "team_reference.csv"
+    output_config = TEAM_REFERENCE_FILES["output"]
+    output_config["path"].mkdir(parents=True, exist_ok=True)
+    output_file = output_config["path"] / output_config["filename"]
     df.to_csv(output_file, index=False)
     logger.info(f"Saved team reference table to {output_file}")
 
