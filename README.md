@@ -68,7 +68,8 @@ GameDay_Analytics/
 │   └── utils/              # Helper functions
 │       ├── config.py       # Centralized configuration
 │       └── logging_config.py  # Shared logging setup
-├── sql/                    # SQL scripts and queries
+├── sql/                    # SQL scripts and queries (see sql/README.md)
+│   ├── README.md           # SQL folder documentation
 │   ├── setup/              # Database setup (views, schemas)
 │   │   ├── v_teams_unified.sql
 │   │   ├── v_attendance_historical.sql
