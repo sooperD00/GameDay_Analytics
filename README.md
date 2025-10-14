@@ -143,11 +143,14 @@ The integrated database includes:
   (API integration, raw data collection from ESPN)
 >- [x] **`NEW` Create team reference table** – *Linda, Week 1*  
   (Create mapping table with relocation tracking)
-
-- [ ] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
-  (EDA, data profiling, highlight potential metrics and anomalies)
 >- [x] **`NEW` Load integrated data to database** – *Linda, Week 2*  
   (3-way SQL joins across Kaggle + ESPN + reference table)
+- [x] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
+  (EDA completed - identified need for integrated performance+attendance view)
+>- [ ] **`NEW` Create integrated analysis view** – *Linda, Week 2*  
+  (Join attendance + performance data based on analyst requirements)
+- [ ] **Continue exploratory analysis** – *Ronald, Week 2*  
+  (Performance vs attendance correlation, relocation impact analysis)
 - [ ] **Build ETL scripts to populate `data/processed/`** – *Walter, Week 2–3*  
   (Python pipeline, data quality checks, handle anomalies)
 
