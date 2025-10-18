@@ -1,0 +1,340 @@
+json_idx,json_L1,json_L2,json_L3,json_L4,json_L5,json_L6,json_L7,json_L8,json_L9,json_L10,json_L11,ref_column,column_name,include_YN,sample_data_1,sample_data_2,sample_data_3,suggested_themes
+0,id,,,,,,,,,,,id,id,Y,401131037,401220116,401671762,CORE
+1,uid,,,,,,,,,,,uid,uid,N,s:20~l:28~e:401131037,s:20~l:28~e:401220116,s:20~l:28~e:401671762,uncategorized
+2,date,,,,,,,,,,,date,date,Y,2020-01-04T21:35Z,2020-09-13T17:00Z,2024-12-15T21:25Z,time
+3,name,,,,,,,,,,,name,name,Y,Buffalo Bills at Houston Texans,New York Jets at Buffalo Bills,Tampa Bay Buccaneers at Los Angeles Chargers,CORE
+4,shortName,,,,,,,,,,,shortName,shortName,Y,BUF @ HOU,NYJ @ BUF,TB @ LAC,marketing
+5,season,year,,,,,,,,,,season.year,season_year,Y,2019,2020,2024,time
+6,season,type,,,,,,,,,,season.type,season_type,Y,3,2,2,time
+7,season,slug,,,,,,,,,,season.slug,season_slug,Y,post-season,regular-season,regular-season,time
+8,week,number,,,,,,,,,,week.number,week_number,Y,1,1,15,time
+9,competitions,0,id,,,,,,,,,competitions.0.id,id_dup1,Y,401131037,401220116,401671762,CORE
+10,competitions,0,uid,,,,,,,,,competitions.0.uid,uid_dup1,N,s:20~l:28~e:401131037~c:401131037,s:20~l:28~e:401220116~c:401220116,s:20~l:28~e:401671762~c:401671762,uncategorized
+11,competitions,0,date,,,,,,,,,competitions.0.date,date_dup1,Y,2020-01-04T21:35Z,2020-09-13T17:00Z,2024-12-15T21:25Z,time
+12,competitions,0,attendance,,,,,,,,,competitions.0.attendance,attendance,Y,71699,0,69496,CORE
+13,competitions,0,type,id,,,,,,,,competitions.0.type.id,type_id,N,14,1,1,uncategorized
+14,competitions,0,type,abbreviation,,,,,,,,competitions.0.type.abbreviation,type_abbreviation,Y,RD16,STD,STD,marketing
+15,competitions,0,timeValid,,,,,,,,,competitions.0.timeValid,timeValid,Y,TRUE,TRUE,TRUE,time
+16,competitions,0,neutralSite,,,,,,,,,competitions.0.neutralSite,neutralSite,Y,FALSE,FALSE,FALSE,location
+17,competitions,0,conferenceCompetition,,,,,,,,,competitions.0.conferenceCompetition,conferenceCompetition,Y,FALSE,FALSE,FALSE,matchups
+18,competitions,0,playByPlayAvailable,,,,,,,,,competitions.0.playByPlayAvailable,playByPlayAvailable,Y,TRUE,TRUE,TRUE,stats/data
+19,competitions,0,recent,,,,,,,,,competitions.0.recent,recent,Y,FALSE,FALSE,FALSE,uncategorized
+20,competitions,0,venue,id,,,,,,,,competitions.0.venue.id,venue_id,Y,3891,3883,7065,location
+21,competitions,0,venue,fullName,,,,,,,,competitions.0.venue.fullName,venue_fullName,Y,NRG Stadium,Highmark Stadium,SoFi Stadium,location
+22,competitions,0,venue,address,city,,,,,,,competitions.0.venue.address.city,venue_address_city,Y,Houston,Orchard Park,Inglewood,location
+23,competitions,0,venue,address,state,,,,,,,competitions.0.venue.address.state,venue_address_state,Y,TX,NY,CA,location
+24,competitions,0,venue,address,country,,,,,,,competitions.0.venue.address.country,venue_address_country,Y,USA,USA,USA,location
+25,competitions,0,venue,indoor,,,,,,,,competitions.0.venue.indoor,venue_indoor,Y,TRUE,FALSE,TRUE,location
+26,competitions,0,competitors,0,id,,,,,,,competitions.0.competitors.0.id,id_home,Y,34,2,24,matchups
+27,competitions,0,competitors,0,uid,,,,,,,competitions.0.competitors.0.uid,uid_home,N,s:20~l:28~t:34,s:20~l:28~t:2,s:20~l:28~t:24,matchups
+28,competitions,0,competitors,0,type,,,,,,,competitions.0.competitors.0.type,type_home,Y,team,team,team,matchups
+29,competitions,0,competitors,0,order,,,,,,,competitions.0.competitors.0.order,order_home,Y,0,0,0,matchups
+30,competitions,0,competitors,0,homeAway,,,,,,,competitions.0.competitors.0.homeAway,homeAway_home,Y,home,home,home,matchups
+31,competitions,0,competitors,0,winner,,,,,,,competitions.0.competitors.0.winner,winner_home,Y,TRUE,TRUE,FALSE,"matchups, score/wins"
+32,competitions,0,competitors,0,team,id,,,,,,competitions.0.competitors.0.team.id,team_id_home,Y,34,2,24,matchups
+33,competitions,0,competitors,0,team,uid,,,,,,competitions.0.competitors.0.team.uid,team_uid_home,N,s:20~l:28~t:34,s:20~l:28~t:2,s:20~l:28~t:24,matchups
+34,competitions,0,competitors,0,team,location,,,,,,competitions.0.competitors.0.team.location,team_location_home,Y,Houston,Buffalo,Los Angeles,matchups
+35,competitions,0,competitors,0,team,name,,,,,,competitions.0.competitors.0.team.name,team_name_home,Y,Texans,Bills,Chargers,matchups
+36,competitions,0,competitors,0,team,abbreviation,,,,,,competitions.0.competitors.0.team.abbreviation,team_abbreviation_home,Y,HOU,BUF,LAC,"matchups, marketing"
+37,competitions,0,competitors,0,team,displayName,,,,,,competitions.0.competitors.0.team.displayName,team_displayName_home,Y,Houston Texans,Buffalo Bills,Los Angeles Chargers,"matchups, marketing"
+38,competitions,0,competitors,0,team,shortDisplayName,,,,,,competitions.0.competitors.0.team.shortDisplayName,team_shortDisplayName_home,Y,Texans,Bills,Chargers,"matchups, marketing"
+39,competitions,0,competitors,0,team,color,,,,,,competitions.0.competitors.0.team.color,team_color_home,Y,00133F,04407F,0080c6,"matchups, marketing"
+40,competitions,0,competitors,0,team,alternateColor,,,,,,competitions.0.competitors.0.team.alternateColor,team_alternateColor_home,Y,c41230,d50a0a,ffc20e,"matchups, marketing"
+41,competitions,0,competitors,0,team,isActive,,,,,,competitions.0.competitors.0.team.isActive,team_isActive_home,Y,TRUE,TRUE,TRUE,matchups
+42,competitions,0,competitors,0,team,venue,id,,,,,competitions.0.competitors.0.team.venue.id,team_venue_id_home,Y,3891,3883,538,"matchups, location"
+43,competitions,0,competitors,0,team,links,0,rel,0,,,competitions.0.competitors.0.team.links.0.rel.0,team_links_rel_home,N,clubhouse,clubhouse,clubhouse,matchups
+44,competitions,0,competitors,0,team,links,0,rel,1,,,competitions.0.competitors.0.team.links.0.rel.1,team_links_rel_home_dup1,N,desktop,desktop,desktop,matchups
+45,competitions,0,competitors,0,team,links,0,rel,2,,,competitions.0.competitors.0.team.links.0.rel.2,team_links_rel_home_dup2,N,team,team,team,matchups
+46,competitions,0,competitors,0,team,links,0,href,,,,competitions.0.competitors.0.team.links.0.href,team_links_href_home,N,https://www.espn.com/nfl/team/_/name/hou/housto...,https://www.espn.com/nfl/team/_/name/buf/buffal...,https://www.espn.com/nfl/team/_/name/lac/los-an...,matchups
+47,competitions,0,competitors,0,team,links,0,text,,,,competitions.0.competitors.0.team.links.0.text,team_links_text_home,N,Clubhouse,Clubhouse,Clubhouse,matchups
+48,competitions,0,competitors,0,team,links,0,isExternal,,,,competitions.0.competitors.0.team.links.0.isExternal,team_links_isExternal_home,N,FALSE,FALSE,FALSE,matchups
+49,competitions,0,competitors,0,team,links,0,isPremium,,,,competitions.0.competitors.0.team.links.0.isPremium,team_links_isPremium_home,N,FALSE,FALSE,FALSE,matchups
+50,competitions,0,competitors,0,team,links,1,rel,0,,,competitions.0.competitors.0.team.links.1.rel.0,team_links_rel_home_dup3,N,roster,roster,roster,matchups
+51,competitions,0,competitors,0,team,links,1,rel,1,,,competitions.0.competitors.0.team.links.1.rel.1,team_links_rel_home_dup4,N,desktop,desktop,desktop,matchups
+52,competitions,0,competitors,0,team,links,1,rel,2,,,competitions.0.competitors.0.team.links.1.rel.2,team_links_rel_home_dup5,N,team,team,team,matchups
+53,competitions,0,competitors,0,team,links,1,href,,,,competitions.0.competitors.0.team.links.1.href,team_links_href_home_dup1,N,https://www.espn.com/nfl/team/roster/_/name/hou...,https://www.espn.com/nfl/team/roster/_/name/buf...,https://www.espn.com/nfl/team/roster/_/name/lac...,matchups
+54,competitions,0,competitors,0,team,links,1,text,,,,competitions.0.competitors.0.team.links.1.text,team_links_text_home_dup1,N,Roster,Roster,Roster,matchups
+55,competitions,0,competitors,0,team,links,1,isExternal,,,,competitions.0.competitors.0.team.links.1.isExternal,team_links_isExternal_home_dup1,N,FALSE,FALSE,FALSE,matchups
+56,competitions,0,competitors,0,team,links,1,isPremium,,,,competitions.0.competitors.0.team.links.1.isPremium,team_links_isPremium_home_dup1,N,FALSE,FALSE,FALSE,matchups
+57,competitions,0,competitors,0,team,links,2,rel,0,,,competitions.0.competitors.0.team.links.2.rel.0,team_links_rel_home_dup6,N,stats,stats,stats,matchups
+58,competitions,0,competitors,0,team,links,2,rel,1,,,competitions.0.competitors.0.team.links.2.rel.1,team_links_rel_home_dup7,N,desktop,desktop,desktop,matchups
+59,competitions,0,competitors,0,team,links,2,rel,2,,,competitions.0.competitors.0.team.links.2.rel.2,team_links_rel_home_dup8,N,team,team,team,matchups
+60,competitions,0,competitors,0,team,links,2,href,,,,competitions.0.competitors.0.team.links.2.href,team_links_href_home_dup2,N,https://www.espn.com/nfl/team/stats/_/name/hou/...,https://www.espn.com/nfl/team/stats/_/name/buf/...,https://www.espn.com/nfl/team/stats/_/name/lac/...,matchups
+61,competitions,0,competitors,0,team,links,2,text,,,,competitions.0.competitors.0.team.links.2.text,team_links_text_home_dup2,N,Statistics,Statistics,Statistics,matchups
+62,competitions,0,competitors,0,team,links,2,isExternal,,,,competitions.0.competitors.0.team.links.2.isExternal,team_links_isExternal_home_dup2,N,FALSE,FALSE,FALSE,matchups
+63,competitions,0,competitors,0,team,links,2,isPremium,,,,competitions.0.competitors.0.team.links.2.isPremium,team_links_isPremium_home_dup2,N,FALSE,FALSE,FALSE,matchups
+64,competitions,0,competitors,0,team,links,3,rel,0,,,competitions.0.competitors.0.team.links.3.rel.0,team_links_rel_home_dup9,N,schedule,schedule,schedule,matchups
+65,competitions,0,competitors,0,team,links,3,rel,1,,,competitions.0.competitors.0.team.links.3.rel.1,team_links_rel_home_dup10,N,desktop,desktop,desktop,matchups
+66,competitions,0,competitors,0,team,links,3,rel,2,,,competitions.0.competitors.0.team.links.3.rel.2,team_links_rel_home_dup11,N,team,team,team,matchups
+67,competitions,0,competitors,0,team,links,3,href,,,,competitions.0.competitors.0.team.links.3.href,team_links_href_home_dup3,N,https://www.espn.com/nfl/team/schedule/_/name/hou,https://www.espn.com/nfl/team/schedule/_/name/buf,https://www.espn.com/nfl/team/schedule/_/name/lac,matchups
+68,competitions,0,competitors,0,team,links,3,text,,,,competitions.0.competitors.0.team.links.3.text,team_links_text_home_dup3,N,Schedule,Schedule,Schedule,matchups
+69,competitions,0,competitors,0,team,links,3,isExternal,,,,competitions.0.competitors.0.team.links.3.isExternal,team_links_isExternal_home_dup3,N,FALSE,FALSE,FALSE,matchups
+70,competitions,0,competitors,0,team,links,3,isPremium,,,,competitions.0.competitors.0.team.links.3.isPremium,team_links_isPremium_home_dup3,N,FALSE,FALSE,FALSE,matchups
+71,competitions,0,competitors,0,team,logo,,,,,,competitions.0.competitors.0.team.logo,team_logo_home,Y,https://a.espncdn.com/i/teamlogos/nfl/500/score...,https://a.espncdn.com/i/teamlogos/nfl/500/score...,https://a.espncdn.com/i/teamlogos/nfl/500/score...,"matchups, marketing"
+72,competitions,0,competitors,0,score,,,,,,,competitions.0.competitors.0.score,score_home,Y,22,27,17,"stats/data, matchups, score/wins"
+73,competitions,0,competitors,0,linescores,0,value,,,,,competitions.0.competitors.0.linescores.0.value,linescores_value_P1_home,Y,0.0,14.0,7.0,"stats/data, matchups, score/wins"
+74,competitions,0,competitors,0,linescores,0,displayValue,,,,,competitions.0.competitors.0.linescores.0.displayValue,linescores_displayValue_P1_home,N,0,14,7,"stats/data, matchups, score/wins"
+75,competitions,0,competitors,0,linescores,0,period,,,,,competitions.0.competitors.0.linescores.0.period,linescores_period_P1_home,N,1,1,1,"stats/data, matchups, score/wins"
+76,competitions,0,competitors,0,linescores,1,value,,,,,competitions.0.competitors.0.linescores.1.value,linescores_value_P2_home,Y,0.0,7.0,10.0,"stats/data, matchups, score/wins"
+77,competitions,0,competitors,0,linescores,1,displayValue,,,,,competitions.0.competitors.0.linescores.1.displayValue,linescores_displayValue_P2_home,N,0,7,10,"stats/data, matchups, score/wins"
+78,competitions,0,competitors,0,linescores,1,period,,,,,competitions.0.competitors.0.linescores.1.period,linescores_period_P2_home,N,2,2,2,"stats/data, matchups, score/wins"
+79,competitions,0,competitors,0,linescores,2,value,,,,,competitions.0.competitors.0.linescores.2.value,linescores_value_P3_home,Y,8.0,0.0,0.0,"stats/data, matchups, score/wins"
+80,competitions,0,competitors,0,linescores,2,displayValue,,,,,competitions.0.competitors.0.linescores.2.displayValue,linescores_displayValue_P3_home,N,8,0,0,"stats/data, matchups, score/wins"
+81,competitions,0,competitors,0,linescores,2,period,,,,,competitions.0.competitors.0.linescores.2.period,linescores_period_P3_home,N,3,3,3,"stats/data, matchups, score/wins"
+82,competitions,0,competitors,0,linescores,3,value,,,,,competitions.0.competitors.0.linescores.3.value,linescores_value_P4_home,Y,11.0,6.0,0.0,"stats/data, matchups, score/wins"
+83,competitions,0,competitors,0,linescores,3,displayValue,,,,,competitions.0.competitors.0.linescores.3.displayValue,linescores_displayValue_P4_home,N,11,6,0,"stats/data, matchups, score/wins"
+84,competitions,0,competitors,0,linescores,3,period,,,,,competitions.0.competitors.0.linescores.3.period,linescores_period_P4_home,N,4,4,4,"stats/data, matchups, score/wins"
+85,competitions,0,competitors,0,linescores,4,value,,,,,competitions.0.competitors.0.linescores.4.value,linescores_value_P5_home,Y,3.0,,,"stats/data, matchups, score/wins"
+86,competitions,0,competitors,0,linescores,4,displayValue,,,,,competitions.0.competitors.0.linescores.4.displayValue,linescores_displayValue_P5_home,N,3,,,"stats/data, matchups, score/wins"
+87,competitions,0,competitors,0,linescores,4,period,,,,,competitions.0.competitors.0.linescores.4.period,linescores_period_P5_home,N,5,,,"stats/data, matchups, score/wins"
+88,competitions,0,competitors,0,records,0,name,,,,,competitions.0.competitors.0.records.0.name,records_name_home,N,overall,overall,overall,matchups
+89,competitions,0,competitors,0,records,0,abbreviation,,,,,competitions.0.competitors.0.records.0.abbreviation,records_abbreviation_home,N,Any,Game,Game,"matchups, marketing"
+90,competitions,0,competitors,0,records,0,type,,,,,competitions.0.competitors.0.records.0.type,records_type_home,N,total,total,total,matchups
+91,competitions,0,competitors,0,records,0,summary,,,,,competitions.0.competitors.0.records.0.summary,records_summary_home,N,10-6,1-0,8-6,matchups
+92,competitions,0,competitors,0,records,1,name,,,,,competitions.0.competitors.0.records.1.name,records_name_home_dup1,N,Home,Home,Home,matchups
+93,competitions,0,competitors,0,records,1,type,,,,,competitions.0.competitors.0.records.1.type,records_type_home_dup1,N,home,home,home,matchups
+94,competitions,0,competitors,0,records,1,summary,,,,,competitions.0.competitors.0.records.1.summary,records_summary_home_dup1,N,5-3,1-0,4-3,matchups
+95,competitions,0,competitors,0,records,2,name,,,,,competitions.0.competitors.0.records.2.name,records_name_home_dup2,N,Road,Road,Road,matchups
+96,competitions,0,competitors,0,records,2,type,,,,,competitions.0.competitors.0.records.2.type,records_type_home_dup2,N,road,road,road,matchups
+97,competitions,0,competitors,0,records,2,summary,,,,,competitions.0.competitors.0.records.2.summary,records_summary_home_dup2,N,5-3,0-0,4-3,matchups
+98,competitions,0,competitors,1,id,,,,,,,competitions.0.competitors.1.id,id_away,Y,2,20,27,matchups
+99,competitions,0,competitors,1,uid,,,,,,,competitions.0.competitors.1.uid,uid_away,N,s:20~l:28~t:2,s:20~l:28~t:20,s:20~l:28~t:27,matchups
+100,competitions,0,competitors,1,type,,,,,,,competitions.0.competitors.1.type,type_away,Y,team,team,team,matchups
+101,competitions,0,competitors,1,order,,,,,,,competitions.0.competitors.1.order,order_away,Y,1,1,1,matchups
+102,competitions,0,competitors,1,homeAway,,,,,,,competitions.0.competitors.1.homeAway,homeAway_away,Y,away,away,away,matchups
+103,competitions,0,competitors,1,winner,,,,,,,competitions.0.competitors.1.winner,winner_away,Y,FALSE,FALSE,TRUE,"matchups, score/wins"
+104,competitions,0,competitors,1,team,id,,,,,,competitions.0.competitors.1.team.id,team_id_away,Y,2,20,27,matchups
+105,competitions,0,competitors,1,team,uid,,,,,,competitions.0.competitors.1.team.uid,team_uid_away,N,s:20~l:28~t:2,s:20~l:28~t:20,s:20~l:28~t:27,matchups
+106,competitions,0,competitors,1,team,location,,,,,,competitions.0.competitors.1.team.location,team_location_away,Y,Buffalo,New York,Tampa Bay,matchups
+107,competitions,0,competitors,1,team,name,,,,,,competitions.0.competitors.1.team.name,team_name_away,Y,Bills,Jets,Buccaneers,matchups
+108,competitions,0,competitors,1,team,abbreviation,,,,,,competitions.0.competitors.1.team.abbreviation,team_abbreviation_away,Y,BUF,NYJ,TB,"matchups, marketing"
+109,competitions,0,competitors,1,team,displayName,,,,,,competitions.0.competitors.1.team.displayName,team_displayName_away,Y,Buffalo Bills,New York Jets,Tampa Bay Buccaneers,"matchups, marketing"
+110,competitions,0,competitors,1,team,shortDisplayName,,,,,,competitions.0.competitors.1.team.shortDisplayName,team_shortDisplayName_away,Y,Bills,Jets,Buccaneers,"matchups, marketing"
+111,competitions,0,competitors,1,team,color,,,,,,competitions.0.competitors.1.team.color,team_color_away,Y,04407F,174032,bd1c36,"matchups, marketing"
+112,competitions,0,competitors,1,team,alternateColor,,,,,,competitions.0.competitors.1.team.alternateColor,team_alternateColor_away,Y,d50a0a,ffffff,3e3a35,"matchups, marketing"
+113,competitions,0,competitors,1,team,isActive,,,,,,competitions.0.competitors.1.team.isActive,team_isActive_away,Y,TRUE,TRUE,TRUE,matchups
+114,competitions,0,competitors,1,team,venue,id,,,,,competitions.0.competitors.1.team.venue.id,team_venue_id_away,Y,3883,3839,3886,"matchups, location"
+115,competitions,0,competitors,1,team,links,0,rel,0,,,competitions.0.competitors.1.team.links.0.rel.0,team_links_rel_away,N,clubhouse,clubhouse,clubhouse,matchups
+116,competitions,0,competitors,1,team,links,0,rel,1,,,competitions.0.competitors.1.team.links.0.rel.1,team_links_rel_away_dup1,N,desktop,desktop,desktop,matchups
+117,competitions,0,competitors,1,team,links,0,rel,2,,,competitions.0.competitors.1.team.links.0.rel.2,team_links_rel_away_dup2,N,team,team,team,matchups
+118,competitions,0,competitors,1,team,links,0,href,,,,competitions.0.competitors.1.team.links.0.href,team_links_href_away,N,https://www.espn.com/nfl/team/_/name/buf/buffal...,https://www.espn.com/nfl/team/_/name/nyj/new-yo...,https://www.espn.com/nfl/team/_/name/tb/tampa-b...,matchups
+119,competitions,0,competitors,1,team,links,0,text,,,,competitions.0.competitors.1.team.links.0.text,team_links_text_away,N,Clubhouse,Clubhouse,Clubhouse,matchups
+120,competitions,0,competitors,1,team,links,0,isExternal,,,,competitions.0.competitors.1.team.links.0.isExternal,team_links_isExternal_away,N,FALSE,FALSE,FALSE,matchups
+121,competitions,0,competitors,1,team,links,0,isPremium,,,,competitions.0.competitors.1.team.links.0.isPremium,team_links_isPremium_away,N,FALSE,FALSE,FALSE,matchups
+122,competitions,0,competitors,1,team,links,1,rel,0,,,competitions.0.competitors.1.team.links.1.rel.0,team_links_rel_away_dup3,N,roster,roster,roster,matchups
+123,competitions,0,competitors,1,team,links,1,rel,1,,,competitions.0.competitors.1.team.links.1.rel.1,team_links_rel_away_dup4,N,desktop,desktop,desktop,matchups
+124,competitions,0,competitors,1,team,links,1,rel,2,,,competitions.0.competitors.1.team.links.1.rel.2,team_links_rel_away_dup5,N,team,team,team,matchups
+125,competitions,0,competitors,1,team,links,1,href,,,,competitions.0.competitors.1.team.links.1.href,team_links_href_away_dup1,N,https://www.espn.com/nfl/team/roster/_/name/buf...,https://www.espn.com/nfl/team/roster/_/name/nyj...,https://www.espn.com/nfl/team/roster/_/name/tb/...,matchups
+126,competitions,0,competitors,1,team,links,1,text,,,,competitions.0.competitors.1.team.links.1.text,team_links_text_away_dup1,N,Roster,Roster,Roster,matchups
+127,competitions,0,competitors,1,team,links,1,isExternal,,,,competitions.0.competitors.1.team.links.1.isExternal,team_links_isExternal_away_dup1,N,FALSE,FALSE,FALSE,matchups
+128,competitions,0,competitors,1,team,links,1,isPremium,,,,competitions.0.competitors.1.team.links.1.isPremium,team_links_isPremium_away_dup1,N,FALSE,FALSE,FALSE,matchups
+129,competitions,0,competitors,1,team,links,2,rel,0,,,competitions.0.competitors.1.team.links.2.rel.0,team_links_rel_away_dup6,N,stats,stats,stats,matchups
+130,competitions,0,competitors,1,team,links,2,rel,1,,,competitions.0.competitors.1.team.links.2.rel.1,team_links_rel_away_dup7,N,desktop,desktop,desktop,matchups
+131,competitions,0,competitors,1,team,links,2,rel,2,,,competitions.0.competitors.1.team.links.2.rel.2,team_links_rel_away_dup8,N,team,team,team,matchups
+132,competitions,0,competitors,1,team,links,2,href,,,,competitions.0.competitors.1.team.links.2.href,team_links_href_away_dup2,N,https://www.espn.com/nfl/team/stats/_/name/buf/...,https://www.espn.com/nfl/team/stats/_/name/nyj/...,https://www.espn.com/nfl/team/stats/_/name/tb/t...,matchups
+133,competitions,0,competitors,1,team,links,2,text,,,,competitions.0.competitors.1.team.links.2.text,team_links_text_away_dup2,N,Statistics,Statistics,Statistics,matchups
+134,competitions,0,competitors,1,team,links,2,isExternal,,,,competitions.0.competitors.1.team.links.2.isExternal,team_links_isExternal_away_dup2,N,FALSE,FALSE,FALSE,matchups
+135,competitions,0,competitors,1,team,links,2,isPremium,,,,competitions.0.competitors.1.team.links.2.isPremium,team_links_isPremium_away_dup2,N,FALSE,FALSE,FALSE,matchups
+136,competitions,0,competitors,1,team,links,3,rel,0,,,competitions.0.competitors.1.team.links.3.rel.0,team_links_rel_away_dup9,N,schedule,schedule,schedule,matchups
+137,competitions,0,competitors,1,team,links,3,rel,1,,,competitions.0.competitors.1.team.links.3.rel.1,team_links_rel_away_dup10,N,desktop,desktop,desktop,matchups
+138,competitions,0,competitors,1,team,links,3,rel,2,,,competitions.0.competitors.1.team.links.3.rel.2,team_links_rel_away_dup11,N,team,team,team,matchups
+139,competitions,0,competitors,1,team,links,3,href,,,,competitions.0.competitors.1.team.links.3.href,team_links_href_away_dup3,N,https://www.espn.com/nfl/team/schedule/_/name/buf,https://www.espn.com/nfl/team/schedule/_/name/nyj,https://www.espn.com/nfl/team/schedule/_/name/tb,matchups
+140,competitions,0,competitors,1,team,links,3,text,,,,competitions.0.competitors.1.team.links.3.text,team_links_text_away_dup3,N,Schedule,Schedule,Schedule,matchups
+141,competitions,0,competitors,1,team,links,3,isExternal,,,,competitions.0.competitors.1.team.links.3.isExternal,team_links_isExternal_away_dup3,N,FALSE,FALSE,FALSE,matchups
+142,competitions,0,competitors,1,team,links,3,isPremium,,,,competitions.0.competitors.1.team.links.3.isPremium,team_links_isPremium_away_dup3,N,FALSE,FALSE,FALSE,matchups
+143,competitions,0,competitors,1,team,logo,,,,,,competitions.0.competitors.1.team.logo,team_logo_away,Y,https://a.espncdn.com/i/teamlogos/nfl/500/score...,https://a.espncdn.com/i/teamlogos/nfl/500/score...,https://a.espncdn.com/i/teamlogos/nfl/500/score...,"matchups, marketing"
+144,competitions,0,competitors,1,score,,,,,,,competitions.0.competitors.1.score,score_away,Y,19,17,40,"stats/data, matchups, score/wins"
+145,competitions,0,competitors,1,linescores,0,value,,,,,competitions.0.competitors.1.linescores.0.value,linescores_value_P1_away,Y,7.0,0.0,7.0,"stats/data, matchups, score/wins"
+146,competitions,0,competitors,1,linescores,0,displayValue,,,,,competitions.0.competitors.1.linescores.0.displayValue,linescores_displayValue_P1_away,N,7,0,7,"stats/data, matchups, score/wins"
+147,competitions,0,competitors,1,linescores,0,period,,,,,competitions.0.competitors.1.linescores.0.period,linescores_period_P1_away,N,1,1,1,"stats/data, matchups, score/wins"
+148,competitions,0,competitors,1,linescores,1,value,,,,,competitions.0.competitors.1.linescores.1.value,linescores_value_P2_away,Y,6.0,3.0,6.0,"stats/data, matchups, score/wins"
+149,competitions,0,competitors,1,linescores,1,displayValue,,,,,competitions.0.competitors.1.linescores.1.displayValue,linescores_displayValue_P2_away,N,6,3,6,"stats/data, matchups, score/wins"
+150,competitions,0,competitors,1,linescores,1,period,,,,,competitions.0.competitors.1.linescores.1.period,linescores_period_P2_away,N,2,2,2,"stats/data, matchups, score/wins"
+151,competitions,0,competitors,1,linescores,2,value,,,,,competitions.0.competitors.1.linescores.2.value,linescores_value_P3_away,Y,3.0,7.0,17.0,"stats/data, matchups, score/wins"
+152,competitions,0,competitors,1,linescores,2,displayValue,,,,,competitions.0.competitors.1.linescores.2.displayValue,linescores_displayValue_P3_away,N,3,7,17,"stats/data, matchups, score/wins"
+153,competitions,0,competitors,1,linescores,2,period,,,,,competitions.0.competitors.1.linescores.2.period,linescores_period_P3_away,N,3,3,3,"stats/data, matchups, score/wins"
+154,competitions,0,competitors,1,linescores,3,value,,,,,competitions.0.competitors.1.linescores.3.value,linescores_value_P4_away,Y,3.0,7.0,10.0,"stats/data, matchups, score/wins"
+155,competitions,0,competitors,1,linescores,3,displayValue,,,,,competitions.0.competitors.1.linescores.3.displayValue,linescores_displayValue_P4_away,N,3,7,10,"stats/data, matchups, score/wins"
+156,competitions,0,competitors,1,linescores,3,period,,,,,competitions.0.competitors.1.linescores.3.period,linescores_period_P4_away,N,4,4,4,"stats/data, matchups, score/wins"
+157,competitions,0,competitors,1,linescores,4,value,,,,,competitions.0.competitors.1.linescores.4.value,linescores_value_P5_away,Y,0.0,,,"stats/data, matchups, score/wins"
+158,competitions,0,competitors,1,linescores,4,displayValue,,,,,competitions.0.competitors.1.linescores.4.displayValue,linescores_displayValue_P5_away,N,0,,,"stats/data, matchups, score/wins"
+159,competitions,0,competitors,1,linescores,4,period,,,,,competitions.0.competitors.1.linescores.4.period,linescores_period_P5_away,N,5,,,"stats/data, matchups, score/wins"
+160,competitions,0,competitors,1,records,0,name,,,,,competitions.0.competitors.1.records.0.name,records_name_away,N,overall,overall,overall,matchups
+161,competitions,0,competitors,1,records,0,abbreviation,,,,,competitions.0.competitors.1.records.0.abbreviation,records_abbreviation_away,N,Any,Game,Game,"matchups, marketing"
+162,competitions,0,competitors,1,records,0,type,,,,,competitions.0.competitors.1.records.0.type,records_type_away,N,total,total,total,matchups
+163,competitions,0,competitors,1,records,0,summary,,,,,competitions.0.competitors.1.records.0.summary,records_summary_away,N,10-6,0-1,8-6,matchups
+164,competitions,0,competitors,1,records,1,name,,,,,competitions.0.competitors.1.records.1.name,records_name_away_dup1,N,Home,Home,Home,matchups
+165,competitions,0,competitors,1,records,1,type,,,,,competitions.0.competitors.1.records.1.type,records_type_away_dup1,N,home,home,home,matchups
+166,competitions,0,competitors,1,records,1,summary,,,,,competitions.0.competitors.1.records.1.summary,records_summary_away_dup1,N,4-4,0-0,3-4,matchups
+167,competitions,0,competitors,1,records,2,name,,,,,competitions.0.competitors.1.records.2.name,records_name_away_dup2,N,Road,Road,Road,matchups
+168,competitions,0,competitors,1,records,2,type,,,,,competitions.0.competitors.1.records.2.type,records_type_away_dup2,N,road,road,road,matchups
+169,competitions,0,competitors,1,records,2,summary,,,,,competitions.0.competitors.1.records.2.summary,records_summary_away_dup2,N,6-2,0-1,5-2,matchups
+170,competitions,0,notes,0,type,,,,,,,competitions.0.notes.0.type,notes_type,Y,event,,,uncategorized
+171,competitions,0,notes,0,headline,,,,,,,competitions.0.notes.0.headline,notes_headline,Y,AFC WILD CARD PLAYOFFS,,,publicity
+172,competitions,0,status,clock,,,,,,,,competitions.0.status.clock,status_clock,N,0.0,0.0,0.0,time
+173,competitions,0,status,displayClock,,,,,,,,competitions.0.status.displayClock,status_displayClock,N,0:00,0:00,0:00,time
+174,competitions,0,status,period,,,,,,,,competitions.0.status.period,status_period,N,5,4,4,score/wins
+175,competitions,0,status,type,id,,,,,,,competitions.0.status.type.id,status_type_id,N,3,3,3,uncategorized
+176,competitions,0,status,type,name,,,,,,,competitions.0.status.type.name,status_type_name,N,STATUS_FINAL,STATUS_FINAL,STATUS_FINAL,uncategorized
+177,competitions,0,status,type,state,,,,,,,competitions.0.status.type.state,status_type_state,N,post,post,post,location
+178,competitions,0,status,type,completed,,,,,,,competitions.0.status.type.completed,status_type_completed,N,TRUE,TRUE,TRUE,uncategorized
+179,competitions,0,status,type,description,,,,,,,competitions.0.status.type.description,status_type_description,N,Final,Final,Final,uncategorized
+180,competitions,0,status,type,detail,,,,,,,competitions.0.status.type.detail,status_type_detail,N,Final/OT,Final,Final,uncategorized
+181,competitions,0,status,type,shortDetail,,,,,,,competitions.0.status.type.shortDetail,status_type_shortDetail,N,Final/OT,Final,Final,uncategorized
+182,competitions,0,status,type,altDetail,,,,,,,competitions.0.status.type.altDetail,status_type_altDetail,N,OT,,,uncategorized
+183,competitions,0,status,isTBDFlex,,,,,,,,competitions.0.status.isTBDFlex,status_isTBDFlex,N,FALSE,FALSE,FALSE,uncategorized
+184,competitions,0,broadcasts,0,market,,,,,,,competitions.0.broadcasts.0.market,broadcasts_market_market1,Y,national,national,national,publicity
+185,competitions,0,broadcasts,0,names,0,,,,,,competitions.0.broadcasts.0.names.0,broadcasts_names_market1_network1,Y,ESPN,CBS,FOX,publicity
+186,competitions,0,broadcasts,0,names,1,,,,,,competitions.0.broadcasts.0.names.1,broadcasts_names_market1_network2,Y,ABC,,,publicity
+187,competitions,0,leaders,0,name,,,,,,,competitions.0.leaders.0.name,leaders_name_passing,N,passingYards,passingYards,passingYards,stats/data
+188,competitions,0,leaders,0,displayName,,,,,,,competitions.0.leaders.0.displayName,leaders_displayName_passing,N,Passing Leader,Passing Leader,Passing Leader,"stats/data, marketing"
+189,competitions,0,leaders,0,shortDisplayName,,,,,,,competitions.0.leaders.0.shortDisplayName,leaders_shortDisplayName_passing,N,PASS,PASS,PASS,"stats/data, marketing"
+190,competitions,0,leaders,0,abbreviation,,,,,,,competitions.0.leaders.0.abbreviation,leaders_abbreviation_passing,N,PYDS,PYDS,PYDS,"stats/data, marketing"
+191,competitions,0,leaders,0,leaders,0,displayValue,,,,,competitions.0.leaders.0.leaders.0.displayValue,leaders_leaders_displayValue_passing,N,"24/46, 264 YDS","33/46, 312 YDS, 2 TD","22/27, 288 YDS, 4 TD, 1 INT",stats/data
+192,competitions,0,leaders,0,leaders,0,value,,,,,competitions.0.leaders.0.leaders.0.value,leaders_leaders_value_passing,Y,264.0,312.0,288.0,stats/data
+193,competitions,0,leaders,0,leaders,0,athlete,id,,,,competitions.0.leaders.0.leaders.0.athlete.id,leaders_athlete_id_passing,Y,3918298,3918298,3052587,stats/data
+194,competitions,0,leaders,0,leaders,0,athlete,fullName,,,,competitions.0.leaders.0.leaders.0.athlete.fullName,leaders_athlete_fullName_passing,Y,Josh Allen,Josh Allen,Baker Mayfield,stats/data
+195,competitions,0,leaders,0,leaders,0,athlete,displayName,,,,competitions.0.leaders.0.leaders.0.athlete.displayName,leaders_athlete_displayName_passing,N,Josh Allen,Josh Allen,Baker Mayfield,"stats/data, marketing"
+196,competitions,0,leaders,0,leaders,0,athlete,shortName,,,,competitions.0.leaders.0.leaders.0.athlete.shortName,leaders_athlete_shortName_passing,N,J. Allen,J. Allen,B. Mayfield,"stats/data, marketing"
+197,competitions,0,leaders,0,leaders,0,athlete,links,0,rel,0,competitions.0.leaders.0.leaders.0.athlete.links.0.rel.0,athlete_links_rel_passing,N,playercard,playercard,playercard,stats/data
+198,competitions,0,leaders,0,leaders,0,athlete,links,0,rel,1,competitions.0.leaders.0.leaders.0.athlete.links.0.rel.1,athlete_links_rel_passing_dup1,N,desktop,desktop,desktop,stats/data
+199,competitions,0,leaders,0,leaders,0,athlete,links,0,rel,2,competitions.0.leaders.0.leaders.0.athlete.links.0.rel.2,athlete_links_rel_passing_dup2,N,athlete,athlete,athlete,stats/data
+200,competitions,0,leaders,0,leaders,0,athlete,links,0,href,,competitions.0.leaders.0.leaders.0.athlete.links.0.href,athlete_links_href_passing,N,https://www.espn.com/nfl/player/_/id/3918298/jo...,https://www.espn.com/nfl/player/_/id/3918298/jo...,https://www.espn.com/nfl/player/_/id/3052587/ba...,stats/data
+201,competitions,0,leaders,0,leaders,0,athlete,headshot,,,,competitions.0.leaders.0.leaders.0.athlete.headshot,leaders_athlete_headshot_passing,Y,https://a.espncdn.com/i/headshots/nfl/players/f...,https://a.espncdn.com/i/headshots/nfl/players/f...,https://a.espncdn.com/i/headshots/nfl/players/f...,stats/data
+202,competitions,0,leaders,0,leaders,0,athlete,jersey,,,,competitions.0.leaders.0.leaders.0.athlete.jersey,leaders_athlete_jersey_passing,Y,17,17,6,stats/data
+203,competitions,0,leaders,0,leaders,0,athlete,position,abbreviation,,,competitions.0.leaders.0.leaders.0.athlete.position.abbreviation,athlete_position_abbreviation_passing,N,QB,QB,QB,"stats/data, marketing"
+204,competitions,0,leaders,0,leaders,0,athlete,team,id,,,competitions.0.leaders.0.leaders.0.athlete.team.id,athlete_team_id_passing,Y,2,2,27,"stats/data, matchups"
+205,competitions,0,leaders,0,leaders,0,athlete,active,,,,competitions.0.leaders.0.leaders.0.athlete.active,leaders_athlete_active_passing,Y,TRUE,TRUE,TRUE,stats/data
+206,competitions,0,leaders,0,leaders,0,team,id,,,,competitions.0.leaders.0.leaders.0.team.id,leaders_team_id_passing,Y,2,2,27,"stats/data, matchups"
+207,competitions,0,leaders,1,name,,,,,,,competitions.0.leaders.1.name,leaders_name_rushing,N,rushingYards,rushingYards,rushingYards,stats/data
+208,competitions,0,leaders,1,displayName,,,,,,,competitions.0.leaders.1.displayName,leaders_displayName_rushing,N,Rushing Leader,Rushing Leader,Rushing Leader,"stats/data, marketing"
+209,competitions,0,leaders,1,shortDisplayName,,,,,,,competitions.0.leaders.1.shortDisplayName,leaders_shortDisplayName_rushing,N,RUSH,RUSH,RUSH,"stats/data, marketing"
+210,competitions,0,leaders,1,abbreviation,,,,,,,competitions.0.leaders.1.abbreviation,leaders_abbreviation_rushing,N,RYDS,RYDS,RYDS,"stats/data, marketing"
+211,competitions,0,leaders,1,leaders,0,displayValue,,,,,competitions.0.leaders.1.leaders.0.displayValue,leaders_leaders_displayValue_rushing,N,"9 CAR, 92 YDS","14 CAR, 57 YDS, 1 TD","15 CAR, 117 YDS",stats/data
+212,competitions,0,leaders,1,leaders,0,value,,,,,competitions.0.leaders.1.leaders.0.value,leaders_leaders_value_rushing,Y,92.0,57.0,117.0,stats/data
+213,competitions,0,leaders,1,leaders,0,athlete,id,,,,competitions.0.leaders.1.leaders.0.athlete.id,leaders_athlete_id_rushing,Y,3918298,3918298,4596448,stats/data
+214,competitions,0,leaders,1,leaders,0,athlete,fullName,,,,competitions.0.leaders.1.leaders.0.athlete.fullName,leaders_athlete_fullName_rushing,Y,Josh Allen,Josh Allen,Bucky Irving,stats/data
+215,competitions,0,leaders,1,leaders,0,athlete,displayName,,,,competitions.0.leaders.1.leaders.0.athlete.displayName,leaders_athlete_displayName_rushing,N,Josh Allen,Josh Allen,Bucky Irving,"stats/data, marketing"
+216,competitions,0,leaders,1,leaders,0,athlete,shortName,,,,competitions.0.leaders.1.leaders.0.athlete.shortName,leaders_athlete_shortName_rushing,N,J. Allen,J. Allen,B. Irving,"stats/data, marketing"
+217,competitions,0,leaders,1,leaders,0,athlete,links,0,rel,0,competitions.0.leaders.1.leaders.0.athlete.links.0.rel.0,athlete_links_rel_rushing,N,playercard,playercard,playercard,stats/data
+218,competitions,0,leaders,1,leaders,0,athlete,links,0,rel,1,competitions.0.leaders.1.leaders.0.athlete.links.0.rel.1,athlete_links_rel_rushing_dup1,N,desktop,desktop,desktop,stats/data
+219,competitions,0,leaders,1,leaders,0,athlete,links,0,rel,2,competitions.0.leaders.1.leaders.0.athlete.links.0.rel.2,athlete_links_rel_rushing_dup2,N,athlete,athlete,athlete,stats/data
+220,competitions,0,leaders,1,leaders,0,athlete,links,0,href,,competitions.0.leaders.1.leaders.0.athlete.links.0.href,athlete_links_href_rushing,N,https://www.espn.com/nfl/player/_/id/3918298/jo...,https://www.espn.com/nfl/player/_/id/3918298/jo...,https://www.espn.com/nfl/player/_/id/4596448/bu...,stats/data
+221,competitions,0,leaders,1,leaders,0,athlete,headshot,,,,competitions.0.leaders.1.leaders.0.athlete.headshot,leaders_athlete_headshot_rushing,Y,https://a.espncdn.com/i/headshots/nfl/players/f...,https://a.espncdn.com/i/headshots/nfl/players/f...,https://a.espncdn.com/i/headshots/nfl/players/f...,stats/data
+222,competitions,0,leaders,1,leaders,0,athlete,jersey,,,,competitions.0.leaders.1.leaders.0.athlete.jersey,leaders_athlete_jersey_rushing,Y,17,17,7,stats/data
+223,competitions,0,leaders,1,leaders,0,athlete,position,abbreviation,,,competitions.0.leaders.1.leaders.0.athlete.position.abbreviation,athlete_position_abbreviation_rushing,N,QB,QB,RB,"stats/data, marketing"
+224,competitions,0,leaders,1,leaders,0,athlete,team,id,,,competitions.0.leaders.1.leaders.0.athlete.team.id,athlete_team_id_rushing,Y,2,2,27,"stats/data, matchups"
+225,competitions,0,leaders,1,leaders,0,athlete,active,,,,competitions.0.leaders.1.leaders.0.athlete.active,leaders_athlete_active_rushing,Y,TRUE,TRUE,TRUE,stats/data
+226,competitions,0,leaders,1,leaders,0,team,id,,,,competitions.0.leaders.1.leaders.0.team.id,leaders_team_id_rushing,Y,2,2,27,"stats/data, matchups"
+227,competitions,0,leaders,2,name,,,,,,,competitions.0.leaders.2.name,leaders_name_receiving,N,receivingYards,receivingYards,receivingYards,stats/data
+228,competitions,0,leaders,2,displayName,,,,,,,competitions.0.leaders.2.displayName,leaders_displayName_receiving,N,Receiving Leader,Receiving Leader,Receiving Leader,"stats/data, marketing"
+229,competitions,0,leaders,2,shortDisplayName,,,,,,,competitions.0.leaders.2.shortDisplayName,leaders_shortDisplayName_receiving,N,REC,REC,REC,"stats/data, marketing"
+230,competitions,0,leaders,2,abbreviation,,,,,,,competitions.0.leaders.2.abbreviation,leaders_abbreviation_receiving,N,RECYDS,RECYDS,RECYDS,"stats/data, marketing"
+231,competitions,0,leaders,2,leaders,0,displayValue,,,,,competitions.0.leaders.2.leaders.0.displayValue,leaders_leaders_displayValue_receiving,N,"6 REC, 90 YDS","7 REC, 115 YDS, 1 TD","9 REC, 159 YDS, 2 TD",stats/data
+232,competitions,0,leaders,2,leaders,0,value,,,,,competitions.0.leaders.2.leaders.0.value,leaders_leaders_value_receiving,Y,90.0,115.0,159.0,stats/data
+233,competitions,0,leaders,2,leaders,0,athlete,id,,,,competitions.0.leaders.2.leaders.0.athlete.id,leaders_athlete_id_receiving,Y,15795,2576716,16737,stats/data
+234,competitions,0,leaders,2,leaders,0,athlete,fullName,,,,competitions.0.leaders.2.leaders.0.athlete.fullName,leaders_athlete_fullName_receiving,Y,DeAndre Hopkins,Jamison Crowder,Mike Evans,stats/data
+235,competitions,0,leaders,2,leaders,0,athlete,displayName,,,,competitions.0.leaders.2.leaders.0.athlete.displayName,leaders_athlete_displayName_receiving,N,DeAndre Hopkins,Jamison Crowder,Mike Evans,"stats/data, marketing"
+236,competitions,0,leaders,2,leaders,0,athlete,shortName,,,,competitions.0.leaders.2.leaders.0.athlete.shortName,leaders_athlete_shortName_receiving,N,D. Hopkins,J. Crowder,M. Evans,"stats/data, marketing"
+237,competitions,0,leaders,2,leaders,0,athlete,links,0,rel,0,competitions.0.leaders.2.leaders.0.athlete.links.0.rel.0,athlete_links_rel_receiving,N,playercard,playercard,playercard,stats/data
+238,competitions,0,leaders,2,leaders,0,athlete,links,0,rel,1,competitions.0.leaders.2.leaders.0.athlete.links.0.rel.1,athlete_links_rel_receiving_dup1,N,desktop,desktop,desktop,stats/data
+239,competitions,0,leaders,2,leaders,0,athlete,links,0,rel,2,competitions.0.leaders.2.leaders.0.athlete.links.0.rel.2,athlete_links_rel_receiving_dup2,N,athlete,athlete,athlete,stats/data
+240,competitions,0,leaders,2,leaders,0,athlete,links,0,href,,competitions.0.leaders.2.leaders.0.athlete.links.0.href,athlete_links_href_receiving,N,https://www.espn.com/nfl/player/_/id/15795/dean...,https://www.espn.com/nfl/player/_/id/2576716/ja...,https://www.espn.com/nfl/player/_/id/16737/mike...,stats/data
+241,competitions,0,leaders,2,leaders,0,athlete,headshot,,,,competitions.0.leaders.2.leaders.0.athlete.headshot,leaders_athlete_headshot_receiving,Y,https://a.espncdn.com/i/headshots/nfl/players/f...,https://a.espncdn.com/i/headshots/nfl/players/f...,https://a.espncdn.com/i/headshots/nfl/players/f...,stats/data
+242,competitions,0,leaders,2,leaders,0,athlete,jersey,,,,competitions.0.leaders.2.leaders.0.athlete.jersey,leaders_athlete_jersey_receiving,Y,10,80,13,stats/data
+243,competitions,0,leaders,2,leaders,0,athlete,position,abbreviation,,,competitions.0.leaders.2.leaders.0.athlete.position.abbreviation,athlete_position_abbreviation_receiving,N,WR,WR,WR,"stats/data, marketing"
+244,competitions,0,leaders,2,leaders,0,athlete,team,id,,,competitions.0.leaders.2.leaders.0.athlete.team.id,athlete_team_id_receiving,Y,34,20,27,"stats/data, matchups"
+245,competitions,0,leaders,2,leaders,0,athlete,active,,,,competitions.0.leaders.2.leaders.0.athlete.active,leaders_athlete_active_receiving,Y,TRUE,TRUE,TRUE,stats/data
+246,competitions,0,leaders,2,leaders,0,team,id,,,,competitions.0.leaders.2.leaders.0.team.id,leaders_team_id_receiving,Y,34,20,27,"stats/data, matchups"
+247,competitions,0,format,regulation,periods,,,,,,,competitions.0.format.regulation.periods,format_regulation_periods,Y,4,4,4,score/wins
+248,competitions,0,startDate,,,,,,,,,competitions.0.startDate,startDate,Y,2020-01-04T21:35Z,2020-09-13T17:00Z,2024-12-15T21:25Z,time
+249,competitions,0,broadcast,,,,,,,,,competitions.0.broadcast,broadcast,Y,ESPN/ABC,CBS,FOX,publicity
+250,competitions,0,geoBroadcasts,0,type,id,,,,,,competitions.0.geoBroadcasts.0.type.id,geoBroadcasts_type_id_broadcast1,N,1,1,1,publicity
+251,competitions,0,geoBroadcasts,0,type,shortName,,,,,,competitions.0.geoBroadcasts.0.type.shortName,geoBroadcasts_type_shortName_broadcast1,Y,TV,TV,TV,"publicity, marketing"
+252,competitions,0,geoBroadcasts,0,market,id,,,,,,competitions.0.geoBroadcasts.0.market.id,geoBroadcasts_market_id_broadcast1,N,1,1,1,publicity
+253,competitions,0,geoBroadcasts,0,market,type,,,,,,competitions.0.geoBroadcasts.0.market.type,geoBroadcasts_market_type_broadcast1,Y,National,National,National,publicity
+254,competitions,0,geoBroadcasts,0,media,shortName,,,,,,competitions.0.geoBroadcasts.0.media.shortName,geoBroadcasts_media_shortName_broadcast1,N,ESPN,CBS,FOX,"publicity, marketing"
+255,competitions,0,geoBroadcasts,0,media,logo,,,,,,competitions.0.geoBroadcasts.0.media.logo,geoBroadcasts_media_logo_broadcast1,N,https://a.espncdn.com/guid/335fd2d2-97b9-336b-8...,,,"publicity, marketing"
+256,competitions,0,geoBroadcasts,0,media,darkLogo,,,,,,competitions.0.geoBroadcasts.0.media.darkLogo,geoBroadcasts_media_darkLogo_broadcast1,N,,,,"publicity, marketing"
+257,competitions,0,geoBroadcasts,0,lang,,,,,,,competitions.0.geoBroadcasts.0.lang,geoBroadcasts_lang_broadcast1,Y,en,en,en,publicity
+258,competitions,0,geoBroadcasts,0,region,,,,,,,competitions.0.geoBroadcasts.0.region,geoBroadcasts_region_broadcast1,Y,us,us,us,publicity
+259,competitions,0,geoBroadcasts,1,type,id,,,,,,competitions.0.geoBroadcasts.1.type.id,geoBroadcasts_type_id_broadcast2,N,1,,,publicity
+260,competitions,0,geoBroadcasts,1,type,shortName,,,,,,competitions.0.geoBroadcasts.1.type.shortName,geoBroadcasts_type_shortName_broadcast2,Y,TV,,,"publicity, marketing"
+261,competitions,0,geoBroadcasts,1,market,id,,,,,,competitions.0.geoBroadcasts.1.market.id,geoBroadcasts_market_id_broadcast2,N,1,,,publicity
+262,competitions,0,geoBroadcasts,1,market,type,,,,,,competitions.0.geoBroadcasts.1.market.type,geoBroadcasts_market_type_broadcast2,Y,National,,,publicity
+263,competitions,0,geoBroadcasts,1,media,shortName,,,,,,competitions.0.geoBroadcasts.1.media.shortName,geoBroadcasts_media_shortName_broadcast2,N,ABC,,,"publicity, marketing"
+264,competitions,0,geoBroadcasts,1,media,logo,,,,,,competitions.0.geoBroadcasts.1.media.logo,geoBroadcasts_media_logo_broadcast2,N,https://a.espncdn.com/guid/2acff74d-269f-36ac-9...,,,"publicity, marketing"
+265,competitions,0,geoBroadcasts,1,media,darkLogo,,,,,,competitions.0.geoBroadcasts.1.media.darkLogo,geoBroadcasts_media_darkLogo_broadcast2,N,https://a.espncdn.com/guid/2acff74d-269f-36ac-9...,,,"publicity, marketing"
+266,competitions,0,geoBroadcasts,1,lang,,,,,,,competitions.0.geoBroadcasts.1.lang,geoBroadcasts_lang_broadcast2,Y,en,,,publicity
+267,competitions,0,geoBroadcasts,1,region,,,,,,,competitions.0.geoBroadcasts.1.region,geoBroadcasts_region_broadcast2,Y,us,,,publicity
+268,competitions,0,headlines,0,type,,,,,,,competitions.0.headlines.0.type,headlines_type,Y,Recap,Recap,Recap,publicity
+269,competitions,0,headlines,0,description,,,,,,,competitions.0.headlines.0.description,headlines_description,Y,Deshaun Watson threw a touchdown pass and ran f...,Josh Allen led three consecutive first-half tou...,"— Two years ago, Baker Mayfield was trying to s...",publicity
+270,competitions,0,headlines,0,shortLinkText,,,,,,,competitions.0.headlines.0.shortLinkText,headlines_shortLinkText,Y,Texans roar past Bills for 22-19 win in OT,Allen tops 300 yards passing in Bills' 27-17 wi...,Mayfield throws for 4 TD passes as Buccaneers d...,publicity
+271,links,0,language,,,,,,,,,links.0.language,links_language,N,en-US,en-US,en-US,uncategorized
+272,links,0,rel,0,,,,,,,,links.0.rel.0,links_rel,N,summary,summary,summary,uncategorized
+273,links,0,rel,1,,,,,,,,links.0.rel.1,links_rel_dup1,N,desktop,desktop,desktop,uncategorized
+274,links,0,rel,2,,,,,,,,links.0.rel.2,links_rel_dup2,N,event,event,event,uncategorized
+275,links,0,href,,,,,,,,,links.0.href,links_href,N,https://www.espn.com/nfl/game/_/gameId/40113103...,https://www.espn.com/nfl/game/_/gameId/40122011...,https://www.espn.com/nfl/game/_/gameId/40167176...,uncategorized
+276,links,0,text,,,,,,,,,links.0.text,links_text,N,Gamecast,Gamecast,Gamecast,uncategorized
+277,links,0,shortText,,,,,,,,,links.0.shortText,links_shortText,N,Gamecast,Gamecast,Gamecast,uncategorized
+278,links,0,isExternal,,,,,,,,,links.0.isExternal,links_isExternal,N,FALSE,FALSE,FALSE,uncategorized
+279,links,0,isPremium,,,,,,,,,links.0.isPremium,links_isPremium,N,FALSE,FALSE,FALSE,uncategorized
+280,links,1,language,,,,,,,,,links.1.language,links_language_dup1,N,en-US,en-US,en-US,uncategorized
+281,links,1,rel,0,,,,,,,,links.1.rel.0,links_rel_dup3,N,boxscore,boxscore,boxscore,uncategorized
+282,links,1,rel,1,,,,,,,,links.1.rel.1,links_rel_dup4,N,desktop,desktop,desktop,uncategorized
+283,links,1,rel,2,,,,,,,,links.1.rel.2,links_rel_dup5,N,event,event,event,uncategorized
+284,links,1,href,,,,,,,,,links.1.href,links_href_dup1,N,https://www.espn.com/nfl/boxscore/_/gameId/4011...,https://www.espn.com/nfl/boxscore/_/gameId/4012...,https://www.espn.com/nfl/boxscore/_/gameId/4016...,uncategorized
+285,links,1,text,,,,,,,,,links.1.text,links_text_dup1,N,Box Score,Box Score,Box Score,uncategorized
+286,links,1,shortText,,,,,,,,,links.1.shortText,links_shortText_dup1,N,Box Score,Box Score,Box Score,uncategorized
+287,links,1,isExternal,,,,,,,,,links.1.isExternal,links_isExternal_dup1,N,FALSE,FALSE,FALSE,uncategorized
+288,links,1,isPremium,,,,,,,,,links.1.isPremium,links_isPremium_dup1,N,FALSE,FALSE,FALSE,uncategorized
+289,links,2,language,,,,,,,,,links.2.language,links_language_dup2,N,en-US,en-US,en-US,uncategorized
+290,links,2,rel,0,,,,,,,,links.2.rel.0,links_rel_dup6,N,pbp,pbp,pbp,uncategorized
+291,links,2,rel,1,,,,,,,,links.2.rel.1,links_rel_dup7,N,desktop,desktop,desktop,uncategorized
+292,links,2,rel,2,,,,,,,,links.2.rel.2,links_rel_dup8,N,event,event,event,uncategorized
+293,links,2,href,,,,,,,,,links.2.href,links_href_dup2,N,https://www.espn.com/nfl/playbyplay/_/gameId/40...,https://www.espn.com/nfl/playbyplay/_/gameId/40...,https://www.espn.com/nfl/playbyplay/_/gameId/40...,uncategorized
+294,links,2,text,,,,,,,,,links.2.text,links_text_dup2,N,Play-by-Play,Play-by-Play,Play-by-Play,uncategorized
+295,links,2,shortText,,,,,,,,,links.2.shortText,links_shortText_dup2,N,Play-by-Play,Play-by-Play,Play-by-Play,uncategorized
+296,links,2,isExternal,,,,,,,,,links.2.isExternal,links_isExternal_dup2,N,FALSE,FALSE,FALSE,uncategorized
+297,links,2,isPremium,,,,,,,,,links.2.isPremium,links_isPremium_dup2,N,FALSE,FALSE,FALSE,uncategorized
+298,links,3,language,,,,,,,,,links.3.language,links_language_dup3,N,en-US,en-US,en-US,uncategorized
+299,links,3,rel,0,,,,,,,,links.3.rel.0,links_rel_dup9,N,recap,recap,recap,uncategorized
+300,links,3,rel,1,,,,,,,,links.3.rel.1,links_rel_dup10,N,desktop,desktop,desktop,uncategorized
+301,links,3,rel,2,,,,,,,,links.3.rel.2,links_rel_dup11,N,event,event,event,uncategorized
+302,links,3,href,,,,,,,,,links.3.href,links_href_dup3,N,https://www.espn.com/nfl/recap?gameId=401131037,https://www.espn.com/nfl/recap?gameId=401220116,https://www.espn.com/nfl/recap?gameId=401671762,uncategorized
+303,links,3,text,,,,,,,,,links.3.text,links_text_dup3,N,Recap,Recap,Recap,uncategorized
+304,links,3,shortText,,,,,,,,,links.3.shortText,links_shortText_dup3,N,Recap,Recap,Recap,uncategorized
+305,links,3,isExternal,,,,,,,,,links.3.isExternal,links_isExternal_dup3,N,FALSE,FALSE,FALSE,uncategorized
+306,links,3,isPremium,,,,,,,,,links.3.isPremium,links_isPremium_dup3,N,FALSE,FALSE,FALSE,uncategorized
+307,status,clock,,,,,,,,,,status.clock,status_clock_dup1,N,0.0,0.0,0.0,time
+308,status,displayClock,,,,,,,,,,status.displayClock,status_displayClock_dup1,N,0:00,0:00,0:00,time
+309,status,period,,,,,,,,,,status.period,status_period_dup1,N,5,4,4,score/wins
+310,status,type,id,,,,,,,,,status.type.id,status_type_id_dup1,N,3,3,3,uncategorized
+311,status,type,name,,,,,,,,,status.type.name,status_type_name_dup1,N,STATUS_FINAL,STATUS_FINAL,STATUS_FINAL,uncategorized
+312,status,type,state,,,,,,,,,status.type.state,status_type_state_dup1,N,post,post,post,location
+313,status,type,completed,,,,,,,,,status.type.completed,status_type_completed_dup1,N,TRUE,TRUE,TRUE,uncategorized
+314,status,type,description,,,,,,,,,status.type.description,status_type_description_dup1,N,Final,Final,Final,uncategorized
+315,status,type,detail,,,,,,,,,status.type.detail,status_type_detail_dup1,N,Final/OT,Final,Final,uncategorized
+316,status,type,shortDetail,,,,,,,,,status.type.shortDetail,status_type_shortDetail_dup1,N,Final/OT,Final,Final,uncategorized
+317,status,type,altDetail,,,,,,,,,status.type.altDetail,status_type_altDetail_dup1,N,OT,,,uncategorized
+318,competitions,0,broadcasts,0,names,2,,,,,,competitions.0.broadcasts.0.names.2,broadcasts_names_market1_network3,Y,,,,publicity
+319,competitions,0,broadcasts,1,market,,,,,,,competitions.0.broadcasts.1.market,broadcasts_market_market2,Y,,,away,publicity
+320,competitions,0,broadcasts,1,names,0,,,,,,competitions.0.broadcasts.1.names.0,broadcasts_names_market2_network1,Y,,,NFL Sunday Ticket,publicity
+321,competitions,0,geoBroadcasts,2,lang,,,,,,,competitions.0.geoBroadcasts.2.lang,geoBroadcasts_lang_broadcast3,Y,,,,publicity
+322,competitions,0,geoBroadcasts,2,market,id,,,,,,competitions.0.geoBroadcasts.2.market.id,geoBroadcasts_market_id_broadcast3,N,,,,publicity
+323,competitions,0,geoBroadcasts,2,market,type,,,,,,competitions.0.geoBroadcasts.2.market.type,geoBroadcasts_market_type_broadcast3,Y,,,,publicity
+324,competitions,0,geoBroadcasts,2,media,darkLogo,,,,,,competitions.0.geoBroadcasts.2.media.darkLogo,geoBroadcasts_media_darkLogo_broadcast3,N,,,,"publicity, marketing"
+325,competitions,0,geoBroadcasts,2,media,logo,,,,,,competitions.0.geoBroadcasts.2.media.logo,geoBroadcasts_media_logo_broadcast3,N,,,,"publicity, marketing"
+326,competitions,0,geoBroadcasts,2,media,shortName,,,,,,competitions.0.geoBroadcasts.2.media.shortName,geoBroadcasts_media_shortName_broadcast3,N,,,,"publicity, marketing"
+327,competitions,0,geoBroadcasts,2,region,,,,,,,competitions.0.geoBroadcasts.2.region,geoBroadcasts_region_broadcast3,Y,,,,publicity
+328,competitions,0,geoBroadcasts,2,type,id,,,,,,competitions.0.geoBroadcasts.2.type.id,geoBroadcasts_type_id_broadcast3,N,,,,publicity
+329,competitions,0,geoBroadcasts,2,type,shortName,,,,,,competitions.0.geoBroadcasts.2.type.shortName,geoBroadcasts_type_shortName_broadcast3,Y,,,,"publicity, marketing"
+330,links,4,href,,,,,,,,,links.4.href,links_href_dup4,N,,,,uncategorized
+331,links,4,isExternal,,,,,,,,,links.4.isExternal,links_isExternal_dup4,N,,,,uncategorized
+332,links,4,isPremium,,,,,,,,,links.4.isPremium,links_isPremium_dup4,N,,,,uncategorized
+333,links,4,language,,,,,,,,,links.4.language,links_language_dup4,N,,,,uncategorized
+334,links,4,rel,0,,,,,,,,links.4.rel.0,links_rel_dup12,N,,,,uncategorized
+335,links,4,rel,1,,,,,,,,links.4.rel.1,links_rel_dup13,N,,,,uncategorized
+336,links,4,rel,2,,,,,,,,links.4.rel.2,links_rel_dup14,N,,,,uncategorized
+337,links,4,shortText,,,,,,,,,links.4.shortText,links_shortText_dup4,N,,,,uncategorized
+338,links,4,text,,,,,,,,,links.4.text,links_text_dup4,N,,,,uncategorized
