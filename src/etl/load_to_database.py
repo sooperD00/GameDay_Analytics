@@ -22,7 +22,6 @@ from src.utils.config import (
     KAGGLE_FILES,
     ESPN_FILES,
     ESPN_TEAMS_SCHEMA,
-    ESPN_GAMES_SCHEMA,
     TEAM_REFERENCE_FILES,
     SQL_SETUP_DIR,
     SQL_VALIDATION_DIR,
@@ -91,13 +90,31 @@ def load_kaggle_data(conn):
             logger.error(f"  Error loading {file_path}: {e}")
 
 
+
 def load_espn_data(conn):
     """Load current ESPN JSON data into database."""
     logger.info("Loading ESPN current season data (2020-2024)")
     
+    # Import all themed schemas
+    from src.utils.config import (
+        ESPN_GAMES_CORE_SCHEMA,
+        ESPN_GAMES_PUBLICITY_SCHEMA,
+        ESPN_GAMES_SCORE_WINS_SCHEMA,
+        ESPN_GAMES_STATS_DATA_SCHEMA,
+        ESPN_GAMES_TEAM_ATTRIBUTES_SCHEMA,
+        ESPN_GAMES_TIME_SCHEMA,
+        ESPN_GAMES_VENUE_SCHEMA
+    )
+
     schemas = {
         "ESPN_TEAMS_SCHEMA": ESPN_TEAMS_SCHEMA,
-        "ESPN_GAMES_SCHEMA": ESPN_GAMES_SCHEMA
+        "ESPN_GAMES_CORE_SCHEMA": ESPN_GAMES_CORE_SCHEMA,
+        "ESPN_GAMES_PUBLICITY_SCHEMA": ESPN_GAMES_PUBLICITY_SCHEMA,
+        "ESPN_GAMES_SCORE_WINS_SCHEMA": ESPN_GAMES_SCORE_WINS_SCHEMA,
+        "ESPN_GAMES_STATS_DATA_SCHEMA": ESPN_GAMES_STATS_DATA_SCHEMA,
+        "ESPN_GAMES_TEAM_ATTRIBUTES_SCHEMA": ESPN_GAMES_TEAM_ATTRIBUTES_SCHEMA,
+        "ESPN_GAMES_TIME_SCHEMA": ESPN_GAMES_TIME_SCHEMA,
+        "ESPN_GAMES_VENUE_SCHEMA": ESPN_GAMES_VENUE_SCHEMA
     }
     
     for data_type, config in ESPN_FILES.items():
