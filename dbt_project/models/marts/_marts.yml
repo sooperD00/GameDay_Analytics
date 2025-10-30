@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: mart_win_attendance_correlation
+    description: "Analysis table: Does winning drive attendance?"
+    columns:
+      - name: team_season_key
+        description: "Primary key: team_year"
+        tests:
+          - unique
+          - not_null
+    
+  - name: mart_playoff_momentum
+    description: "Analysis table: Do playoff teams get attendance boost next season?"
+    columns:
+      - name: team_season_key
+        description: "Primary key: team_year"
+        tests:
+          - unique
+          - not_null
+    
+  - name: mart_venue_attendance_patterns
+    description: "Analysis table: How does venue type affect attendance patterns?"
+    columns:
+      - name: venue_id
+        description: "Primary key: ESPN venue identifier"
+        tests:
+          - unique
+          - not_null

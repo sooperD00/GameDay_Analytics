@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_kaggle_attendance
+    description: "Cleaned weekly attendance data from Kaggle (2000-2019)"
+    columns:
+      - name: attendance_key
+        description: "Primary key: team_year_week"
+        tests:
+          - unique
+          - not_null
+      
+      - name: weekly_attendance
+        description: "Attendance for this specific week"
+        tests:
+          - not_null
+
+  - name: stg_kaggle_standings
+    description: "Team performance metrics from Kaggle (2000-2019)"
+    columns:
+      - name: team_season_key
+        description: "Primary key: team_year"
+        tests:
+          - unique
+          - not_null
+      
+      - name: win_percentage
+        description: "Win rate (0 to 1)"
+        tests:
+          - not_null
+
+  - name: stg_espn_games_core
+    description: "Core game attributes from ESPN API (2020-2024)"
+    columns:
+      - name: game_id
+        description: "ESPN game identifier"
+        tests:
+          - unique
+          - not_null
+      
+      - name: attendance
+        description: "Reported attendance at game"
+        tests:
+          - not_null
+
+  - name: stg_espn_games_venue
+    description: "Venue details from ESPN API (2020-2024)"
+    columns:
+      - name: game_id
+        description: "ESPN game identifier"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_espn_games_time
+    description: "Temporal attributes from ESPN API (2020-2024)"
+    columns:
+      - name: game_id
+        description: "ESPN game identifier"
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: int_team_season_performance
+    description: "Team performance metrics joined with aggregated attendance"
+    columns:
+      - name: team_season_key
+        description: "Primary key: team_year"
+        tests:
+          - unique
+          - not_null
+      
+      - name: avg_weekly_attendance
+        description: "Average attendance across home games for the season"
+        tests:
+          - not_null
+
+  - name: int_playoff_lag
+    description: "Team performance with prior season context for trend analysis"
+    columns:
+      - name: team_season_key
+        description: "Primary key: team_year"
+        tests:
+          - unique
+          - not_null
+      
+      - name: attendance_pct_change
+        description: "Year-over-year attendance change percentage"
+        # Note: Can be NULL for first season of team data
