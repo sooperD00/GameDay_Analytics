@@ -1,0 +1,30 @@
+gameday_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: sqlite
+      database: '../data/processed/nfl_attendance.db'
+      schema: main
+      threads: 1
+    
+    # Production deployment would use cloud data warehouse
+    # Example for Snowflake:
+    # prod:
+    #   type: snowflake
+    #   account: company_account
+    #   user: "{{ env_var('DBT_USER') }}"
+    #   password: "{{ env_var('DBT_PASSWORD') }}"
+    #   role: transformer
+    #   warehouse: transforming
+    #   database: analytics
+    #   schema: marts
+    #   threads: 4
+    
+    # Example for BigQuery:
+    # prod:
+    #   type: bigquery
+    #   method: service-account
+    #   project: company-analytics
+    #   dataset: marts
+    #   threads: 4
+    #   keyfile: /path/to/service-account.json
