@@ -9,7 +9,7 @@ WITH source AS (
 renamed AS (
     SELECT
         -- Keys
-        team || '_' || year || '_' || week AS attendance_key,
+        team || '_' || team_name || '_' || year || '_' || week AS attendance_key,  --avoids duplicate e.g. Los Angeles_Chargers_2018, Los Angeles_Rams_2018
         team AS team_location,
         team_name,
         year AS season_year,
