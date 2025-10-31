@@ -5,7 +5,10 @@ gameday_analytics:
       type: sqlite
       database: '../data/processed/nfl_attendance.db'
       schema: main
+      schemas_and_paths:
+        main: '../data/processed/nfl_attendance.db'
       threads: 1
+      schema_directory: '../data/processed'
     
     # Production deployment would use cloud data warehouse
     # Example for Snowflake:

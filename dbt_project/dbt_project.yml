@@ -19,10 +19,10 @@ models:
   gameday_analytics:
     staging:
       +materialized: view
-      +schema: staging
+      # +schema: staging  # For Postgres/Snowflake/BigQuery - creates separate schema namespaces
     intermediate:
       +materialized: view
-      +schema: intermediate
+      # +schema: intermediate  # SQLite limitation: all objects in 'main' schema with prefixed names
     marts:
       +materialized: table
-      +schema: marts
+      # +schema: marts  # Production warehouses use this to organize: staging.*, intermediate.*, marts.*

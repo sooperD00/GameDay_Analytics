@@ -20,6 +20,7 @@ with_lags AS (
         made_playoffs,
         won_superbowl,
         avg_weekly_attendance,
+        total_weekly_attendance,
         home_games_played,
         
         -- Prior season context (using LAG window function)

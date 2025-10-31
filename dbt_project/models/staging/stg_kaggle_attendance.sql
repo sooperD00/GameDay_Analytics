@@ -17,8 +17,8 @@ renamed AS (
         
         -- Attendance metrics
         weekly_attendance,
-        total_attendance AS season_total_attendance,
-        home_attendance AS season_home_attendance
+        total AS season_total_attendance,
+        home AS season_home_attendance
         
     FROM source
     WHERE weekly_attendance IS NOT NULL  -- Filter out incomplete records
