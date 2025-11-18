@@ -3,7 +3,16 @@
 
 `GameDay Analytics` is a professional-style analytics project simulating a data initiative for a sports organization. The project demonstrates **end-to-end skills** in **multi-source ETL pipelines, SQL data modeling, and interactive dashboards**, simulating the integration of historical (2000-2019) and current (2020-2024) NFL attendance data to analyze trends and support operational decisions.
 
+
 **Skills:** Python ETL, API integration, data quality controls, SQL joins, stakeholder adaptability.
+
+---
+
+> **🔍 Technical Deep Dive:**  
+> This isn't a tutorial project—it's a simulation of leading a data initiative from ambiguous requirements through production. The `/notebooks/` folder documents the iterative schema design process (339 ESPN fields → 98 curated columns through analyst-engineer collaboration). The dbt models implement dimensional modeling with data quality tests. The validation queries demonstrate analytical rigor + business communication.  
+> **TL;DR:** Demonstrates architecture thinking + stakeholder translation, not just coding.
+
+---
 
 ## Scenario & Stakeholders
 
