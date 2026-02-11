@@ -6,6 +6,11 @@
 *.sqlitedb
 .env
 
+# Allow bundled copy for Streamlit Cloud deployment
+!streamlit_app/nfl_attendance.db
+
+
+
 # BI exports if large or private
 *.pbix
 *.twb
