@@ -27,6 +27,8 @@ ESPN API (2020-2024)     ├─→ Python ETL ─→ SQLite Raw Tables ─→ db
 Team Reference CSV      ─┘                    (10 tables)        (15 models)     (3 marts)
 ```
 
+![Dashboard Preview](docs/dashboard_preview.png)
+
 **Key Design Decisions:**
 
 1. **SQLite for MVP** (not Postgres): Entire dataset <2MB, enables local development without Docker overhead. Production would use Postgres+PostGIS for geospatial queries.
