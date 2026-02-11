@@ -2,6 +2,8 @@
 
 > Simulates leading a data engineering initiative from discovery through production: stakeholder-driven requirements, multi-source ETL integration, collaborative schema design, and analytical validation.
 
+**[▶ Live Dashboard](https://gamedayanalytics-ea79mgqrjngxp4xkkgdpwe.streamlit.app/)** · [View on GitHub](https://github.com/sooperD00/GameDay_Analytics)
+
 **Core Challenge:** Integrate historical (Kaggle 2000-2019) and current (ESPN API 2020-2024) NFL data with mismatched schemas, team relocations, and inconsistent naming—then build analysis-ready models for business questions.
 
 **Technical Approach:**
@@ -205,10 +207,10 @@ The fictional team personas (Linda, Ronald, Walter, Florence, Grace) represent d
 
 - **Developer:** Nicole Rowsey
 - **LinkedIn:** [linkedin.com/in/nicole-rowsey](https://linkedin.com/in/nicole-rowsey)
-- **Other Projects:** [ORToothFairy](https://github.com/sooperD00/ORToothFairy) (cross-platform .NET MAUI app)
+- **Other Projects:** [github.com/sooperD00](https://github.com/sooperD00)
 
 Currently seeking senior IC / data platform engineering roles. Open to discussing technical architecture, data modeling, or this project's design decisions.
 
 ---
 
-**Built with Python, dbt, and iterative thinking** | [Explore Notebooks](notebooks/) | [View SQL Models](dbt_project/models/)
+**Built with Python, dbt, and iterative thinking** | [Live Dashboard](https://gamedayanalytics-ea79mgqrjngxp4xkkgdpwe.streamlit.app/) | [Explore Notebooks](notebooks/) | [View SQL Models](dbt_project/models/)
