@@ -29,7 +29,8 @@ data/processed/*
 # Keep sample data tracked
 !data/sample/
 
-
+# Notes
+audit*/
 
 
 # GitHub Python .gitignore Template

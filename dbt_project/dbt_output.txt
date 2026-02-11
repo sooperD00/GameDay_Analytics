@@ -1,0 +1,64 @@
+[0m00:37:25  Running with dbt=1.10.13
+[0m00:37:26  Registered adapter: sqlite=1.10.0
+[0m00:37:27  Found 15 models, 26 data tests, 1 seed, 416 macros
+[0m00:37:27  
+[0m00:37:27  Concurrency: 1 threads (target='dev')
+[0m00:37:27  
+[0m00:37:27  1 of 26 START test assert_kaggle_teams_have_reference_mapping .................. [RUN]
+[0m00:37:27  1 of 26 PASS assert_kaggle_teams_have_reference_mapping ........................ [[32mPASS[0m in 0.07s]
+[0m00:37:27  2 of 26 START test not_null_int_playoff_lag_team_season_key .................... [RUN]
+[0m00:37:27  2 of 26 PASS not_null_int_playoff_lag_team_season_key .......................... [[32mPASS[0m in 0.05s]
+[0m00:37:27  3 of 26 START test not_null_int_team_season_performance_avg_weekly_attendance .. [RUN]
+[0m00:37:27  3 of 26 PASS not_null_int_team_season_performance_avg_weekly_attendance ........ [[32mPASS[0m in 0.04s]
+[0m00:37:27  4 of 26 START test not_null_int_team_season_performance_team_season_key ........ [RUN]
+[0m00:37:28  4 of 26 PASS not_null_int_team_season_performance_team_season_key .............. [[32mPASS[0m in 0.03s]
+[0m00:37:28  5 of 26 START test not_null_mart_playoff_momentum_team_season_key .............. [RUN]
+[0m00:37:28  5 of 26 PASS not_null_mart_playoff_momentum_team_season_key .................... [[32mPASS[0m in 0.04s]
+[0m00:37:28  6 of 26 START test not_null_mart_venue_attendance_patterns_venue_id ............ [RUN]
+[0m00:37:28  6 of 26 PASS not_null_mart_venue_attendance_patterns_venue_id .................. [[32mPASS[0m in 0.02s]
+[0m00:37:28  7 of 26 START test not_null_mart_win_attendance_correlation_team_season_key .... [RUN]
+[0m00:37:28  7 of 26 PASS not_null_mart_win_attendance_correlation_team_season_key .......... [[32mPASS[0m in 0.03s]
+[0m00:37:28  8 of 26 START test not_null_stg_espn_games_core_attendance ..................... [RUN]
+[0m00:37:28  8 of 26 PASS not_null_stg_espn_games_core_attendance ........................... [[32mPASS[0m in 0.03s]
+[0m00:37:28  9 of 26 START test not_null_stg_espn_games_core_game_id ........................ [RUN]
+[0m00:37:28  9 of 26 PASS not_null_stg_espn_games_core_game_id .............................. [[32mPASS[0m in 0.03s]
+[0m00:37:28  10 of 26 START test not_null_stg_espn_games_time_game_id ....................... [RUN]
+[0m00:37:28  10 of 26 PASS not_null_stg_espn_games_time_game_id ............................. [[32mPASS[0m in 0.03s]
+[0m00:37:28  11 of 26 START test not_null_stg_espn_games_venue_game_id ...................... [RUN]
+[0m00:37:28  11 of 26 PASS not_null_stg_espn_games_venue_game_id ............................ [[32mPASS[0m in 0.03s]
+[0m00:37:28  12 of 26 START test not_null_stg_kaggle_attendance_attendance_key .............. [RUN]
+[0m00:37:28  12 of 26 PASS not_null_stg_kaggle_attendance_attendance_key .................... [[32mPASS[0m in 0.04s]
+[0m00:37:28  13 of 26 START test not_null_stg_kaggle_attendance_weekly_attendance ........... [RUN]
+[0m00:37:28  13 of 26 PASS not_null_stg_kaggle_attendance_weekly_attendance ................. [[32mPASS[0m in 0.04s]
+[0m00:37:28  14 of 26 START test not_null_stg_kaggle_standings_team_season_key .............. [RUN]
+[0m00:37:28  14 of 26 PASS not_null_stg_kaggle_standings_team_season_key .................... [[32mPASS[0m in 0.14s]
+[0m00:37:28  15 of 26 START test not_null_stg_kaggle_standings_win_percentage ............... [RUN]
+[0m00:37:28  15 of 26 PASS not_null_stg_kaggle_standings_win_percentage ..................... [[32mPASS[0m in 0.03s]
+[0m00:37:28  16 of 26 START test not_null_stg_team_reference_espn_team_id ................... [RUN]
+[0m00:37:28  16 of 26 PASS not_null_stg_team_reference_espn_team_id ......................... [[32mPASS[0m in 0.03s]
+[0m00:37:28  17 of 26 START test unique_int_playoff_lag_team_season_key ..................... [RUN]
+[0m00:37:28  17 of 26 PASS unique_int_playoff_lag_team_season_key ........................... [[32mPASS[0m in 0.05s]
+[0m00:37:28  18 of 26 START test unique_int_team_season_performance_team_season_key ......... [RUN]
+[0m00:37:28  18 of 26 PASS unique_int_team_season_performance_team_season_key ............... [[32mPASS[0m in 0.04s]
+[0m00:37:28  19 of 26 START test unique_mart_playoff_momentum_team_season_key ............... [RUN]
+[0m00:37:28  19 of 26 PASS unique_mart_playoff_momentum_team_season_key ..................... [[32mPASS[0m in 0.03s]
+[0m00:37:28  20 of 26 START test unique_mart_venue_attendance_patterns_venue_id ............. [RUN]
+[0m00:37:28  20 of 26 PASS unique_mart_venue_attendance_patterns_venue_id ................... [[32mPASS[0m in 0.03s]
+[0m00:37:28  21 of 26 START test unique_mart_win_attendance_correlation_team_season_key ..... [RUN]
+[0m00:37:28  21 of 26 PASS unique_mart_win_attendance_correlation_team_season_key ........... [[32mPASS[0m in 0.03s]
+[0m00:37:28  22 of 26 START test unique_stg_espn_games_core_game_id ......................... [RUN]
+[0m00:37:28  22 of 26 PASS unique_stg_espn_games_core_game_id ............................... [[32mPASS[0m in 0.03s]
+[0m00:37:28  23 of 26 START test unique_stg_espn_games_time_game_id ......................... [RUN]
+[0m00:37:28  23 of 26 PASS unique_stg_espn_games_time_game_id ............................... [[32mPASS[0m in 0.03s]
+[0m00:37:28  24 of 26 START test unique_stg_espn_games_venue_game_id ........................ [RUN]
+[0m00:37:28  24 of 26 PASS unique_stg_espn_games_venue_game_id .............................. [[32mPASS[0m in 0.03s]
+[0m00:37:28  25 of 26 START test unique_stg_kaggle_attendance_attendance_key ................ [RUN]
+[0m00:37:28  25 of 26 PASS unique_stg_kaggle_attendance_attendance_key ...................... [[32mPASS[0m in 0.05s]
+[0m00:37:28  26 of 26 START test unique_stg_kaggle_standings_team_season_key ................ [RUN]
+[0m00:37:28  26 of 26 PASS unique_stg_kaggle_standings_team_season_key ...................... [[32mPASS[0m in 0.03s]
+[0m00:37:28  
+[0m00:37:28  Finished running 26 data tests in 0 hours 0 minutes and 1.31 seconds (1.31s).
+[0m00:37:29  
+[0m00:37:29  [32mCompleted successfully[0m
+[0m00:37:29  
+[0m00:37:29  Done. PASS=26 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=26

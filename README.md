@@ -1,171 +1,212 @@
+# GameDay Analytics — Multi-Source Data Platform
 
-# GameDay Analytics
+> Simulates leading a data engineering initiative from discovery through production: stakeholder-driven requirements, multi-source ETL integration, collaborative schema design, and analytical validation.
 
-`GameDay Analytics` is a professional-style analytics project simulating a data initiative for a sports organization. The project demonstrates **end-to-end skills** in **multi-source ETL pipelines, SQL data modeling, and interactive dashboards**, simulating the integration of historical (2000-2019) and current (2020-2024) NFL attendance data to analyze trends and support operational decisions.
+**Core Challenge:** Integrate historical (Kaggle 2000-2019) and current (ESPN API 2020-2024) NFL data with mismatched schemas, team relocations, and inconsistent naming—then build analysis-ready models for business questions.
 
+**Technical Approach:**
+- Multi-source ETL pipeline with data quality controls
+- Automated JSON schema flattening and semantic categorization (339 ESPN fields → 98 curated columns across 7 themed tables)
+- dbt transformation layer (15 models, 26 data quality tests)
+- Iterative design workflow simulating cross-functional collaboration (see `/notebooks/` for analyst-engineer handoff process)
 
-**Skills:** Python ETL, API integration, data quality controls, SQL joins, stakeholder adaptability.
+**Skills Demonstrated:**
+- Python ETL (Kaggle API, ESPN REST API, CSV reference tables)
+- Data modeling (dimensional design, slowly-changing dimensions for relocations)
+- SQL transformation logic (window functions, CTEs, aggregations)
+- Analytical validation (correlation analysis, cohort comparisons, variability metrics)
+- Technical documentation (dbt yml specs, notebook narratives, README architecture docs)
 
 ---
 
-> **🔍 Technical Deep Dive:**  
-> This isn't a tutorial project—it's a simulation of leading a data initiative from ambiguous requirements through production. The `/notebooks/` folder documents the iterative schema design process (339 ESPN fields → 98 curated columns through analyst-engineer collaboration). The dbt models implement dimensional modeling with data quality tests. The validation queries demonstrate analytical rigor + business communication.  
-> **TL;DR:** Demonstrates architecture thinking + stakeholder translation, not just coding.
+## 📊 Project Architecture
 
----
-
-## Scenario & Stakeholders
-
-**Initial scope (Week 1):** Analyze historical NFL attendance trends (2000-2019) from publicly available datasets; identify patterns in attendance and team performance to support operational planning and fan engagement strategies.
-
->**Scope expansion (Mid-Sprint):** VP asks: **"Can you integrate current season data** to see if recent trends match historical patterns?" **YES!** add multi-source data pipeline + team name map for relocation handling.
-
-- **Primary Stakeholder:** [Jordan Kaplan](https://cod-esports.fandom.com/wiki/JKap), VP of Sports Analytics  
-- **Data Sources:** 
-  - Historical: [Kaggle NFL Dataset](https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset) (2000-2019)
-  >- `NEW` Current: ESPN API (2020-2024)
-  >- `NEW` Reference: Curated team mapping table
-- **Use Case:** Analyze attendance trends for operational planning and fan engagement
-- **Requirements:** 
-  - Reusable, documented data models  
-  - Automated ETL pipelines  
-  - SQL-based querying for key metrics  
-  - Dashboards for visualization and reporting
-
-## Team & Roles (Simulated)
-
-| Role | Team Member | Responsibilities |
-|------|------------|----------------|
-| Data Quality & Statistical Methods | [Walter A. Shewhart](https://en.wikipedia.org/wiki/Walter_A._Shewhart) | Validate data quality, define KPIs, statistical analysis |
-| ETL Pipeline Development | [Linda B. Low-k-dielectric](www.linkedin.com/in/nicole-rowsey) | Ingest raw data, transform & load datasets, automate pipelines |
-| Dashboarding & Visualization | [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) | Build dashboards, visual summaries for stakeholders |
-| A/B Testing & Analysis | [Ronald A. Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher) | Perform experimental analysis and hypothesis testing |
-| Documentation & Reporting | [Grace M. Hopper](https://en.wikipedia.org/wiki/Grace_Hopper) | Write methodology, assumptions, insights, and README |
-
-*Note: Team members are fictional personas representing skill sets aligned with the project.*
-
-## Timeline & Milestones
-
-1. **Week 1:** Identify dataset, ingest raw data  
-2. **Week 2:** Clean, transform, and model data  
-3. **Week 3:** Build SQL queries for core metrics  
-4. **Week 4:** Develop dashboards, visualize attendance trends and team performance  
-5. **Week 5:** Finalize documentation, deliver actionable insights  
-
-## Project Structure
-```bash
-GameDay_Analytics/
-├── README.md               # Project overview, planning notes, instructions
-├── requirements.txt        # Python dependencies (production)
-├── requirements-dev.txt    # Future/development dependencies
-├── .gitignore              # Git ignore file
-├── data/                   # Dataset storage
-│   ├── sample/             # Small sample data (committed)
-│   │   ├── attendance.csv
-│   │   ├── games.csv
-│   │   └── standings.csv
-│   └── raw/                # Full dataset (ignored, downloaded via ETL)
-├── logs/                   # ETL execution logs (ignored)
-├── notebooks/              # Jupyter notebooks for EDA
-├── src/                    # Python source code
-│   ├── etl/                # ETL pipeline scripts
-│   │   ├── ingest_nfl_dataset.py      # Historical data (Kaggle)
-│   │   ├── ingest_current_season.py   # Current season (ESPN API)
-│   │   ├── create_team_reference.py   # Team mapping table
-│   │   └── load_to_database.py        # Multi-source integration
-│   ├── models/             # Data modeling scripts
-│   └── utils/              # Helper functions
-│       ├── config.py       # Centralized configuration
-│       └── logging_config.py  # Shared logging setup
-├── sql/                    # SQL scripts and queries (see sql/README.md)
-│   ├── README.md           # SQL folder documentation
-│   ├── setup/              # Database setup (views, schemas)
-│   │   ├── v_teams_unified.sql
-│   │   ├── v_attendance_historical.sql
-│   │   └── v_attendance_current.sql
-│   ├── validation/         # Data quality checks
-│   │   └── unmapped_teams.sql
-│   └── analysis/           # Ad-hoc queries and analysis
-├── dashboards/             # Dashboard files (Power BI/Tableau)
-└── docs/                   # Extended documentation
+```
+Kaggle CSV (2000-2019)  ─┐
+ESPN API (2020-2024)     ├─→ Python ETL ─→ SQLite Raw Tables ─→ dbt Models ─→ Analysis Marts
+Team Reference CSV      ─┘                    (10 tables)        (15 models)     (3 marts)
 ```
 
-## Key Deliverables
+**Key Design Decisions:**
 
-1. **Fact & Dimension Tables:** Modeled for **reusable metrics and self-service analytics**  
-2. **ETL Pipelines:** Automated scripts ensuring **clean, validated, and processed data**  
-3. **SQL Queries for Core Metrics:** Attendance, team performance, trends over time  
-4. **Interactive Dashboards:** Drill-downs by game, team, week, and stadium  
-5. **Documentation:** Methodology, assumptions, insights, and reproducible instructions  
+1. **SQLite for MVP** (not Postgres): Entire dataset <2MB, enables local development without Docker overhead. Production would use Postgres+PostGIS for geospatial queries.
 
-## Methodology
+2. **dbt for transformations** (not Python): Declarative SQL models with built-in testing, version control for analytics logic, easier for non-engineers to review.
 
-- **Data Cleaning & Transformation:** Python ETL scripts  
-- **Metric Aggregation & KPI Modeling:** SQL queries & data models  
-- **Statistical Analysis:** Identify drivers of attendance and team performance patterns  
-- **Dashboarding & Reporting:** Power BI / Tableau dashboards for stakeholders  
-- **Documentation:** Transparent, reproducible methodology aligned with stakeholder expectations  
+3. **Themed staging tables**: Flattened ESPN's nested JSON into 7 semantic schemas (core, publicity, stats, venue, time, team_attributes, score_wins) to support varied analytical questions without creating one massive denormalized table.
 
-## Business Impact & Portfolio Takeaways
+4. **Curated reference table**: Manually maintained CSV for team relocations/rebrands—pragmatic choice for small, slowly-changing dataset. Automated validation catches mapping errors.
 
-- **Stakeholder Alignment:** Simulates iterative feedback loops with leadership, adjusting scope based on data availability  
-- **Multi-Source Data Integration:** Combining historical datasets, live APIs, and curated reference tables with data quality controls 
-- **Data Engineering & Analytics Skills:** ETL, SQL modeling, dashboard creation, statistical analysis  
-- **Decision Support:** Provides actionable insights for operational planning and fan engagement strategy  
-- **Professional Storytelling:** Demonstrates end-to-end analytics workflow, reflecting real-world enterprise scenarios  
+---
 
-## Implementation
+## 🔍 Iterative Design Process (Technical Highlight)
 
-### Data Sources
-- `data/sample/` - Small sample datasets and reference data (committed to git)
-  - Sample CSVs for quick exploration
-  - **`team_reference_seed.csv`** - Team mapping table (editable in Excel)
-- `data/raw/` - Full datasets (ignored) downloaded via ETL pipeline
-- `data/processed/` - Integrated SQLite database (ignored)
-  - **`nfl_attendance.db`** - Multi-source database with views
+**Problem:** ESPN API returns 339 nested JSON fields per game. How do you decide which to keep?
 
-### Team Reference Table Maintenance
-The `team_reference_seed.csv` file maps team names across data sources and handles relocations:
-- **Owner:** Can be maintained by non-technical staff using Excel/Google Sheets
-- **Location:** `data/sample/team_reference_seed.csv`
-- **Validation:** Automated via `create_team_reference.py` to catch errors
-- **Updates needed when:** Teams relocate, rebrand, or ESPN changes team IDs
+**Solution:** Simulated analyst-engineer collaboration workflow:
 
-### ETL Pipeline
-1. **Kaggle API credentials:** Place `kaggle.json` in `~/.kaggle/`
-2. **Run historical ingestion:** `python -m src.etl.ingest_nfl_dataset`
-3. **Run current season ingestion:** `python -m src.etl.ingest_current_season`
-4. **Create team reference table:** `python -m src.etl.create_team_reference`
-5. **Load to database:** `python -m src.etl.load_to_database`
+1. **Automated schema discovery** `/notebooks/02_view_design.ipynb`
+   - Recursive JSON flattening preserving ESPN's field ordering
+   - Keyword-based theme suggestion (publicity, stats, venue, etc.)
+   - Automated exclusion of redundant fields (UIDs, display values, link metadata)
 
-### Database Access
-The integrated database includes:
-- **Tables:** Historical (Kaggle), current (ESPN), and reference data
-- **Views:** `v_teams_unified`, `v_attendance_historical`, `v_attendance_current`
-- **Location:** `data/processed/nfl_attendance.db`
 
-## Next Steps (Simulated Team Roadmap)
+2. **Human review layer**: Generated CSV with sample data for "analyst" to annotate (include/exclude, rename, validate themes)
 
-- [x] **Download historical dataset to `data/raw/`** – *Linda, Week 1*  
-  (Kaggle API integration with freshness checks)
->- [x] **`NEW` Ingest current season data from ESPN API** – *Linda, Week 1*  
-  (API integration, raw data collection from ESPN)
->- [x] **`NEW` Create team reference table** – *Linda, Week 1*  
-  (Create mapping table with relocation tracking)
->- [x] **`NEW` Load integrated data to database** – *Linda, Week 2*  
-  (3-way SQL joins across Kaggle + ESPN + reference table)
-- [x] **Initial exploratory analysis in Jupyter notebooks** – *Ronald, Week 1–2*  
-  (EDA completed - identified need for integrated performance+attendance view)
->- [ ] **`NEW` Create integrated analysis view** – *Linda, Week 2*  
-  (Join attendance + performance data based on analyst requirements)
-- [ ] **Continue exploratory analysis** – *Ronald, Week 2*  
-  (Performance vs attendance correlation, relocation impact analysis)
-- [ ] **Build ETL scripts to populate `data/processed/`** – *Walter, Week 2–3*  
-  (Python pipeline, data quality checks, handle anomalies)
+3. **Validation queries** (`/notebooks/03_dbt_mart_validation.ipynb`):
+   - Constant-value field detection (found 9 fields always same value across 1,452 games)
+   - Cardinality analysis (broadcasts, geolocation, etc.)
+   - Data quality checks before finalizing schema
 
-- [ ] **Develop SQL queries for core metrics** – *Linda, Week 3*  
-  (Model data for analysis, historical vs. current trend comparison)
-- [ ] **Prototype dashboards & document findings** – *Florence, Week 4*  
-  (Tableau/Power BI dashboards, stakeholder-facing summary)
-- [ ] **Finalize insights & documentation** – *Team, Week 5*  
-  (Deliver README, methodology, assumptions, actionable recommendations)
+**View on nbviewer**
+   - [01_exploratory_analysis.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/01_exploratory_analysis.ipynb)
+   - [02_view_design.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/02_view_design.ipynb)
+   - [03_dbt_mart_validation.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb)
+
+**Result:** 98 curated columns with clear semantic grouping, ready for dbt modeling.
+
+*(This process demonstrates requirements engineering, data quality thinking, and pragmatic architecture—not just "run a script.")*
+
+---
+
+## 📈 Sample Analytical Findings
+
+**Q1: Does winning drive attendance?**
+- Winning teams (10+ wins): 68,183 avg attendance
+- Average teams (8-9 wins): **68,708 avg** ← *higher!*
+- **Insight:** Venue capacity ceiling + market size confound raw numbers. Need to normalize by capacity.
+
+**Q2: Do playoff teams get attendance boost?**
+- Playoff teams: +3.0% avg increase next year
+- Non-playoff teams: +3.2% avg increase ← *comparable!*
+- **Insight:** Attendance driven more by stadium upgrades, star signings, pricing than recent playoff runs.
+
+**Q3: Does indoor vs outdoor affect stability?**
+- Indoor: 74.5% variability
+- Outdoor: 76.5% variability
+- **Insight:** Weather doesn't dominate—opponent quality and market factors matter more.
+
+*(See [03_dbt_mart_validation.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb) for full analysis + methodology)*
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Choice | Why |
+|-----------|--------|-----|
+| **ETL** | Python (pandas, requests) | API integration, CSV processing, flexible transformations |
+| **Storage** | SQLite | Local dev simplicity, <2MB dataset, version control friendly |
+| **Transforms** | dbt Core | SQL-based models, testing framework, Git-friendly analytics |
+| **Analysis** | Jupyter + SQL | Exploratory work, validation queries, documentation |
+| **API** | ESPN undocumented endpoints | Free, current data, required reverse-engineering |
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Clone
+git clone https://github.com/sooperD00/GameDay_Analytics.git
+cd GameDay_Analytics
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run full pipeline
+bash run_pipeline.sh
+```
+
+Or run steps individually
+```bash
+# ETL pipeline (downloads Kaggle + ESPN data)
+python -m src.etl.ingest_nfl_dataset
+python -m src.etl.ingest_current_season
+python -m src.etl.create_team_reference
+python -m src.etl.load_to_database
+
+# Run dbt transformations
+cd dbt_project
+dbt seed    # loads team reference mapping
+dbt run     # builds staging → intermediate → marts pipeline
+dbt test    # 26/26 tests should pass
+```
+
+Explore results
+```bash
+sqlite3 ../data/processed/nfl_attendance.db
+> SELECT * FROM mart_win_attendance_correlation LIMIT 5;
+```
+
+**Or just explore the notebooks:**
+- `/notebooks/01_exploratory_analysis.ipynb` — Initial EDA + data integration validation
+- `/notebooks/02_view_design.ipynb` — Schema design collaboration simulation
+- `/notebooks/03_dbt_mart_validation.ipynb` — Analytical findings + methodology
+
+---
+
+## 📁 Project Structure
+```
+GameDay_Analytics/
+├── README.md
+├── run_pipeline.sh              # single-command pipeline execution
+├── src/                         # Python ETL — ingestion only
+│   ├── etl/                     # ingestion scripts + SQL view definitions
+│   └── utils/                   # config.py, logging_config.py
+├── dbt_project/
+│   ├── seeds/                   # team_reference_seed.csv (relocation mapping)
+│   ├── models/
+│   │   ├── staging/             # raw → clean (7 models + 4 future)
+│   │   ├── intermediate/        # joins + window functions (2 models)
+│   │   └── marts/               # analytical tables (3 models)
+│   └── tests/                   # cross-source validation
+├── notebooks/                   # EDA, schema design narrative, mart validation
+├── data/
+│   ├── sample/                  # sample CSVs for quick exploration
+│   └── raw/                     # (gitignored) full datasets
+└── docs/                        # extended documentation
+```
+
+**For hiring managers evaluating technical thinking:**
+
+1. **[`/notebooks/02_view_design.ipynb`](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/02_view_design.ipynb)** ⭐ — Shows how I designed the 7-table schema through iterative refinement
+2. **[`/notebooks/03_dbt_mart_validation.ipynb`](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb)** ⭐ — Demonstrates analytical rigor + business communication
+3. **`/dbt_project/models/`** — Full staging → intermediate → marts pipeline with 26 data quality tests
+4. **`/src/etl/`** — Production-style ETL with logging, error handling, idempotency
+
+---
+
+## 💡 What I'd Change at Scale
+
+- **Postgres + Airflow**: SQLite → Postgres for concurrency; Python scripts → Airflow DAGs for scheduling
+- **Incremental loads**: Current ETL is full refresh; add change data capture for ESPN API
+- **Data catalog**: Document lineage, add metadata layer (dbt docs covers some of this)
+- **Observability**: Add monitoring for API rate limits, data freshness, pipeline failures
+- **Testing pyramid**: Expand dbt tests to include distribution checks, referential integrity across sources
+
+---
+
+## 🎯 Project Philosophy
+
+This project demonstrates senior-level technical thinking:
+
+- **Requirements translation**: Vague business question → concrete data architecture
+- **Pragmatic choices**: SQLite for MVP (not over-engineering), dbt for testability (not bespoke Python)
+- **Iterative refinement**: Schema design through collaboration, not upfront perfect planning
+- **Production awareness**: Logging, error handling, idempotency built-in from start
+- **Scale thinking**: Clear articulation of "what changes at 10x volume"
+
+The fictional team personas (Linda, Ronald, Walter, Florence, Grace) represent different stakeholder perspectives I had to balance—data quality rigor, analytical needs, documentation clarity, statistical validity. Real data projects require synthesizing these viewpoints into coherent architecture.
+
+---
+
+## 📬 Contact
+
+- **Developer:** Nicole Rowsey
+- **LinkedIn:** [linkedin.com/in/nicole-rowsey](https://linkedin.com/in/nicole-rowsey)
+- **Other Projects:** [ORToothFairy](https://github.com/sooperD00/ORToothFairy) (cross-platform .NET MAUI app)
+
+Currently seeking senior IC / data platform engineering roles. Open to discussing technical architecture, data modeling, or this project's design decisions.
+
+---
+
+**Built with Python, dbt, and iterative thinking** | [Explore Notebooks](notebooks/) | [View SQL Models](dbt_project/models/)

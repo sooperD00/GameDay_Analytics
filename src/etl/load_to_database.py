@@ -24,10 +24,8 @@ from src.utils.config import (
     ESPN_TEAMS_SCHEMA,
     TEAM_REFERENCE_FILES,
     SQL_SETUP_DIR,
-    SQL_VALIDATION_DIR,
     VIEW_FILES,
-    DB_TABLES,
-    VALIDATION_QUERIES
+    DB_TABLES
 )
 
 # Logger
@@ -201,39 +199,21 @@ def create_integrated_views(conn):
 
 
 def validate_data(conn):
-    """Run validation queries on loaded data."""
+    """Validate loaded data with record counts.
+    
+    Note: Referential integrity checks (e.g., team mapping coverage)
+    are handled by dbt test (assert_kaggle_teams_have_reference_mapping).
+    """
     logger.info("Validating loaded data")
     
     cursor = conn.cursor()
     
-    # Count records in each table
     for table in DB_TABLES:
         try:
             result = cursor.execute(f"SELECT COUNT(*) FROM {table}").fetchone()
             logger.info(f"  {table}: {result[0]} records")
         except sqlite3.OperationalError:
             logger.warning(f"  {table}: Table not found")
-    
-    # Run validation queries
-    for query_file in VALIDATION_QUERIES:
-        file_path = SQL_VALIDATION_DIR / query_file
-        if not file_path.exists():
-            logger.warning(f"  Validation query not found: {query_file}")
-            continue
-        
-        with open(file_path, 'r') as f:
-            sql = f.read()
-        
-        try:
-            result = cursor.execute(sql).fetchone()
-            unmapped_count = result[0]
-            
-            if unmapped_count > 0:
-                logger.warning(f"  Found {unmapped_count} unmapped team names in historical data")
-            else:
-                logger.info("  All historical teams successfully mapped")
-        except Exception as e:
-            logger.error(f"  Error running validation query {query_file}: {e}")
 
 
 if __name__ == "__main__":

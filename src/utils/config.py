@@ -11,9 +11,7 @@ RAW_DATA_PATH = DATA_ROOT / "raw"
 PROCESSED_DATA_PATH = DATA_ROOT / "processed"
 SAMPLE_DATA_PATH = DATA_ROOT / "sample"
 LOG_PATH = PROJECT_ROOT / "logs"
-SQL_DIR = PROJECT_ROOT / "sql"
-SQL_SETUP_DIR = SQL_DIR / "setup"
-SQL_VALIDATION_DIR = SQL_DIR / "validation"
+SQL_SETUP_DIR = PROJECT_ROOT / "src" / "etl" / "sql"
 
 # Data collection parameters
 CURRENT_SEASON_YEARS = [2020, 2021, 2022, 2023, 2024]
@@ -187,7 +185,7 @@ ESPN_GAMES_VENUE_SCHEMA = [
 TEAM_REFERENCE_FILES = {
     "seed": {
         "filename": "team_reference_seed.csv",
-        "path": SAMPLE_DATA_PATH
+        "path": PROJECT_ROOT / "dbt_project" / "seeds"
     },
     "output": {
         "filename": "team_reference.csv",
@@ -215,9 +213,4 @@ DB_TABLES = [
     'espn_teams',
     'espn_games',
     'team_reference'
-]
-
-# SQL validation query
-VALIDATION_QUERIES = [
-    'unmapped_teams.sql'
 ]

@@ -3,6 +3,8 @@ ETL Script: Team Reference Table Creation
 Author: Linda B. Low-k-dielectric
 Date: Week 1
 Purpose: Load and validate team mapping table for multi-source integration
+Note: This validates the seed against ESPN's API data (are all current ESPN team IDs mapped?),
+      whereas the dbt test validates against the Kaggle side. (complementary checks).
 """
 
 # Standard library
