@@ -1,1 +1,6 @@
+# Language bar: hide notebooks, count SQL (Linguist classifies SQL as "data")
 *.ipynb linguist-documentation
+*.sql   linguist-detectable
+
+# Line endings: LF everywhere
+* text=auto eol=lf
