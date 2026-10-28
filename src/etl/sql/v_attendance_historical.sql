@@ -1,4 +1,4 @@
-CREATE VIEW IF NOT EXISTS v_attendance_historical AS
+CREATE VIEW v_attendance_historical AS
 SELECT 
     ka.team,
     ka.team_name,

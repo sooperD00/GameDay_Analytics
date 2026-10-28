@@ -200,10 +200,11 @@ DB_NAME = "nfl_attendance.db"
 DB_PATH = PROCESSED_DATA_PATH / DB_NAME
 
 # SQL configuration
+# Views notebook 01 reads. Each file holds one CREATE VIEW; the loader drops and
+# recreates the view on every run, so edits to these files always take effect.
 VIEW_FILES = [
     'v_teams_unified.sql',
     'v_attendance_historical.sql',
-    'v_attendance_current.sql'
 ]
 
 # Database validation configuration
