@@ -199,6 +199,14 @@ TEAM_REFERENCE_FILES = {
 DB_NAME = "nfl_attendance.db"
 DB_PATH = PROCESSED_DATA_PATH / DB_NAME
 
+# Dashboard database: the committed copy Streamlit Cloud reads (marts only)
+DASHBOARD_DB_PATH = PROJECT_ROOT / "streamlit_app" / DB_NAME
+DASHBOARD_TABLES = [
+    "mart_win_attendance_correlation",
+    "mart_playoff_momentum",
+    "mart_venue_attendance_patterns",
+]
+
 # SQL configuration
 # Views notebook 01 reads. Each file holds one CREATE VIEW; the loader drops and
 # recreates the view on every run, so edits to these files always take effect.

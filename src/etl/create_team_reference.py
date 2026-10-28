@@ -9,7 +9,6 @@ Note: This validates the seed against ESPN's API data (are all current ESPN team
 
 # Standard library
 import json
-from pathlib import Path
 
 # Third-party
 import pandas as pd
@@ -71,15 +70,18 @@ def validate_with_espn_data(reference_df):
     missing_in_espn = reference_ids - espn_ids
     
     if missing_in_reference:
+        # Stop here: an unmapped ESPN team would silently drop out of any cross-source join.
         seed_config = TEAM_REFERENCE_FILES["seed"]
-        logger.error(f"ESPN team IDs missing from reference: {missing_in_reference}")
-        logger.error(f"  Update {seed_config['path'] / seed_config['filename']}")
-    
+        raise ValueError(
+            f"ESPN team IDs missing from reference: {sorted(missing_in_reference)}. "
+            f"Add them to {seed_config['path'] / seed_config['filename']}"
+        )
+
     if missing_in_espn:
         logger.warning(f"Reference IDs not in current ESPN data: {missing_in_espn}")
         logger.warning("  (May be historical teams - this is expected)")
     
-    if not missing_in_reference and not missing_in_espn:
+    if not missing_in_espn:
         logger.info("Validation passed - all current ESPN teams mapped")
 
 

@@ -1,5 +1,6 @@
 kaggle>=1.7
 pandas>=2.3
+requests
 jupyter>=1.1
 dbt-core>=1.10
 dbt-sqlite>=1.10
