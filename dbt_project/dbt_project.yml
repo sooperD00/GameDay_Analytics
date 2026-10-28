@@ -20,6 +20,8 @@ models:
     staging:
       +materialized: view
       # +schema: staging  # For Postgres/Snowflake/BigQuery - creates separate schema namespaces
+      _future:
+        +enabled: false  # parked: dbt parses these but doesn't build them (see models/staging/_future/README.md)
     intermediate:
       +materialized: view
       # +schema: intermediate  # SQLite limitation: all objects in 'main' schema with prefixed names

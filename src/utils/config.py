@@ -109,6 +109,7 @@ ESPN_GAMES_PUBLICITY_SCHEMA = [
     ('broadcasts_market_market1', ['competitions', 0, 'broadcasts', 0, 'market'], ''),
     ('broadcasts_names_market1_network1', ['competitions', 0, 'broadcasts', 0, 'names', 0], ''),
     ('broadcasts_names_market1_network2', ['competitions', 0, 'broadcasts', 0, 'names', 1], ''),
+    ('broadcasts_names_market1_network3', ['competitions', 0, 'broadcasts', 0, 'names', 2], ''),
     ('broadcast', ['competitions', 0, 'broadcast'], ''),
     ('geoBroadcasts_type_shortName_broadcast1', ['competitions', 0, 'geoBroadcasts', 0, 'type', 'shortName'], ''),
     ('geoBroadcasts_market_type_broadcast1', ['competitions', 0, 'geoBroadcasts', 0, 'market', 'type'], ''),
