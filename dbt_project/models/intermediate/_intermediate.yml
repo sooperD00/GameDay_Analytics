@@ -1,29 +1,67 @@
 version: 2
 
 models:
+  - name: int_kaggle_team_games
+    description: "One row per team per regular-season game (2000-2019): home or away, result, and the crowd at that game"
+    columns:
+      - name: team_game_key
+        description: "Primary key: team_name_year_week"
+        tests:
+          - unique
+          - not_null
+
+      - name: is_home
+        description: "1 if the game was at this team's home stadium, 0 if away"
+
+      - name: result
+        description: "W, L, or T, from this team's point of view"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['W', 'L', 'T']
+
+      - name: attendance
+        description: "The crowd at this game, wherever it was played (Kaggle's weekly_attendance)"
+
   - name: int_team_season_performance
-    description: "Team performance metrics joined with aggregated attendance"
+    description: "Team performance metrics joined with home-game attendance, with the franchise id from the team reference seed"
     columns:
       - name: team_season_key
         description: "Primary key: team_year"
         tests:
           - unique
           - not_null
-      
-      - name: avg_weekly_attendance
-        description: "Average attendance across home games for the season"
+
+      - name: franchise_id
+        description: "ESPN team id from the team reference row active that season (as-of join); stays the same through relocations"
         tests:
           - not_null
 
+      - name: win_percentage
+        description: "(wins + 0.5 x ties) / games played"
+        tests:
+          - not_null
+
+      - name: avg_home_attendance
+        description: "Average attendance at the team's own home games for the season"
+        tests:
+          - not_null
+
+      - name: home_games_played
+        description: "Home games in the season (8 in every 2000-2019 season)"
+
   - name: int_playoff_lag
-    description: "Team performance with prior season context for trend analysis"
+    description: "Team performance with prior season context for trend analysis; seasons follow the franchise through relocations"
     columns:
       - name: team_season_key
         description: "Primary key: team_year"
         tests:
           - unique
           - not_null
-      
+
       - name: attendance_pct_change
-        description: "Year-over-year attendance change percentage"
-        # Note: Can be NULL for first season of team data
+        description: "Year-over-year change in average home attendance, in percent"
+        # Note: NULL for a franchise's first season in the data
+
+      - name: is_relocation_season
+        description: "1 for a franchise's first season under a new city or name (Rams 2016, Chargers 2017)"
