@@ -3,7 +3,7 @@
 -- Purpose: Standardize column names, create composite key, filter incomplete records
 
 WITH source AS (
-    SELECT * FROM kaggle_attendance
+    SELECT * FROM {{ source('raw', 'kaggle_attendance') }}
 ),
 
 renamed AS (

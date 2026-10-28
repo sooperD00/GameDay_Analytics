@@ -1,0 +1,35 @@
+version: 2
+
+# Raw tables written by the Python ETL (python -m src.etl.load_to_database).
+# dbt reads these and never writes them. Declaring them here, and selecting
+# from {{ source('raw', ...) }} instead of bare table names, puts them at the
+# start of the lineage graph in `dbt docs`.
+
+sources:
+  - name: raw
+    description: "Tables loaded by src/etl/load_to_database.py into data/processed/nfl_attendance.db"
+    schema: main
+    loader: src.etl.load_to_database
+    tables:
+      - name: kaggle_attendance
+        description: "Kaggle (TidyTuesday) attendance, 2000-2019. One row per team per week, for home AND away games; the bye week is NULL. `total` = `home` + `away` for the season."
+      - name: kaggle_games
+        description: "Kaggle game results, 2000-2019, one row per game. Regular-season weeks are '1'-'17'; playoff rounds use names ('WildCard', 'Division', 'ConfChamp', 'SuperBowl')."
+      - name: kaggle_standings
+        description: "Kaggle season standings, 2000-2019. One row per team per season."
+      - name: espn_teams
+        description: "ESPN team list (current teams only)."
+      - name: espn_games_core
+        description: "ESPN games, core theme: attendance, game type, neutral site."
+      - name: espn_games_time
+        description: "ESPN games, time theme: season year, season type, week, start time."
+      - name: espn_games_venue
+        description: "ESPN games, venue theme: venue id, name, city, indoor flag."
+      - name: espn_games_publicity
+        description: "ESPN games, publicity theme: broadcasts and headlines."
+      - name: espn_games_score_wins
+        description: "ESPN games, score theme: final scores and winner flags."
+      - name: espn_games_stats_data
+        description: "ESPN games, stats theme: scoring by quarter."
+      - name: espn_games_team_attributes
+        description: "ESPN games, team theme: home and away team ids, names, colors."

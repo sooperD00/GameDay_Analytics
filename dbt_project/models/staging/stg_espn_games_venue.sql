@@ -3,7 +3,7 @@
 -- Purpose: Extract venue characteristics for location-based analysis
 
 WITH source AS (
-    SELECT * FROM espn_games_venue
+    SELECT * FROM {{ source('raw', 'espn_games_venue') }}
 ),
 
 renamed AS (

@@ -3,7 +3,7 @@
 -- Purpose: Clean core game attributes and attendance metrics
 
 WITH source AS (
-    SELECT * FROM espn_games_core
+    SELECT * FROM {{ source('raw', 'espn_games_core') }}
 ),
 
 renamed AS (
