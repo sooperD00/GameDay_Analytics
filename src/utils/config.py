@@ -96,9 +96,12 @@ ESPN_TEAMS_SCHEMA = [
 ]
 
 # ESPN data flattening schemas - organized by analytical theme
+# Defaults fill in when a path is missing from a game. Keys and attendance default to
+# None (NULL in SQLite), so "ESPN didn't say" stays different from a real 0: most 2020
+# games really did have 0 fans.
 ESPN_GAMES_CORE_SCHEMA = [
-    ('id', ['id'], ''),
-    ('attendance', ['competitions', 0, 'attendance'], 0),
+    ('id', ['id'], None),
+    ('attendance', ['competitions', 0, 'attendance'], None),
     ('type_abbreviation', ['competitions', 0, 'type', 'abbreviation'], ''),
     ('neutralSite', ['competitions', 0, 'neutralSite'], 0),
     ('team_isActive_home', ['competitions', 0, 'competitors', 0, 'team', 'isActive'], 0),
@@ -107,7 +110,7 @@ ESPN_GAMES_CORE_SCHEMA = [
 ]
 
 ESPN_GAMES_PUBLICITY_SCHEMA = [
-    ('id', ['id'], ''),
+    ('id', ['id'], None),
     ('notes_headline', ['competitions', 0, 'notes', 0, 'headline'], ''),
     ('broadcasts_market_market1', ['competitions', 0, 'broadcasts', 0, 'market'], ''),
     ('broadcasts_names_market1_network1', ['competitions', 0, 'broadcasts', 0, 'names', 0], ''),
@@ -122,7 +125,7 @@ ESPN_GAMES_PUBLICITY_SCHEMA = [
 ]
 
 ESPN_GAMES_SCORE_WINS_SCHEMA = [
-    ('id', ['id'], ''),
+    ('id', ['id'], None),
     ('winner_home', ['competitions', 0, 'competitors', 0, 'winner'], 0),
     ('score_home', ['competitions', 0, 'competitors', 0, 'score'], ''),
     ('winner_away', ['competitions', 0, 'competitors', 1, 'winner'], 0),
@@ -130,7 +133,7 @@ ESPN_GAMES_SCORE_WINS_SCHEMA = [
 ]
 
 ESPN_GAMES_STATS_DATA_SCHEMA = [
-    ('id', ['id'], ''),
+    ('id', ['id'], None),
     ('playByPlayAvailable', ['competitions', 0, 'playByPlayAvailable'], 0),
     ('linescores_value_P1_home', ['competitions', 0, 'competitors', 0, 'linescores', 0, 'value'], 0),
     ('linescores_value_P2_home', ['competitions', 0, 'competitors', 0, 'linescores', 1, 'value'], 0),
@@ -145,7 +148,7 @@ ESPN_GAMES_STATS_DATA_SCHEMA = [
 ]
 
 ESPN_GAMES_TEAM_ATTRIBUTES_SCHEMA = [
-    ('id', ['id'], ''),
+    ('id', ['id'], None),
     ('name', ['name'], ''),
     ('shortName', ['shortName'], ''),
     ('id_home', ['competitions', 0, 'competitors', 0, 'id'], ''),
@@ -165,7 +168,7 @@ ESPN_GAMES_TEAM_ATTRIBUTES_SCHEMA = [
 ]
 
 ESPN_GAMES_TIME_SCHEMA = [
-    ('id', ['id'], ''),
+    ('id', ['id'], None),
     ('season_year', ['season', 'year'], 0),
     ('season_type', ['season', 'type'], 0),
     ('season_slug', ['season', 'slug'], ''),
@@ -175,8 +178,8 @@ ESPN_GAMES_TIME_SCHEMA = [
 ]
 
 ESPN_GAMES_VENUE_SCHEMA = [
-    ('id', ['id'], ''),
-    ('venue_id', ['competitions', 0, 'venue', 'id'], ''),
+    ('id', ['id'], None),
+    ('venue_id', ['competitions', 0, 'venue', 'id'], None),
     ('venue_fullName', ['competitions', 0, 'venue', 'fullName'], ''),
     ('venue_address_city', ['competitions', 0, 'venue', 'address', 'city'], ''),
     ('venue_address_state', ['competitions', 0, 'venue', 'address', 'state'], ''),
