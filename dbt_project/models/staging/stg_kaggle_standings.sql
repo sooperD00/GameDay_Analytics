@@ -1,6 +1,8 @@
 -- Staging: Kaggle Standings Data (2000-2019)
 -- Grain: One row per team per season
--- Purpose: Clean performance metrics, calculate win percentage, create playoff flags
+-- Purpose: Clean performance metrics, create playoff flags
+--          (no ties column here: games played and win percentage come from game
+--          results in int_team_season_performance)
 
 WITH source AS (
     SELECT * FROM {{ source('raw', 'kaggle_standings') }}
@@ -17,9 +19,7 @@ renamed AS (
         -- Performance metrics
         wins,
         loss AS losses,
-        wins + loss AS games_played,
-        ROUND(CAST(wins AS FLOAT) / (wins + loss), 3) AS win_percentage,
-        
+
         -- Scoring
         points_for,
         points_against,

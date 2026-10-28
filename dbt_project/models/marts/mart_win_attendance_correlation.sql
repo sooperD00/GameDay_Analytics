@@ -9,20 +9,22 @@ WITH performance AS (
 
 SELECT
     team_season_key,
+    franchise_id,
     team_location,
     team_name,
     season_year,
-    
+
     -- Performance metrics
     wins,
     losses,
+    ties,
     win_percentage,
     made_playoffs,
     won_superbowl,
-    
-    -- Attendance metrics
-    avg_weekly_attendance,
-    total_weekly_attendance,
+
+    -- Attendance at the team's own home games
+    avg_home_attendance,
+    total_home_attendance,
     home_games_played
     
     -- TODO (Linda→Ronald): Add attendance categorization after venue capacity analysis
@@ -30,4 +32,4 @@ SELECT
     -- Waiting on notebook 03 EDA to determine appropriate thresholds/groupings
     
 FROM performance
-WHERE avg_weekly_attendance IS NOT NULL  -- Only seasons with attendance data
+WHERE avg_home_attendance IS NOT NULL  -- Only seasons with attendance data

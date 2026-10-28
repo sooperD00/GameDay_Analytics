@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_kaggle_attendance
-    description: "Cleaned weekly attendance data from Kaggle (2000-2019)"
+    description: "Weekly attendance from Kaggle (2000-2019): the crowd at each game the team played that week, home or away. Bye weeks dropped."
     columns:
       - name: attendance_key
         description: "Primary key: team_year_week"
@@ -23,10 +23,14 @@ models:
         tests:
           - unique
           - not_null
-      
-      - name: win_percentage
-        description: "Win rate (0 to 1)"
+
+  - name: stg_kaggle_games
+    description: "Regular-season game results from Kaggle (2000-2019): home team, away team, winner, tie"
+    columns:
+      - name: game_key
+        description: "Primary key: year_week_hometeam"
         tests:
+          - unique
           - not_null
 
   - name: stg_espn_games_core

@@ -2,22 +2,31 @@ version: 2
 
 models:
   - name: mart_win_attendance_correlation
-    description: "Analysis table: Does winning drive attendance?"
+    description: "Analysis table: Does winning drive attendance? One row per team-season, 2000-2019, with attendance at the team's own home games."
     columns:
       - name: team_season_key
         description: "Primary key: team_year"
         tests:
           - unique
           - not_null
-    
+
+      - name: avg_home_attendance
+        description: "Average attendance at the team's 8 home games"
+
   - name: mart_playoff_momentum
-    description: "Analysis table: Do playoff teams get attendance boost next season?"
+    description: "Analysis table: Do playoff teams get attendance boost next season? Year-over-year change in home attendance, following each franchise through relocations."
     columns:
       - name: team_season_key
         description: "Primary key: team_year"
         tests:
           - unique
           - not_null
+
+      - name: attendance_pct_change
+        description: "Change in average home attendance from the prior season, in percent"
+
+      - name: is_relocation_season
+        description: "1 for a franchise's first season under a new city or name; those seasons also changed stadiums"
     
   - name: mart_venue_attendance_patterns
     description: "Analysis table: How does venue type affect attendance patterns? Regular-season games, 2021-2024 (2020's COVID-limited crowds left out); venues with 5+ games."
