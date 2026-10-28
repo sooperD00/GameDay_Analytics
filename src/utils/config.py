@@ -15,6 +15,9 @@ SQL_SETUP_DIR = PROJECT_ROOT / "src" / "etl" / "sql"
 
 # Data collection parameters
 CURRENT_SEASON_YEARS = [2020, 2021, 2022, 2023, 2024]
+# Weeks and regular-season game counts per season. A dbt seed, so the ESPN download
+# and the dbt completeness test check against the same numbers.
+SEASON_SIZES_FILE = PROJECT_ROOT / "dbt_project" / "seeds" / "regular_season_sizes.csv"
 
 # Kaggle data source configuration
 KAGGLE_DATASET_ID = "sujaykapadnis/nfl-stadium-attendance-dataset"
