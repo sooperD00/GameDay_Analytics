@@ -69,12 +69,12 @@ models:
         tests:
           - not_null
 
-  - name: full_name
-    description: "City + team name (e.g., 'Los Angeles Chargers')"
-    tests:
-      - not_null
+      - name: full_name
+        description: "City + team name (e.g., 'Los Angeles Chargers')"
+        tests:
+          - not_null
 
-  - name: active_years
-    description: "Year range this team identity was active (e.g., '2017-2024' for LA Chargers)"
-    tests:
-      - not_null
+      - name: active_years
+        description: "Year range this team identity was active (e.g., '2017-2024' for LA Chargers)"
+        tests:
+          - not_null
