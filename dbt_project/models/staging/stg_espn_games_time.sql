@@ -3,7 +3,7 @@
 -- Purpose: Extract temporal attributes for time-based analysis and joining
 
 WITH source AS (
-    SELECT * FROM espn_games_time
+    SELECT * FROM {{ source('raw', 'espn_games_time') }}
 ),
 
 renamed AS (

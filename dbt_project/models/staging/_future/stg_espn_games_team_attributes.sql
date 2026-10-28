@@ -3,7 +3,7 @@
 -- Purpose: Extract team branding and identification for both home/away teams
 
 WITH source AS (
-    SELECT * FROM espn_games_team_attributes
+    SELECT * FROM {{ source('raw', 'espn_games_team_attributes') }}
 ),
 
 renamed AS (

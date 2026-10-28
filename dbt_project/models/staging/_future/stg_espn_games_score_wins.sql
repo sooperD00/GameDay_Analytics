@@ -3,7 +3,7 @@
 -- Purpose: Extract final scores and win/loss outcomes
 
 WITH source AS (
-    SELECT * FROM espn_games_score_wins
+    SELECT * FROM {{ source('raw', 'espn_games_score_wins') }}
 ),
 
 renamed AS (

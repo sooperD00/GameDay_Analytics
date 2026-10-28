@@ -3,7 +3,7 @@
 -- Purpose: Extract broadcast and headline information for media impact analysis
 
 WITH source AS (
-    SELECT * FROM espn_games_publicity
+    SELECT * FROM {{ source('raw', 'espn_games_publicity') }}
 ),
 
 renamed AS (

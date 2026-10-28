@@ -184,17 +184,23 @@ def load_reference_data(conn):
 
 
 def create_integrated_views(conn):
-    """Create SQL views from definition files."""
+    """Create SQL views from definition files.
+
+    Drops each view before creating it: with CREATE VIEW IF NOT EXISTS, an edited
+    definition never replaced the copy already in the database.
+    """
     logger.info("Creating integrated views")
-    
+
     cursor = conn.cursor()
     for view_file in VIEW_FILES:
         file_path = SQL_SETUP_DIR / view_file
+        view_name = file_path.stem
         with open(file_path, 'r') as f:
             sql = f.read()
+        cursor.execute(f"DROP VIEW IF EXISTS {view_name}")
         cursor.execute(sql)
-        logger.info(f"  Created view: {view_file.replace('.sql', '')}")
-    
+        logger.info(f"  Created view: {view_name}")
+
     conn.commit()
 
 

@@ -3,7 +3,7 @@
 -- Purpose: Extract quarter-by-quarter scoring and player leaders
 
 WITH source AS (
-    SELECT * FROM espn_games_stats_data
+    SELECT * FROM {{ source('raw', 'espn_games_stats_data') }}
 ),
 
 renamed AS (

@@ -1,4 +1,4 @@
-CREATE VIEW IF NOT EXISTS v_teams_unified AS
+CREATE VIEW v_teams_unified AS
 SELECT 
     espn_team_id,
     team_city,

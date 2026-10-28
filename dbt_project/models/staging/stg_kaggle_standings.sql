@@ -3,7 +3,7 @@
 -- Purpose: Clean performance metrics, calculate win percentage, create playoff flags
 
 WITH source AS (
-    SELECT * FROM kaggle_standings
+    SELECT * FROM {{ source('raw', 'kaggle_standings') }}
 ),
 
 renamed AS (
