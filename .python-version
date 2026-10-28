@@ -1,0 +1,7 @@
+# dbt-core supports Python 3.10 through 3.13. On 3.14 it fails on import
+# (mashumaro UnserializableField), so this project stays on 3.13 for now.
+#
+# Hello! You'll also find `uv venv --python 3.13` spelled out in the README.
+# That's on purpose: this file picks the version for uv and pyenv automatically,
+# and the README line makes the choice visible to anyone who never opens a dotfile.
+3.13

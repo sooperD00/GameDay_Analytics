@@ -114,6 +114,8 @@ git clone https://github.com/sooperD00/GameDay_Analytics.git
 cd GameDay_Analytics
 
 # Create a virtual environment and install dependencies (uv: https://docs.astral.sh/uv/)
+# Hello! Python 3.13 shows up twice on purpose: pinned in .python-version, which uv
+# and pyenv read on their own, and spelled out below so you see it without opening a dotfile.
 uv venv --python 3.13         # dbt doesn't run on Python 3.14 yet
 source .venv/bin/activate     # also provides `python`, which the scripts call
 uv pip install -r requirements.txt
