@@ -1,7 +1,9 @@
 -- Mart: Venue Attendance Patterns
 -- Question: Does venue type (indoor/outdoor) affect attendance patterns?
--- Grain: One row per venue (aggregated across all games)
+-- Grain: One row per venue (aggregated across its regular-season games, 2021-2024)
 -- Purpose: Compare attendance stability and averages across venue characteristics
+-- Scope: 2020 is left out. COVID rules kept most stadiums empty or capped that year,
+--        and those games, not weather, set nearly every venue's minimum crowd.
 
 WITH games_combined AS (
     SELECT
@@ -19,6 +21,9 @@ WITH games_combined AS (
         ON c.game_id = v.game_id
     JOIN {{ ref('stg_espn_games_time') }} t
         ON c.game_id = t.game_id
+    WHERE t.season_type = 2        -- regular season only (no preseason, playoffs, or Pro Bowl)
+      AND t.season_year >= 2021    -- see Scope above
+      AND c.attendance > 0         -- drops games with no reported attendance
 ),
 
 venue_stats AS (

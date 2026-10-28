@@ -39,9 +39,11 @@ models:
           - not_null
       
       - name: attendance
-        description: "Reported attendance at game"
+        description: "Reported attendance. NULL = not reported by ESPN; 0 = no fans admitted (most of 2020)."
         tests:
-          - not_null
+          - not_null:
+              config:
+                severity: warn  # a few unreported games shouldn't stop the build, but should show
 
   - name: stg_espn_games_venue
     description: "Venue details from ESPN API (2020-2024)"

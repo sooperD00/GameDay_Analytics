@@ -1,6 +1,8 @@
 -- Staging: ESPN Games Core Data (2020-2024)
 -- Grain: One row per game (game_id is unique)
 -- Purpose: Clean core game attributes and attendance metrics
+-- Attendance: NULL = ESPN didn't report it; 0 = no fans admitted (most of 2020).
+--             Both stay here; each mart decides which games its question needs.
 
 WITH source AS (
     SELECT * FROM {{ source('raw', 'espn_games_core') }}
@@ -11,8 +13,8 @@ renamed AS (
         -- Keys
         id AS game_id,
         
-        -- Attendance
-        attendance,
+        -- Attendance (integer even when a missing value made the raw column REAL)
+        CAST(attendance AS INTEGER) AS attendance,
         
         -- Game attributes
         type_abbreviation AS game_type,
@@ -22,7 +24,6 @@ renamed AS (
         format_regulation_periods AS regulation_periods
         
     FROM source
-    WHERE attendance > 0  -- Filter out games with missing attendance
 )
 
 SELECT * FROM renamed

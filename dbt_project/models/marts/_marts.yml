@@ -20,7 +20,7 @@ models:
           - not_null
     
   - name: mart_venue_attendance_patterns
-    description: "Analysis table: How does venue type affect attendance patterns?"
+    description: "Analysis table: How does venue type affect attendance patterns? Regular-season games, 2021-2024 (2020's COVID-limited crowds left out); venues with 5+ games."
     columns:
       - name: venue_id
         description: "Primary key: ESPN venue identifier"
