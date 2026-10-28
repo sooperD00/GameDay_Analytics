@@ -9,7 +9,7 @@
 **Technical Approach:**
 - Multi-source ETL pipeline with data quality controls
 - Automated JSON schema flattening and semantic categorization (339 ESPN fields → 98 curated columns across 7 themed tables)
-- dbt transformation layer (15 models, 26 data quality tests)
+- dbt transformation layer (15 models, 28 data quality tests)
 - Iterative design workflow simulating cross-functional collaboration (see `/notebooks/` for analyst-engineer handoff process)
 
 **Skills Demonstrated:**
@@ -113,8 +113,14 @@ Team Reference CSV      ─┘                    (10 tables)        (15 models)
 git clone https://github.com/sooperD00/GameDay_Analytics.git
 cd GameDay_Analytics
 
-# Install dependencies
-pip install -r requirements.txt
+# Create a virtual environment and install dependencies (uv: https://docs.astral.sh/uv/)
+uv venv
+source .venv/bin/activate     # also provides `python`, which the scripts call
+uv pip install -r requirements.txt
+# without uv: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+
+# Log in to Kaggle once, for the dataset download (an existing ~/.kaggle/kaggle.json also works)
+kaggle auth login
 
 # Run full pipeline
 bash run_pipeline.sh
@@ -132,7 +138,7 @@ python -m src.etl.load_to_database
 cd dbt_project
 dbt seed    # loads team reference mapping
 dbt run     # builds staging → intermediate → marts pipeline
-dbt test    # 26/26 tests should pass
+dbt test    # 28/28 tests should pass
 ```
 
 Explore results
@@ -174,7 +180,7 @@ GameDay_Analytics/
 
 1. **[`/notebooks/02_view_design.ipynb`](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/02_view_design.ipynb)** ⭐ — Shows how I designed the 7-table schema through iterative refinement
 2. **[`/notebooks/03_dbt_mart_validation.ipynb`](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb)** ⭐ — Demonstrates analytical rigor + business communication
-3. **`/dbt_project/models/`** — Full staging → intermediate → marts pipeline with 26 data quality tests
+3. **`/dbt_project/models/`** — Full staging → intermediate → marts pipeline with 28 data quality tests
 4. **`/src/etl/`** — Production-style ETL with logging, error handling, idempotency
 
 ---
