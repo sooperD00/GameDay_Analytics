@@ -1,5 +1,7 @@
 # GameDay Analytics - Progress Summary
 
+> **Snapshot from October 30, 2025,** the day the first dbt build came together. The counts and findings below are from that day; the [main README](../README.md) has the current ones.
+
 ## Completed: Thursday, October 30, 2025
 
 ### Phase 1: Project Setup ✅

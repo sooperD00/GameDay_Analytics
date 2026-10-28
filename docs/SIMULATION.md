@@ -1,3 +1,4 @@
+> **Historical plan.** This is the project's original README from the simulated sprint (Oct 2025), kept as a record of how the work was scoped. The layout below predates the move to dbt: `sql/`, `dashboards/`, and `src/models/` are gone, and the team reference seed now lives in `dbt_project/seeds/`. The [main README](../README.md) describes the project as it is now.
 
 # GameDay Analytics
 
@@ -20,7 +21,7 @@
 
 >**Scope expansion (Mid-Sprint):** VP asks: **"Can you integrate current season data** to see if recent trends match historical patterns?" **YES!** add multi-source data pipeline + team name map for relocation handling.
 
-- **Primary Stakeholder:** [Jordan Kaplan](https://cod-esports.fandom.com/wiki/JKap), VP of Sports Analytics  
+- **Primary Stakeholder:** Jordan Kaplan, VP of Sports Analytics  
 - **Data Sources:** 
   - Historical: [Kaggle NFL Dataset](https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset) (2000-2019)
   >- `NEW` Current: ESPN API (2020-2024)
@@ -37,7 +38,7 @@
 | Role | Team Member | Responsibilities |
 |------|------------|----------------|
 | Data Quality & Statistical Methods | [Walter A. Shewhart](https://en.wikipedia.org/wiki/Walter_A._Shewhart) | Validate data quality, define KPIs, statistical analysis |
-| ETL Pipeline Development | [Linda B. Low-k-dielectric](www.linkedin.com/in/nicole-rowsey) | Ingest raw data, transform & load datasets, automate pipelines |
+| ETL Pipeline Development | [Linda B. Low-k-dielectric](https://www.linkedin.com/in/nicole-rowsey) | Ingest raw data, transform & load datasets, automate pipelines |
 | Dashboarding & Visualization | [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale) | Build dashboards, visual summaries for stakeholders |
 | A/B Testing & Analysis | [Ronald A. Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher) | Perform experimental analysis and hypothesis testing |
 | Documentation & Reporting | [Grace M. Hopper](https://en.wikipedia.org/wiki/Grace_Hopper) | Write methodology, assumptions, insights, and README |
