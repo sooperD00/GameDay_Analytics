@@ -8,13 +8,13 @@
 
 **Technical Approach:**
 - Multi-source ETL pipeline with data quality controls
-- Automated JSON schema flattening and semantic categorization (339 ESPN fields → 98 curated columns across 7 themed tables)
-- dbt transformation layer (15 models, 28 data quality tests)
+- Automated JSON schema flattening and semantic categorization (339 ESPN fields → 98 approved in review → 62 loaded so far across 7 themed tables)
+- dbt transformation layer (13 models, 42 data quality tests, including completeness and cross-source checks)
 - Iterative design workflow simulating cross-functional collaboration (see `/notebooks/` for analyst-engineer handoff process)
 
 **Skills Demonstrated:**
 - Python ETL (Kaggle API, ESPN REST API, CSV reference tables)
-- Data modeling (dimensional design, slowly-changing dimensions for relocations)
+- Data modeling (dimensional design, a slowly-changing team dimension for relocations, as-of joined by season)
 - SQL transformation logic (window functions, CTEs, aggregations)
 - Analytical validation (correlation analysis, cohort comparisons, variability metrics)
 - Technical documentation (dbt yml specs, notebook narratives, README architecture docs)
@@ -25,8 +25,8 @@
 
 ```
 Kaggle CSV (2000-2019)  ─┐
-ESPN API (2020-2024)     ├─→ Python ETL ─→ SQLite Raw Tables ─→ dbt Models ─→ Analysis Marts
-Team Reference CSV      ─┘                    (10 tables)        (15 models)     (3 marts)
+ESPN API (2020-2024)     ├─→ Python ETL ─→ SQLite Raw Tables ─→ dbt Models ─→ Analysis Marts ─→ Streamlit
+Team Reference CSV      ─┘                    (12 tables)        (13 models)     (3 marts)        dashboard
 ```
 
 ![Dashboard Preview](docs/dashboard_preview.png)
@@ -39,7 +39,7 @@ Team Reference CSV      ─┘                    (10 tables)        (15 models)
 
 3. **Themed staging tables**: Flattened ESPN's nested JSON into 7 semantic schemas (core, publicity, stats, venue, time, team_attributes, score_wins) to support varied analytical questions without creating one massive denormalized table.
 
-4. **Curated reference table**: Manually maintained CSV for team relocations/rebrands—pragmatic choice for small, slowly-changing dataset. Automated validation catches mapping errors.
+4. **Curated reference table**: Manually maintained CSV for team relocations/rebrands—pragmatic choice for small, slowly-changing dataset. Each row covers a range of seasons, and models join the row active that season (an as-of join), so the Rams keep one history from St. Louis to Los Angeles. dbt tests check that every Kaggle and ESPN team maps to a row and that each franchise-season is covered exactly once.
 
 ---
 
@@ -57,7 +57,7 @@ Team Reference CSV      ─┘                    (10 tables)        (15 models)
 
 2. **Human review layer**: Generated CSV with sample data for "analyst" to annotate (include/exclude, rename, validate themes)
 
-3. **Validation queries** (`/notebooks/03_dbt_mart_validation.ipynb`):
+3. **Validation queries** (also `/notebooks/02_view_design.ipynb`, in the review report):
    - Constant-value field detection (found 9 fields always same value across 1,452 games)
    - Cardinality analysis (broadcasts, geolocation, etc.)
    - Data quality checks before finalizing schema
@@ -67,7 +67,7 @@ Team Reference CSV      ─┘                    (10 tables)        (15 models)
    - [02_view_design.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/02_view_design.ipynb)
    - [03_dbt_mart_validation.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb)
 
-**Result:** 98 curated columns with clear semantic grouping, ready for dbt modeling.
+**Result:** 98 curated columns with clear semantic grouping, ready for dbt modeling. The loader brings in 62 columns today; the rest of the approved set (player leaders, extra broadcast slots) waits for a question that needs it.
 
 *(This process demonstrates requirements engineering, data quality thinking, and pragmatic architecture—not just "run a script.")*
 
@@ -75,22 +75,28 @@ Team Reference CSV      ─┘                    (10 tables)        (15 models)
 
 ## 📈 Sample Analytical Findings
 
-**Q1: Does winning drive attendance?**
-- Winning teams (10+ wins): 68,183 avg attendance
-- Average teams (8-9 wins): **68,708 avg** ← *higher!*
-- **Insight:** Venue capacity ceiling + market size confound raw numbers. Need to normalize by capacity.
+**Q1: Does winning drive attendance?** *(home games, 638 team-seasons, 2000-2019)*
+- Rebuilding teams (0-4 wins): 65,516 avg home attendance
+- Average teams (8-9 wins): **69,191 avg** ← *level with the best*
+- Elite teams (13+ wins): 69,228 avg
+- **Insight:** Winning helps, a little. Win percentage explains about 2% of the spread in home crowds (r = 0.15); stadium size and market are the likely suspects for the rest. Next step: normalize by capacity.
 
-**Q2: Do playoff teams get attendance boost?**
-- Playoff teams: +3.0% avg increase next year
-- Non-playoff teams: +3.2% avg increase ← *comparable!*
-- **Insight:** Attendance driven more by stadium upgrades, star signings, pricing than recent playoff runs.
+**Q2: Do playoff teams get attendance boost?** *(every team-season with a prior season: 228 after a playoff year, 378 after a miss)*
+- After a playoff season: +0.8% avg change in home attendance
+- After a missed one: -0.1% ← *comparable!*
+- **Insight:** The gap is too small to tell apart from noise (Welch t-test, p = 0.09). Attendance is driven more by stadium upgrades, star signings, and pricing than by recent playoff runs.
 
-**Q3: Does indoor vs outdoor affect stability?**
-- Indoor: 74.5% variability
-- Outdoor: 76.5% variability
-- **Insight:** Weather doesn't dominate—opponent quality and market factors matter more.
+**Q3: Does indoor vs outdoor affect stability?** *(regular-season games, 2021-2024, venues with 5+ games)*
+- Indoor: 9.4% variability (lowest to highest crowd, as a share of the average)
+- Outdoor: 11.6% variability
+- **Insight:** Outdoor stadiums swing a little more. 2020 is left out: COVID rules capped or emptied most stadiums that year, and those games, not weather, set nearly every venue's low point.
 
-*(See [03_dbt_mart_validation.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb) for full analysis + methodology)*
+**Second pass (Oct 2026).** A code review re-ran these questions, and the numbers above replace the first pass in [03_dbt_mart_validation.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb):
+- Kaggle's weekly attendance counts away games too. The models now average each team's own home crowds.
+- Q2 first compared only the seasons where attendance rose. It now compares every season.
+- The first ESPN download mixed in preseason and postseason games and missed 153 late-season ones. It now pulls complete regular seasons a week at a time, and a dbt test checks the count.
+
+The [live dashboard](https://gamedayanalytics-ea79mgqrjngxp4xkkgdpwe.streamlit.app/) computes the same numbers from the marts, with the statistical tests behind them.
 
 ---
 
@@ -102,7 +108,8 @@ Team Reference CSV      ─┘                    (10 tables)        (15 models)
 | **Storage** | SQLite | Local dev simplicity, <2MB dataset, version control friendly |
 | **Transforms** | dbt Core | SQL-based models, testing framework, Git-friendly analytics |
 | **Analysis** | Jupyter + SQL | Exploratory work, validation queries, documentation |
-| **API** | ESPN undocumented endpoints | Free, current data, required reverse-engineering |
+| **Dashboard** | Streamlit + Plotly | Free hosting, reads the three marts, insight text computed from the data |
+| **API** | ESPN undocumented endpoints | Free, current data, required reverse-engineering (a year-only request returns the calendar year, so the pipeline asks for one week at a time) |
 
 ---
 
@@ -121,38 +128,43 @@ source .venv/bin/activate     # also provides `python`, which the scripts call
 uv pip install -r requirements.txt
 # without uv: python3.13 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
 
-# Log in to Kaggle once, for the dataset download (an existing ~/.kaggle/kaggle.json also works)
-kaggle auth login
-
-# Run full pipeline
+# Run full pipeline (no Kaggle login needed: the 2000-2019 Kaggle CSVs ship in data/raw/)
 bash run_pipeline.sh
 ```
 
 Or run steps individually
 ```bash
-# ETL pipeline (downloads Kaggle + ESPN data)
-python -m src.etl.ingest_nfl_dataset
-python -m src.etl.ingest_current_season
+# ETL pipeline
+python -m src.etl.ingest_nfl_dataset      # keeps the bundled Kaggle CSVs; add --refresh to re-download (needs `kaggle auth login`)
+python -m src.etl.ingest_current_season   # ESPN 2020-2024 regular seasons, one week at a time
 python -m src.etl.create_team_reference
 python -m src.etl.load_to_database
 
 # Run dbt transformations
 cd dbt_project
-dbt seed    # loads team reference mapping
-dbt run     # builds staging → intermediate → marts pipeline
-dbt test    # 28/28 tests should pass
+dbt build   # seeds, models, and all 42 tests, in dependency order
+cd ..
+
+# Refresh the dashboard's copy of the marts
+python -m src.etl.export_dashboard_db
 ```
 
-Explore results
+Explore results (from the repo root)
 ```bash
-sqlite3 ../data/processed/nfl_attendance.db
+sqlite3 data/processed/nfl_attendance.db
 > SELECT * FROM mart_win_attendance_correlation LIMIT 5;
+```
+
+Run the dashboard locally
+```bash
+uv pip install -r streamlit_app/requirements.txt
+streamlit run streamlit_app/app.py
 ```
 
 **Or just explore the notebooks:**
 - `/notebooks/01_exploratory_analysis.ipynb` — Initial EDA + data integration validation
 - `/notebooks/02_view_design.ipynb` — Schema design collaboration simulation
-- `/notebooks/03_dbt_mart_validation.ipynb` — Analytical findings + methodology
+- `/notebooks/03_dbt_mart_validation.ipynb` — First-pass analytical findings + methodology (Oct 2025)
 
 ---
 
@@ -161,28 +173,30 @@ sqlite3 ../data/processed/nfl_attendance.db
 GameDay_Analytics/
 ├── README.md
 ├── run_pipeline.sh              # single-command pipeline execution
-├── src/                         # Python ETL — ingestion only
-│   ├── etl/                     # ingestion scripts + SQL view definitions
+├── src/                         # Python ETL — ingestion and loading
+│   ├── etl/                     # ingestion scripts, dashboard export, SQL views for notebook 01
 │   └── utils/                   # config.py, logging_config.py
 ├── dbt_project/
-│   ├── seeds/                   # team_reference_seed.csv (relocation mapping)
+│   ├── seeds/                   # team_reference_seed.csv (relocation mapping), regular_season_sizes.csv
 │   ├── models/
-│   │   ├── staging/             # raw → clean (7 models + 4 future)
-│   │   ├── intermediate/        # joins + window functions (2 models)
+│   │   ├── staging/             # raw → clean (7 models; 4 more parked in _future/)
+│   │   ├── intermediate/        # joins + window functions (3 models)
 │   │   └── marts/               # analytical tables (3 models)
-│   └── tests/                   # cross-source validation
+│   ├── tests/                   # completeness and cross-source tests (+ a generic range test)
+│   └── dbt_output.txt           # captured log of the last pipeline run
+├── streamlit_app/               # dashboard + its copy of the marts
 ├── notebooks/                   # EDA, schema design narrative, mart validation
 ├── data/
 │   ├── sample/                  # sample CSVs for quick exploration
-│   └── raw/                     # (gitignored) full datasets
+│   └── raw/                     # Kaggle CSVs (committed); ESPN downloads (gitignored)
 └── docs/                        # extended documentation
 ```
 
 **For hiring managers evaluating technical thinking:**
 
 1. **[`/notebooks/02_view_design.ipynb`](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/02_view_design.ipynb)** ⭐ — Shows how I designed the 7-table schema through iterative refinement
-2. **[`/notebooks/03_dbt_mart_validation.ipynb`](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb)** ⭐ — Demonstrates analytical rigor + business communication
-3. **`/dbt_project/models/`** — Full staging → intermediate → marts pipeline with 28 data quality tests
+2. **[`/notebooks/03_dbt_mart_validation.ipynb`](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb)** ⭐ — Demonstrates analytical rigor + business communication (the first pass; the findings above are the second)
+3. **`/dbt_project/models/`** — Full staging → intermediate → marts pipeline with 42 data quality tests
 4. **`/src/etl/`** — Production-style ETL with logging, error handling, idempotency
 
 ---
@@ -193,7 +207,7 @@ GameDay_Analytics/
 - **Incremental loads**: Current ETL is full refresh; add change data capture for ESPN API
 - **Data catalog**: Document lineage, add metadata layer (dbt docs covers some of this)
 - **Observability**: Add monitoring for API rate limits, data freshness, pipeline failures
-- **Testing pyramid**: Expand dbt tests to include distribution checks, referential integrity across sources
+- **Testing pyramid**: Add distribution checks (attendance drift by season) on top of today's completeness, range, and cross-source tests
 
 ---
 
