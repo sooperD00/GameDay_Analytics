@@ -8,6 +8,8 @@
 
 # Allow bundled copy for Streamlit Cloud deployment
 !streamlit_app/nfl_attendance.db
+# Half-written export, left behind only if export_dashboard_db.py fails
+*.db.tmp
 
 
 
@@ -27,8 +29,9 @@ logs/
 dbt_project/.user.yml
 
 # Portfolio snapshot: most visitors won't clone this repo and run dbt,
-# so I kept these captured run logs as a record of what happened.
-!dbt_project/dbt_output*.txt
+# so I kept the captured run log as a record of what happened.
+# run_pipeline.sh rewrites it on every run.
+!dbt_project/dbt_output.txt
 
 # Automated data downloads
 data/raw/*
@@ -37,6 +40,12 @@ data/processed/*
 # Keep folder structure
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+
+# The Kaggle CSVs ship with the repo (a fixed 2000-2019 snapshot), so the
+# pipeline runs without a Kaggle login. ESPN downloads stay ignored.
+!data/raw/attendance.csv
+!data/raw/games.csv
+!data/raw/standings.csv
 
 # Keep sample data tracked
 !data/sample/
