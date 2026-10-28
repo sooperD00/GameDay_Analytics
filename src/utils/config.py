@@ -206,11 +206,11 @@ VIEW_FILES = [
 ]
 
 # Database validation configuration
+# ESPN table names come from ESPN_FILES, so this list keeps up if those tables are split again.
 DB_TABLES = [
     'kaggle_attendance',
-    'kaggle_games', 
+    'kaggle_games',
     'kaggle_standings',
-    'espn_teams',
-    'espn_games',
+    *(cfg['table_name'] for cfg in ESPN_FILES.values()),
     'team_reference'
 ]
