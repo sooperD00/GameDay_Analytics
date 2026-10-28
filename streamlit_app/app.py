@@ -71,13 +71,13 @@ with col1:
     fig1 = px.violin(
         win_att_plot,
         x="performance_tier",
-        y="avg_weekly_attendance",
+        y="avg_home_attendance",
         color="performance_tier",
         box=True,
         points="all",
         labels={
             "performance_tier": "Performance Tier",
-            "avg_weekly_attendance": "Avg Weekly Attendance",
+            "avg_home_attendance": "Avg Home Attendance",
         },
         color_discrete_sequence=["#d62728", "#ff7f0e", "#bcbd22", "#2ca02c", "#1f77b4"],
         category_orders={
@@ -102,7 +102,7 @@ with col2:
     st.markdown("#### The Counterintuitive Finding")
 
     tier_stats = (
-        win_att_plot.groupby("performance_tier", observed=True)["avg_weekly_attendance"]
+        win_att_plot.groupby("performance_tier", observed=True)["avg_home_attendance"]
         .agg(["mean", "count"])
         .round(0)
     )
@@ -122,7 +122,7 @@ with col2:
     with st.expander("📊 Statistical Detail"):
         from scipy import stats
 
-        tiers = win_att_plot.groupby("performance_tier", observed=True)["avg_weekly_attendance"]
+        tiers = win_att_plot.groupby("performance_tier", observed=True)["avg_home_attendance"]
         groups = [group.values for _, group in tiers]
         tier_names = [name for name, _ in tiers]
 
