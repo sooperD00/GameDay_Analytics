@@ -23,6 +23,13 @@ Thumbs.db
 # Logs
 logs/
 
+# dbt
+dbt_project/.user.yml
+
+# Portfolio snapshot: most visitors won't clone this repo and run dbt,
+# so I kept these captured run logs as a record of what happened.
+!dbt_project/dbt_output*.txt
+
 # Automated data downloads
 data/raw/*
 data/processed/*
