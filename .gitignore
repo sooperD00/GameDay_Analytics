@@ -1,6 +1,8 @@
 # Additional .gitignore for project (ETL/SQL/BIdashboard)
 # -------------------------------------------------------
 devlog.md
+learn.md
+
 # database / credentials
 *.db
 *.sqlite
