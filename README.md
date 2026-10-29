@@ -161,6 +161,10 @@ uv pip install -r streamlit_app/requirements.txt
 streamlit run streamlit_app/app.py
 ```
 
+Deploy the dashboard (Railway)
+- Railpack builds the `streamlit_app/` folder and reads its start command from `streamlit_app/railpack.json`. (Railpack doesn't recognize Streamlit, so without that file it would run `python app.py`, which never starts the web server.)
+- Set once in the Railway service settings: Root Directory `/streamlit_app`, and Generate Domain under Networking.
+
 **Or just explore the notebooks:**
 - `/notebooks/01_exploratory_analysis.ipynb` — Initial EDA + data integration validation
 - `/notebooks/02_view_design.ipynb` — Schema design collaboration simulation
