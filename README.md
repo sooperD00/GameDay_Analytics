@@ -88,7 +88,7 @@ Team Reference CSV      ─┘                    (12 tables)        (13 models)
 
 **Q3: Does indoor vs outdoor affect stability?** *(regular-season games, 2021-2024, venues with 5+ games)*
 - Indoor: 9.4% variability (lowest to highest crowd, as a share of the average)
-- Outdoor: 11.6% variability
+- Outdoor: 12.4% variability
 - **Insight:** Outdoor stadiums swing a little more. 2020 is left out: COVID rules capped or emptied most stadiums that year, and those games, not weather, set nearly every venue's low point.
 
 **Second pass (Oct 2026).** A code review re-ran these questions, and the numbers above replace the first pass in [03_dbt_mart_validation.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb):
