@@ -24,7 +24,7 @@ st.set_page_config(
 )
 
 # The pipeline's last step (src/etl/export_dashboard_db.py) copies the dbt marts
-# into this file, so a local run and Streamlit Cloud read the same database.
+# into this file, so a local run and the Railway deployment read the same database.
 DB_PATH = Path(__file__).parent / "nfl_attendance.db"
 
 @st.cache_data

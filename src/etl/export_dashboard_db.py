@@ -1,8 +1,8 @@
 """
 ETL Script: Dashboard Database Export
 Purpose: Copy the dbt marts into streamlit_app/nfl_attendance.db, the file the
-         Streamlit Cloud app reads. data/processed/ is gitignored, so the deployed
-         app can't see the pipeline's own database; this keeps the two in step.
+         deployed dashboard (Railway) reads. data/processed/ is gitignored, so the
+         deployed app can't see the pipeline's own database; this keeps the two in step.
 
 The export holds only the mart tables the dashboard reads: no raw tables, no views.
 """

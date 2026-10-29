@@ -205,7 +205,7 @@ TEAM_REFERENCE_FILES = {
 DB_NAME = "nfl_attendance.db"
 DB_PATH = PROCESSED_DATA_PATH / DB_NAME
 
-# Dashboard database: the committed copy Streamlit Cloud reads (marts only)
+# Dashboard database: the committed copy the deployed dashboard reads (marts only)
 DASHBOARD_DB_PATH = PROJECT_ROOT / "streamlit_app" / DB_NAME
 DASHBOARD_TABLES = [
     "mart_win_attendance_correlation",
