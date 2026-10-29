@@ -21,7 +21,7 @@
 
 >**Scope expansion (Mid-Sprint):** VP asks: **"Can you integrate current season data** to see if recent trends match historical patterns?" **YES!** add multi-source data pipeline + team name map for relocation handling.
 
-- **Primary Stakeholder:** Jordan Kaplan, VP of Sports Analytics  
+- **Primary Stakeholder:** [Jordan Kaplan](https://cod-esports.fandom.com/wiki/JKap), VP of Sports Analytics  
 - **Data Sources:** 
   - Historical: [Kaggle NFL Dataset](https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset) (2000-2019)
   >- `NEW` Current: ESPN API (2020-2024)
