@@ -79,7 +79,7 @@ Team Reference CSV      ─┘                    (12 tables)        (13 models)
 - Rebuilding teams (0-4 wins): 65,516 avg home attendance
 - Average teams (8-9 wins): **69,191 avg** ← *level with the best*
 - Elite teams (13+ wins): 69,228 avg
-- **Insight:** Winning helps, a little. Win percentage explains about 2% of the spread in home crowds (r = 0.15); stadium size and market are the likely suspects for the rest. Next step: normalize by capacity.
+- **Insight:** Winning has a real effect, but not the main one. Comparing each team's good seasons with its own bad ones, every extra win goes with about 350 more fans per home game (p < 0.001), so it isn't just that winning teams have bigger stadiums. Last season's record matters too, which fits tickets being sold before the season starts. Still, wins explain about 2% of the spread in home crowds, and 60% of it comes down to which team it is (stadium size, market). Next step: normalize by capacity.
 
 **Q2: Do playoff teams get attendance boost?** *(every team-season with a prior season: 228 after a playoff year, 378 after a miss)*
 - After a playoff season: +0.8% avg change in home attendance

@@ -36,6 +36,28 @@ def load_table(table_name: str) -> pd.DataFrame:
     return df
 
 
+def within_team_effect(df: pd.DataFrame) -> dict:
+    """Extra home fans per extra win, comparing each franchise's seasons with its own average.
+
+    Subtracting each franchise's average takes out what never changes for a team
+    (stadium size, market), so what's left is how a team's crowd moves with its
+    record. Also returns the share of the attendance spread that is between teams.
+    """
+    by_team = df.groupby("franchise_id")
+    attendance = df["avg_home_attendance"] - by_team["avg_home_attendance"].transform("mean")
+    wins = df["wins"] - by_team["wins"].transform("mean")
+
+    slope = (wins * attendance).sum() / (wins**2).sum()
+    residuals = attendance - slope * wins
+    dof = len(df) - df["franchise_id"].nunique() - 1  # one mean per franchise, plus the slope
+    std_err = ((residuals**2).sum() / dof / (wins**2).sum()) ** 0.5
+    p_value = 2 * stats.t.sf(abs(slope / std_err), dof)
+
+    spread = ((df["avg_home_attendance"] - df["avg_home_attendance"].mean()) ** 2).sum()
+    between_share = 1 - (attendance**2).sum() / spread
+    return {"slope": slope, "p": p_value, "between_share": between_share}
+
+
 # --- Data ---
 
 win_att = load_table("mart_win_attendance_correlation")
@@ -101,7 +123,9 @@ with col1:
     st.plotly_chart(fig1, width="stretch")
 
 with col2:
-    st.markdown("#### Winning Helps, a Little")
+    within = within_team_effect(win_att_plot)
+    real_effect = within["p"] < 0.05
+    st.markdown("#### A Real Effect, Not the Main One" if real_effect else "#### No Clear Effect")
 
     tier_stats = (
         win_att_plot.groupby("performance_tier", observed=True)["avg_home_attendance"]
@@ -116,14 +140,21 @@ with col2:
         )
 
     r = win_att_plot["win_percentage"].corr(win_att_plot["avg_home_attendance"])
-    wins = lambda tier: tier.split("(")[1].rstrip(")")  # "Elite (13+)" -> "13+"
-    lowest_tier, highest_tier = tier_stats["mean"].idxmin(), tier_stats["mean"].idxmax()
+    p_text = "p < 0.001" if within["p"] < 0.001 else f"p = {within['p']:.3f}"
+    if real_effect:
+        verdict = "Winning has a real effect, but not the main one"
+        why = ", so it isn't just that winning teams have bigger stadiums"
+        size = "Still, wins explain only"
+    else:
+        verdict = "Winning shows no clear effect"
+        why = ""
+        size = "Wins explain"
     st.markdown(
-        f"> **Insight:** Home crowds range from {tier_stats['mean'].min():,.0f} "
-        f"({wins(lowest_tier)} wins) to {tier_stats['mean'].max():,.0f} ({wins(highest_tier)} wins). "
-        f"Win percentage explains about {r**2:.0%} of the season-to-season spread "
-        f"(r = {r:.2f}), so most of a team's crowd comes from something else: "
-        "stadium size and market are the likely suspects."
+        f"> **Insight:** {verdict}. Comparing each team's good seasons with its own bad ones, "
+        f"every extra win goes with about {within['slope']:,.0f} more fans per home game "
+        f"({p_text}){why}. {size} about {r**2:.0%} of the spread in home crowds, "
+        f"and {within['between_share']:.0%} of it comes down to which team it is "
+        "(stadium size, market)."
     )
 
     with st.expander("📊 Statistical Detail"):
@@ -157,9 +188,10 @@ with col2:
             result.pvalue[i][j] < 0.05 for i in range(n_tiers) for j in range(i + 1, n_tiers)
         )
         st.markdown(
-            "> Cells ≥ 0.05 mean those two tiers are **not** statistically "
-            f"distinguishable in attendance. {n_differ} of {n_pairs} tier pairs differ "
-            "at p < 0.05."
+            "> Cells ≥ 0.05 mean those two tiers can't be told apart. "
+            f"{n_differ} of {n_pairs} tier pairs differ at p < 0.05. Tukey adjusts for making "
+            f"all {n_pairs} comparisons at once, so each cell is a strict test: the ANOVA above "
+            "answers whether the tiers differ at all, and this table shows where."
         )
 
 
