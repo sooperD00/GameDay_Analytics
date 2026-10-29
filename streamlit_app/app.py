@@ -1,7 +1,10 @@
 """
 GameDay Analytics Dashboard
-Interactive visualizations of NFL attendance patterns (2000-2019)
+Interactive visualizations of NFL attendance patterns (2000-2024)
 Built on dbt mart tables from the GameDay Analytics pipeline.
+
+Each insight sentence is built from the numbers on the page, so the text
+can't drift away from the charts when the data changes.
 """
 
 import sqlite3
@@ -9,8 +12,8 @@ from pathlib import Path
 
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 import streamlit as st
+from scipy import stats
 
 # --- Configuration ---
 
@@ -20,10 +23,8 @@ st.set_page_config(
     layout="wide",
 )
 
-# Local development: reads from the full pipeline output
-# DB_PATH = Path(__file__).parent.parent / "data" / "processed" / "nfl_attendance.db"
-
-# Deployment (Streamlit Cloud): bundled copy since data/processed/ is gitignored
+# The pipeline's last step (src/etl/export_dashboard_db.py) copies the dbt marts
+# into this file, so a local run and Streamlit Cloud read the same database.
 DB_PATH = Path(__file__).parent / "nfl_attendance.db"
 
 @st.cache_data
@@ -66,6 +67,7 @@ with col1:
         win_att_plot["wins"],
         bins=[0, 4, 7, 9, 12, 20],
         labels=["Rebuild (0-4)", "Below Avg (5-7)", "Average (8-9)", "Contender (10-12)", "Elite (13+)"],
+        include_lowest=True,  # keeps the 0-16 seasons (2008 Lions, 2017 Browns) in the first bin
     )
 
     fig1 = px.violin(
@@ -96,10 +98,10 @@ with col1:
         margin=dict(t=40),
     )
 
-    st.plotly_chart(fig1, use_container_width=True)
+    st.plotly_chart(fig1, width="stretch")
 
 with col2:
-    st.markdown("#### The Counterintuitive Finding")
+    st.markdown("#### Winning Helps, a Little")
 
     tier_stats = (
         win_att_plot.groupby("performance_tier", observed=True)["avg_home_attendance"]
@@ -113,15 +115,18 @@ with col2:
             value=f"{row['mean']:,.0f}",
         )
 
+    r = win_att_plot["win_percentage"].corr(win_att_plot["avg_home_attendance"])
+    wins = lambda tier: tier.split("(")[1].rstrip(")")  # "Elite (13+)" -> "13+"
+    lowest_tier, highest_tier = tier_stats["mean"].idxmin(), tier_stats["mean"].idxmax()
     st.markdown(
-        "> **Insight:** Average teams draw comparable or *higher* attendance than "
-        "elite teams. Venue capacity ceilings and market size confound raw "
-        "numbers — winning alone doesn't fill seats."
+        f"> **Insight:** Home crowds range from {tier_stats['mean'].min():,.0f} "
+        f"({wins(lowest_tier)} wins) to {tier_stats['mean'].max():,.0f} ({wins(highest_tier)} wins). "
+        f"Win percentage explains about {r**2:.0%} of the season-to-season spread "
+        f"(r = {r:.2f}), so most of a team's crowd comes from something else: "
+        "stadium size and market are the likely suspects."
     )
 
     with st.expander("📊 Statistical Detail"):
-        from scipy import stats
-
         tiers = win_att_plot.groupby("performance_tier", observed=True)["avg_home_attendance"]
         groups = [group.values for _, group in tiers]
         tier_names = [name for name, _ in tiers]
@@ -136,8 +141,7 @@ with col2:
             st.markdown("No significant difference across tiers (p ≥ 0.05).")
 
         # Pairwise Tukey HSD
-        from scipy.stats import tukey_hsd
-        result = tukey_hsd(*groups)
+        result = stats.tukey_hsd(*groups)
 
         st.markdown("**Pairwise Tukey HSD** (p-values):")
         tukey_df = pd.DataFrame(
@@ -145,12 +149,17 @@ with col2:
             index=tier_names,
             columns=tier_names,
         ).round(4)
-        st.dataframe(tukey_df, use_container_width=True)
+        st.dataframe(tukey_df, width="stretch")
 
+        n_tiers = len(tier_names)
+        n_pairs = n_tiers * (n_tiers - 1) // 2
+        n_differ = sum(
+            result.pvalue[i][j] < 0.05 for i in range(n_tiers) for j in range(i + 1, n_tiers)
+        )
         st.markdown(
             "> Cells ≥ 0.05 mean those two tiers are **not** statistically "
-            "distinguishable in attendance. The story holds: performance tier "
-            "is a weak predictor of attendance."
+            f"distinguishable in attendance. {n_differ} of {n_pairs} tier pairs differ "
+            "at p < 0.05."
         )
 
 
@@ -212,7 +221,7 @@ with col1:
             annotation_position="top",
         )
 
-    st.plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(fig2, width="stretch")
 
 with col2:
     st.markdown("#### Playoff Bump?")
@@ -228,10 +237,18 @@ with col2:
             delta_color="off",
         )
 
+    made = playoff_valid.loc[playoff_valid["prior_playoff_status"] == "Made Playoffs", "attendance_pct_change"]
+    missed = playoff_valid.loc[playoff_valid["prior_playoff_status"] == "Missed Playoffs", "attendance_pct_change"]
+    welch = stats.ttest_ind(made, missed, equal_var=False)
+    verdict = (
+        "a real bump, if a small one"
+        if welch.pvalue < 0.05
+        else "too small to tell apart from noise, so October glory doesn't sell next year's tickets on its own"
+    )
     st.markdown(
-        "> **Insight:** The distributions nearly overlap. Playoff appearances "
-        "don't create a meaningful attendance boost. Stadium upgrades, star "
-        "signings, and pricing matter more than October glory."
+        f"> **Insight:** After a playoff season, home attendance changes {made.mean():+.1f}% "
+        f"on average, against {missed.mean():+.1f}% after a missed one: {verdict} "
+        f"(Welch t-test, p = {welch.pvalue:.2f})."
     )
 
 
@@ -285,26 +302,30 @@ with col1:
         margin=dict(t=40),
     )
 
-    st.plotly_chart(fig3, use_container_width=True)
+    st.plotly_chart(fig3, width="stretch")
 
 with col2:
     st.markdown("#### Weather Factor?")
 
+    variability = {}
     for vtype in ["Indoor", "Outdoor"]:
         subset = venue_plot[venue_plot["venue_type"] == vtype]
-        avg_var = subset["attendance_variability_pct"].mean()
+        variability[vtype] = subset["attendance_variability_pct"].mean()
         avg_att = subset["avg_attendance"].mean()
         st.metric(
             label=f"{vtype} ({len(subset)} venues)",
-            value=f"{avg_var:.1f}% variability",
+            value=f"{variability[vtype]:.1f}% variability",
             delta=f"{avg_att:,.0f} avg attendance",
             delta_color="off",
         )
 
+    steadier, swingier = sorted(variability, key=variability.get)
     st.markdown(
-        "> **Insight:** Indoor and outdoor venues show similar variability. "
-        "Weather doesn't dominate attendance patterns — opponent quality "
-        "and market factors matter more."
+        f"> **Insight:** {swingier} stadiums swing more from game to game than "
+        f"{steadier.lower()} ones ({variability[swingier]:.1f}% vs "
+        f"{variability[steadier]:.1f}% of the average crowd, lowest to highest). "
+        "Regular-season games from 2021 on: 2020's COVID-limited crowds would "
+        "swamp any weather signal. Game-day weather data would test the rest."
     )
 
 
