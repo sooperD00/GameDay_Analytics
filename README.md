@@ -2,7 +2,7 @@
 
 > Simulates leading a data engineering initiative from discovery through production: stakeholder-driven requirements, multi-source ETL integration, collaborative schema design, and analytical validation.
 
-**[▶ Live Dashboard](https://gamedayanalytics-ea79mgqrjngxp4xkkgdpwe.streamlit.app/)** · [View on GitHub](https://github.com/sooperD00/GameDay_Analytics)
+**[▶ Live Dashboard](https://gamedayanalytics-production.up.railway.app/)** · [View on GitHub](https://github.com/sooperD00/GameDay_Analytics)
 
 **Core Challenge:** Integrate historical (Kaggle 2000-2019) and current (ESPN API 2020-2024) NFL data with mismatched schemas, team relocations, and inconsistent naming—then build analysis-ready models for business questions.
 
@@ -96,7 +96,7 @@ Team Reference CSV      ─┘                    (12 tables)        (13 models)
 - Q2 first compared only the seasons where attendance rose. It now compares every season.
 - The first ESPN download mixed in preseason and postseason games and missed 153 late-season ones. It now pulls complete regular seasons a week at a time, and a dbt test checks the count.
 
-The [live dashboard](https://gamedayanalytics-ea79mgqrjngxp4xkkgdpwe.streamlit.app/) computes the same numbers from the marts, with the statistical tests behind them.
+The [live dashboard](https://gamedayanalytics-production.up.railway.app/) computes the same numbers from the marts, with the statistical tests behind them.
 
 ---
 
@@ -108,7 +108,7 @@ The [live dashboard](https://gamedayanalytics-ea79mgqrjngxp4xkkgdpwe.streamlit.a
 | **Storage** | SQLite | Local dev simplicity, <2MB dataset, version control friendly |
 | **Transforms** | dbt Core | SQL-based models, testing framework, Git-friendly analytics |
 | **Analysis** | Jupyter + SQL | Exploratory work, validation queries, documentation |
-| **Dashboard** | Streamlit + Plotly | Free hosting, reads the three marts, insight text computed from the data |
+| **Dashboard** | Streamlit + Plotly on Railway | Reads the three marts, insight text computed from the data; Railway builds it from `streamlit_app/` on main |
 | **API** | ESPN undocumented endpoints | Free, current data, required reverse-engineering (a year-only request returns the calendar year, so the pipeline asks for one week at a time) |
 
 ---
@@ -239,4 +239,4 @@ Currently seeking senior IC / data platform engineering roles. Open to discussin
 
 ---
 
-**Built with Python, dbt, and iterative thinking** | [Live Dashboard](https://gamedayanalytics-ea79mgqrjngxp4xkkgdpwe.streamlit.app/) | [Explore Notebooks](notebooks/) | [View SQL Models](dbt_project/models/)
+**Built with Python, dbt, and iterative thinking** | [Live Dashboard](https://gamedayanalytics-production.up.railway.app/) | [Explore Notebooks](notebooks/) | [View SQL Models](dbt_project/models/)
