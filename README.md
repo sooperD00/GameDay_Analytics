@@ -79,7 +79,7 @@ Team Reference CSV      ─┘                    (12 tables)        (13 models)
 - Rebuilding teams (0-4 wins): 65,516 avg home attendance
 - Average teams (8-9 wins): **69,191 avg** ← *level with the best*
 - Elite teams (13+ wins): 69,228 avg
-- **Insight:** Winning helps, a little. Win percentage explains about 2% of the spread in home crowds (r = 0.15); stadium size and market are the likely suspects for the rest. Next step: normalize by capacity.
+- **Insight:** Winning has a real effect, but not the main one. Comparing each team's good seasons with its own bad ones, every extra win goes with about 350 more fans per home game (p < 0.001), so it isn't just that winning teams have bigger stadiums. Last season's record matters too, which fits tickets being sold before the season starts. Still, wins explain about 2% of the spread in home crowds, and 60% of it comes down to which team it is (stadium size, market). Next step: normalize by capacity.
 
 **Q2: Do playoff teams get attendance boost?** *(every team-season with a prior season: 228 after a playoff year, 378 after a miss)*
 - After a playoff season: +0.8% avg change in home attendance
@@ -88,7 +88,7 @@ Team Reference CSV      ─┘                    (12 tables)        (13 models)
 
 **Q3: Does indoor vs outdoor affect stability?** *(regular-season games, 2021-2024, venues with 5+ games)*
 - Indoor: 9.4% variability (lowest to highest crowd, as a share of the average)
-- Outdoor: 11.6% variability
+- Outdoor: 12.4% variability
 - **Insight:** Outdoor stadiums swing a little more. 2020 is left out: COVID rules capped or emptied most stadiums that year, and those games, not weather, set nearly every venue's low point.
 
 **Second pass (Oct 2026).** A code review re-ran these questions, and the numbers above replace the first pass in [03_dbt_mart_validation.ipynb](https://nbviewer.org/github/sooperD00/GameDay_Analytics/blob/main/notebooks/03_dbt_mart_validation.ipynb):
